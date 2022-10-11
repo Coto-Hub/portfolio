@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.header {
+  @apply w-full;
+}
+.header .header-container {
+  @apply container mx-auto mt-8;
+}
+.header .header-container .header-profile {
+  @apply w-64 h-64 cursor-pointer transition-w-h duration-2000 mx-auto flex;
+  @apply rounded-full border-4 border-white overflow-hidden animate-wiggle shadow-zinc-400 shadow-lg;
+}
+@screen lg {
+  .header .header-container .header-profile {
+    @apply w-52 h-52;
+  }
+}
+.header .header-container .header-profile:hover {
+  @apply h-120 w-64 flex-col rotate-0;
+}
+.header .header-container .header-profile:hover .frame-text {
+  @apply opacity-100;
+}
+.header .header-container .header-profile:hover .frame-text p {
+  @apply text-sm;
+}
+@screen lg {
+  .header .header-container .header-profile:hover .frame-text p {
+    @apply text-lg;
+  }
+}
+@screen lg {
+  .header .header-container .header-profile:hover {
+    @apply h-52 w-2/3 flex-row;
+  }
+}
+.header .header-container .header-profile .frame-img {
+  @apply w-62 h-62 absolute rounded-full border-2 border-white overflow-hidden;
+  @apply transition-transform duration-2000;
+}
+@screen lg {
+  .header .header-container .header-profile .frame-img {
+    @apply w-50 h-50;
+  }
+}
+.header .header-container .header-profile .frame-text {
+  @apply p-6 pt-64 flex flex-col overflow-hidden self-center;
+  @apply transition-opacity duration-2000;
+}
+@screen lg {
+  .header .header-container .header-profile .frame-text {
+    @apply p-4 pl-56 pt-4;
+  }
+}
+.header .header-container .header-profile .frame-text p {
+  @apply transition-text text-white duration-2000 font-medium text-center;
+}
+@screen lg {
+  .header .header-container .header-profile .frame-text p {
+    @apply text-left;
+  }
+}
+
+#app {
+  @apply w-screen h-screen bg-white dark:bg-zinc-800;
+}
+
+/*# sourceMappingURL=input.css.map */

@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'block/HeaderSite';
+
+#app {
+  @apply w-screen h-screen bg-white dark:bg-zinc-800;
+}
