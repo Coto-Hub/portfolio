@@ -1,0 +1,67 @@
+.player-status {
+    @apply absolute top-0 right-0 hidden;
+    &.active {
+        @apply block;
+        .bj-token {
+            @apply p-1 border-4 bg-hand-token;
+        }
+    }
+}
+.player-hand {
+    @apply flex w-1/6 absolute top-2 z-10 justify-center -translate-y-1/2 border-2 h-19 bg-hand-bg;
+
+    .playing-card .card-back .card-top,
+    .playing-card .card-back .card-bottom {
+        @apply hidden;
+    }
+
+    .playing-card .card-front {
+        @apply bg-gray-300;
+    }
+    &.dealer .playing-card .card-front,
+    &.player .playing-card .card-front {
+        @apply bg-white;
+    } 
+    
+    .hand-count {
+        @apply absolute top-0 -translate-y-full px-2 py-0.5 bg-black/70 text-white border-2;
+    }
+
+    &:nth-child(-n+5) {
+        @apply -translate-x-1/2;
+    }
+    &:nth-child(n+6) {
+        @apply translate-x-1/2;
+    }
+
+    &:nth-child(2), &:nth-child(5) {
+        @apply left-1/2;
+    }
+    &:nth-child(3), &:nth-child(7) {
+        @apply top-1/5;
+    }
+    &:nth-child(4), &:nth-child(6) {
+        @apply top-11/20;
+    }
+    &:nth-child(2) {
+        @apply rotate-180 top-3/20;
+    }
+    &:nth-child(3) {
+        @apply left-3/20 rotate-67.5;
+    }
+    &:nth-child(4) {
+        @apply left-7/25 rotate-45;
+    }
+    &:nth-child(5) {
+        @apply top-3/5;
+    }
+    &:nth-child(6) {
+        @apply right-7/25 -rotate-45;
+    }
+    &:nth-child(7) {
+        @apply right-3/20 -rotate-67.5;
+    }
+    &:nth-child(8) {
+        @apply left-1/2;
+    }
+}

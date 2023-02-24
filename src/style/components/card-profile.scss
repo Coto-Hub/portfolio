@@ -1,0 +1,17 @@
+.card-profile {
+    @apply w-1/3 flex rounded-lg my-8 dark:bg-dark-300 border-2;
+
+    @screen md {
+        @apply w-1/2;
+    }
+    .card-content {
+        @apply flex flex-col justify-between p-4;
+
+        .card-title {
+            @apply flex flex-col justify-between p-4;
+        }
+    }
+    .card-img {
+        @apply w-1/2 my-1;
+    }
+}

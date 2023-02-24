@@ -1,0 +1,26 @@
+.bj-container {
+    @apply w-10/12 border-2 aspect-2/1 p-4 pt-0 relative overflow-hidden;
+
+    .bj-table {
+        @apply h-full bg-table-big-border rounded-b-full relative;
+
+        &::before {
+            @apply block absolute inset-8 top-0 rounded-b-full bg-table-border;
+            content: '';
+        }
+        &::after {
+            @apply block absolute inset-12 top-0 rounded-b-full bg-table-center;
+            content: '';
+        }
+    }
+
+    .bj-token {
+        @apply absolute top-9/20 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-10;
+        @apply p-2 aspect-square border-6 border-dashed border-white bg-black cursor-pointer;
+        
+        .bj-btn {
+            @apply px-2 aspect-square text-xl font-semibold rounded-full flex items-center;
+            @apply border-2 border-dashed border-white text-white;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'components/header-nav';
+@import 'components/card-profile';
+@import 'components/bj-table';
+@import 'components/playing-card';
+@import 'components/bj-deck';
+@import 'components/bj-hand';
+
+html {
+  @apply overflow-x-hidden;
+}
+
+#app {
+  @apply w-screen min-h-screen bg-white dark:bg-dark-400;
+}
+
+.container {
+  @apply flex flex-col items-center;
+}

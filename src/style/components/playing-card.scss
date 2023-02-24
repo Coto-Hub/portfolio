@@ -1,0 +1,127 @@
+.playing-card {
+    @apply flex flex-col justify-between overflow-hidden relative pointer-events-none;
+    @apply w-12 aspect-2/3 rounded-md border border-black select-none bg-transparent;
+    perspective: 100vw;
+
+    .card-inner {
+        @apply relative w-full h-full duration-700;
+        transition-property: transform;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transform-style: preserve-3d;
+    }
+
+    &.reverse .card-inner, .card-back {
+        transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+        @apply absolute w-full h-full;
+        backface-visibility: hidden;
+    }
+
+    .card-front {
+        @apply absolute w-full h-full bg-white flex flex-col justify-between;
+
+        .card-number {
+            @apply flex flex-col items-center mx-1;
+            h1 {
+                @apply m-0 flex flex-col items-center text-sm font-bold;
+
+                &::after {
+                    @apply w-2 h-2;
+                }
+            }
+        }
+        .card-number h1::after, .card-icon::before {
+            @apply block bg-center bg-no-repeat -mt-0.5 bg-cover;
+            background-image: var(--main-card-icon);
+            content: '';
+        }
+        .card-icon::before {
+            @apply w-4 h-4 mx-auto;
+        }
+
+        .card-header {
+            @apply self-start;
+        }
+        .card-footer {
+            @apply self-end rotate-180;
+        }
+    }
+    .card-back {
+        @apply absolute w-full h-full flex flex-col bg-red-700;
+        background-image: radial-gradient(circle at 100% 150%, red 25%, white 25%, white 29%, red 29%, red 36%, white 36%, white 40%, transparent 40%, transparent),
+                        radial-gradient(circle at 0 150%, red 25%, white 25%, white 29%, red 29%, red 36%, white 36%, white 40%, transparent 40%, transparent),
+                        radial-gradient(circle at 50%  100%, white 10%, red 10%, red 23%, white 23%, white 30%, red 30%, red 43%, white 43%, white 50%, red 50%, red 63%, white 63%, white 70%, transparent 70%, transparent),
+                        radial-gradient(circle at 100% 50%, white 5%, red 5%, red 15%, white 15%, white 20%, red 20%, red 30%, white 30%, white 35%, red 35%, red 45%, white 45%, white 50%, transparent 50%, transparent),
+                        radial-gradient(circle at 0 50%, white 5%, red 5%, red 15%, white 15%, white 20%, red 20%, red 30%, white 30%, white 35%, red 35%, red 45%, white 45%, white 50%, transparent 50%, transparent);
+        background-size: 2rem 1rem;
+        
+        .card-top::before, .card-top::after,
+        .card-bottom::before, .card-bottom::after {
+            @apply flex absolute w-5 h-5 items-center justify-center;
+            @apply bg-white rounded-full bg-center bg-no-repeat;
+            background-size: 60%;
+            content: '';
+        }
+
+        .card-top, .card-bottom {
+            @apply m-4 border-2 border-black flex-1;
+        }
+        .card-top {
+            @apply mb-0 border-b-0;
+
+            &::before, &::after {
+                @apply top-2;
+            }
+            &::before {
+                @apply -rotate-45;
+                background-image: url('/icon/coeur.svg');
+            }
+            &::after {
+                @apply rotate-45;
+                background-image: url('/icon/pique.svg');
+            }
+        }
+        .card-bottom {
+            @apply mt-0 border-t-0;
+
+            &::before, &::after {
+                @apply bottom-2;
+            }
+            &::before {
+                @apply -rotate-135;
+                background-image: url('/icon/trefle.svg');
+            }
+            &::after {
+                @apply rotate-135;
+                background-image: url('/icon/carreau.svg');
+            }
+        }
+        .card-top::before, .card-bottom::before {
+            @apply left-2;
+        }
+        .card-top::after, .card-bottom::after {
+            @apply right-2;
+        }
+    }
+}
+
+.pique, .trefle {
+    @apply text-black;
+}
+.coeur, .carreau {
+    @apply text-card-red;
+}
+.pique {
+    --main-card-icon: url('/icon/pique.svg');
+}
+.trefle {
+    --main-card-icon: url('/icon/trefle.svg');
+}
+.coeur {
+    --main-card-icon: url('/icon/coeur.svg');
+}
+.carreau {
+    --main-card-icon: url('/icon/carreau.svg');
+}

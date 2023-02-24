@@ -1,0 +1,24 @@
+.card-package {
+    @apply w-23 h-30 absolute top-1/20 left-27/40 z-20 -translate-x-1/2;
+    .playing-card {
+        @apply absolute w-20;
+    }
+    .playing-card:nth-child(2) {
+        @apply ml-1;
+    }
+     .playing-card:nth-child(3) {
+        @apply ml-2;
+    }
+    .playing-card:nth-child(n+4) {
+        @apply ml-3;
+
+        &.show {
+            .card-front {
+                @apply flex;
+            }
+            .card-back {
+                @apply hidden;
+            }
+        }
+    }
+}
