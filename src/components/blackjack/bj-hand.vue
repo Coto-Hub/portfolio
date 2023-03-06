@@ -3,13 +3,19 @@
     class="player-hand"
     :class="!hand.isBot ? 'player' : hand.isMain ? 'dealer' : ''"
   >
-    <div class="hand-count">
+    <div class="hand-count" :class="getCardCount > 21 ? 'loose' : ''">
       {{ getCardCount }}
     </div>
     <playingCard v-for="(c, i) in getCards" :key="i" :card="c" />
-    <div class="player-status" :class="hand.isActive ? 'active' : ''">
+    <div class="player-status" :class="(hand.isActive && getCardCount <= 21)  ? 'active' : ''">
       <div class="bj-token">
         <div class="bj-btn" />
+      </div>
+    </div>
+    <div v-if="!hand.isMain" class="hand-bet" :class="hand.asDouble  ? 'double' : ''">
+      {{ getHandBet }}
+      <div class="hand-score">
+        {{ getHandScore }}
       </div>
     </div>
   </div>
@@ -39,6 +45,12 @@ export default {
     getCards() {
       return this.hand.cards;
     },
-  },
+    getHandBet() {
+      return this.hand.playerBet;
+    },
+    getHandScore() {
+      return this.hand.playerScore > 0 ? `+${this.hand.playerScore}€` : 0;
+    }
+  }
 };
 </script>

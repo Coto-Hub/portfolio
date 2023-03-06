@@ -27,6 +27,16 @@ module.exports = {
         card: {
           red: "#DC143C",
         },
+        bet: {
+          green: '#0a8f0b',
+          blue: '#019bfc',
+          purple: '#b801bb',
+          dark: '#000000',
+          gold: '#ffd700',
+        }
+      },
+      zIndex: {
+        70: 70,
       },
       aspectRatio: {
         "2/1": "2 / 1",
@@ -57,6 +67,7 @@ module.exports = {
         64: "16rem",
         120: "30rem",
         "1/20": "5%",
+        "3/25": "12%",
         "3/20": "15%",
         "1/5": "20%",
         "7/25": "28%",

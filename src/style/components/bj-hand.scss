@@ -8,7 +8,7 @@
     }
 }
 .player-hand {
-    @apply flex w-1/6 absolute top-2 z-10 justify-center -translate-y-1/2 border-2 h-19 bg-hand-bg;
+    @apply flex w-1/6 z-10 justify-center relative border-2 h-19 bg-hand-bg;
 
     .playing-card .card-back .card-top,
     .playing-card .card-back .card-bottom {
@@ -24,7 +24,42 @@
     } 
     
     .hand-count {
-        @apply absolute top-0 -translate-y-full px-2 py-0.5 bg-black/70 text-white border-2;
+        @apply absolute top-0 -translate-y-full px-2 py-0.5 bg-black/70 font-semibold text-white border-2;
+
+        &.loose {
+            @apply text-red-700 font-extrabold;
+        }
+    }
+
+    .hand-bet {
+        @apply absolute right-0 bottom-0 flex justify-center items-center;
+        @apply rounded-full w-16 aspect-square border-4 border-dark-500 overflow-hidden;
+        @apply bg-dark-200 font-bold translate-x-1/2 translate-y-1/2 text-sm z-70;
+
+        .hand-score {
+            @apply absolute inset-0 bg-dark-400 flex justify-center items-center;
+            @apply text-white -translate-y-full transition-all duration-700 text-xs;
+        }
+
+        &.double {
+            @apply text-bet-gold bg-dark-400;
+        }
+    }
+
+    & + .player-hand {
+        @apply ml-5;
+
+        @screen md {
+            @apply ml-7;
+        }
+    }
+}
+
+.hand-container {
+    @apply flex w-full absolute top-2 z-10 justify-center -translate-y-1/2;
+
+    &.has-split .player-hand {
+        @apply w-3/25;
     }
 
     &:nth-child(-n+5) {
@@ -44,7 +79,7 @@
         @apply top-11/20;
     }
     &:nth-child(2) {
-        @apply rotate-180 top-3/20;
+        @apply top-1/4 -translate-y-full;
     }
     &:nth-child(3) {
         @apply left-3/20 rotate-67.5;

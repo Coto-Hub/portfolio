@@ -37,7 +37,30 @@
 }
 
 .bj-container {
-  @apply w-10/12 border-2 aspect-2/1 p-4 pt-0 relative overflow-hidden;
+  @apply w-full border-6 border-dark-500 aspect-2/1 p-4 pt-0 relative overflow-hidden bg-dark-300;
+}
+.bj-container.end-game::before {
+  @apply block absolute inset-0 bg-dark-500/70 z-30 bg-no-repeat bg-center;
+  content: "";
+}
+.bj-container::after {
+  @apply block absolute inset-0 bg-dark-200 z-50 bg-no-repeat bg-center;
+  background-image: url("/icon/rotate.svg");
+  content: "";
+}
+@screen md {
+  .bj-container::after {
+    @apply hidden;
+  }
+}
+@screen lg {
+  .bj-container {
+    @apply w-10/12;
+  }
+}
+.bj-container .player-money {
+  @apply absolute -top-1 -left-1 border-4 border-dark-500 z-50;
+  @apply px-2 py-1 font-bold bg-dark-300 z-50;
 }
 .bj-container .bj-table {
   @apply h-full bg-table-big-border rounded-b-full relative;
@@ -50,13 +73,101 @@
   @apply block absolute inset-12 top-0 rounded-b-full bg-table-center;
   content: "";
 }
+.bj-container.end-game .player-hand .hand-bet .hand-score {
+  @apply translate-y-0;
+}
 .bj-container .bj-token {
-  @apply absolute top-9/20 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-10;
-  @apply p-2 aspect-square border-6 border-dashed border-white bg-black cursor-pointer;
+  @apply absolute top-9/20 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-30;
+  @apply p-1.5 aspect-square border-4 border-dashed border-white bg-black cursor-pointer;
+}
+@screen lg {
+  .bj-container .bj-token {
+    @apply p-2 border-6;
+  }
 }
 .bj-container .bj-token .bj-btn {
-  @apply px-2 aspect-square text-xl font-semibold rounded-full flex items-center;
+  @apply px-1.5 aspect-square text-sm font-semibold rounded-full flex items-center;
   @apply border-2 border-dashed border-white text-white;
+}
+@screen lg {
+  .bj-container .bj-token .bj-btn {
+    @apply px-2 text-xl;
+  }
+}
+.bj-container .player-action {
+  @apply grid grid-cols-4 absolute bottom-0 left-1/2 -translate-x-1/2;
+  @apply border-2 border-white bg-dark-300 w-2/5 p-1 z-10;
+}
+@screen lg {
+  .bj-container .player-action {
+    @apply w-auto;
+  }
+}
+.bj-container .player-action .bj-btn {
+  @apply m-1 p-1 text-white text-sm font-semibold bg-gray-500;
+  @apply text-center border-2 border-black cursor-pointer;
+}
+.bj-container .player-action.active {
+  @apply bg-table-border;
+}
+.bj-container .player-action.active .bj-btn {
+  @apply bg-hand-bg;
+}
+.bj-container .player-action.active .bj-btn:hover {
+  @apply bg-table-center;
+}
+.bj-container .player-action.active .bj-btn.disabled {
+  @apply bg-gray-500;
+}
+.bj-container .player-bet {
+  @apply absolute -bottom-1.5 -left-1.5 grid grid-cols-2 gap-3 p-2;
+  @apply bg-dark-300 border-6 border-dark-500 z-30;
+}
+@screen lg {
+  .bj-container .player-bet {
+    @apply grid-cols-4;
+  }
+}
+.bj-container .player-bet .amount-bet {
+  @apply absolute top-0 left-1/2 px-4 border-6 border-dark-500 bg-dark-300;
+  @apply -translate-x-1/2 -translate-y-full font-extrabold z-20 cursor-default;
+}
+.bj-container .player-bet::after {
+  @apply absolute bg-dark-400 inset-0 z-30 font-bold text-center;
+  @apply flex items-center justify-center text-xl transition-all;
+  @apply duration-700;
+  content: "Partie en cours";
+}
+.bj-container .player-bet.active::after {
+  @apply translate-y-full;
+}
+.bj-container .player-bet .bj-token {
+  @apply relative w-14 inset-0 translate-y-0 translate-x-0 border-4;
+  @apply opacity-60 p-1.5 cursor-pointer;
+}
+.bj-container .player-bet .bj-token.disabled {
+  @apply bg-dark-200 opacity-100 border-black cursor-default;
+}
+.bj-container .player-bet .bj-token.disabled .bj-btn {
+  @apply text-black border-black line-through;
+}
+.bj-container .player-bet .bj-token:hover {
+  @apply opacity-100;
+}
+.bj-container .player-bet .bj-token .bj-btn {
+  @apply justify-center text-xs px-4 font-extrabold;
+}
+.bj-container .player-bet .bj-token:not(.disabled):first-child {
+  @apply bg-bet-green;
+}
+.bj-container .player-bet .bj-token:not(.disabled):nth-child(2) {
+  @apply bg-bet-blue;
+}
+.bj-container .player-bet .bj-token:not(.disabled):nth-child(3) {
+  @apply bg-bet-purple;
+}
+.bj-container .player-bet .bj-token:not(.disabled):nth-child(4) {
+  @apply bg-bet-dark;
 }
 
 .playing-card {
@@ -110,10 +221,16 @@
 }
 .playing-card .card-back .card-top::before, .playing-card .card-back .card-top::after,
 .playing-card .card-back .card-bottom::before, .playing-card .card-back .card-bottom::after {
-  @apply flex absolute w-5 h-5 items-center justify-center;
+  @apply flex absolute w-4 h-4 items-center justify-center;
   @apply bg-white rounded-full bg-center bg-no-repeat;
   background-size: 60%;
   content: "";
+}
+@screen lg {
+  .playing-card .card-back .card-top::before, .playing-card .card-back .card-top::after,
+  .playing-card .card-back .card-bottom::before, .playing-card .card-back .card-bottom::after {
+    @apply w-5 h-5;
+  }
 }
 .playing-card .card-back .card-top, .playing-card .card-back .card-bottom {
   @apply m-4 border-2 border-black flex-1;
@@ -178,10 +295,20 @@
 }
 
 .card-package {
-  @apply w-23 h-30 absolute top-1/20 left-27/40 z-20 -translate-x-1/2;
+  @apply w-19 h-30 absolute top-1/20 left-27/40 z-20 -translate-x-1/2;
+}
+@screen lg {
+  .card-package {
+    @apply w-23;
+  }
 }
 .card-package .playing-card {
-  @apply absolute w-20;
+  @apply absolute w-16;
+}
+@screen lg {
+  .card-package .playing-card {
+    @apply w-20;
+  }
 }
 .card-package .playing-card:nth-child(2) {
   @apply ml-1;
@@ -210,7 +337,7 @@
 }
 
 .player-hand {
-  @apply flex w-1/6 absolute top-2 z-10 justify-center -translate-y-1/2 border-2 h-19 bg-hand-bg;
+  @apply flex w-1/6 z-10 justify-center relative border-2 h-19 bg-hand-bg;
 }
 .player-hand .playing-card .card-back .card-top,
 .player-hand .playing-card .card-back .card-bottom {
@@ -223,42 +350,72 @@
   @apply bg-white;
 }
 .player-hand .hand-count {
-  @apply absolute top-0 -translate-y-full px-2 py-0.5 bg-black/70 text-white border-2;
+  @apply absolute top-0 -translate-y-full px-2 py-0.5 bg-black/70 font-semibold text-white border-2;
 }
-.player-hand:nth-child(-n+5) {
+.player-hand .hand-count.loose {
+  @apply text-red-700 font-extrabold;
+}
+.player-hand .hand-bet {
+  @apply absolute right-0 bottom-0 flex justify-center items-center;
+  @apply rounded-full w-16 aspect-square border-4 border-dark-500 overflow-hidden;
+  @apply bg-dark-200 font-bold translate-x-1/2 translate-y-1/2 text-sm z-70;
+}
+.player-hand .hand-bet .hand-score {
+  @apply absolute inset-0 bg-dark-400 flex justify-center items-center;
+  @apply text-white -translate-y-full transition-all duration-700 text-xs;
+}
+.player-hand .hand-bet.double {
+  @apply text-bet-gold bg-dark-400;
+}
+.player-hand + .player-hand {
+  @apply ml-5;
+}
+@screen md {
+  .player-hand + .player-hand {
+    @apply ml-7;
+  }
+}
+
+.hand-container {
+  @apply flex w-full absolute top-2 z-10 justify-center -translate-y-1/2;
+}
+.hand-container.has-split .player-hand {
+  @apply w-3/25;
+}
+.hand-container:nth-child(-n+5) {
   @apply -translate-x-1/2;
 }
-.player-hand:nth-child(n+6) {
+.hand-container:nth-child(n+6) {
   @apply translate-x-1/2;
 }
-.player-hand:nth-child(2), .player-hand:nth-child(5) {
+.hand-container:nth-child(2), .hand-container:nth-child(5) {
   @apply left-1/2;
 }
-.player-hand:nth-child(3), .player-hand:nth-child(7) {
+.hand-container:nth-child(3), .hand-container:nth-child(7) {
   @apply top-1/5;
 }
-.player-hand:nth-child(4), .player-hand:nth-child(6) {
+.hand-container:nth-child(4), .hand-container:nth-child(6) {
   @apply top-11/20;
 }
-.player-hand:nth-child(2) {
-  @apply rotate-180 top-3/20;
+.hand-container:nth-child(2) {
+  @apply top-1/4 -translate-y-full;
 }
-.player-hand:nth-child(3) {
+.hand-container:nth-child(3) {
   @apply left-3/20 rotate-67.5;
 }
-.player-hand:nth-child(4) {
+.hand-container:nth-child(4) {
   @apply left-7/25 rotate-45;
 }
-.player-hand:nth-child(5) {
+.hand-container:nth-child(5) {
   @apply top-3/5;
 }
-.player-hand:nth-child(6) {
+.hand-container:nth-child(6) {
   @apply right-7/25 -rotate-45;
 }
-.player-hand:nth-child(7) {
+.hand-container:nth-child(7) {
   @apply right-3/20 -rotate-67.5;
 }
-.player-hand:nth-child(8) {
+.hand-container:nth-child(8) {
   @apply left-1/2;
 }
 

@@ -1,12 +1,33 @@
 <template>
-  <section class="bj-container">
+  <section class="bj-container" :class="!roundIsStart ? 'end-game' : ''">
+    <div class="player-money">
+      Solde : {{ getPlayerMoney }}€
+    </div>
     <div class="bj-table">
       <bjDeck :card-package="blackjack.cardPackage" />
-      <playerHand v-for="(p, i) in blackjack.playerHands" :key="i" :hand="p" />
+      <div class="hand-container" :class="p.hasSplit ? 'has-split' : ''" v-for="(p, i) in blackjack.playerHands">
+        <playerHand v-if="p.hasSplit && p.split" :hand="p.split" />
+        <playerHand :hand="p" />
+      </div>
 
-      <div class="bj-token">
+      <div v-if="getPlayerBet > 0 && !roundIsStart" class="bj-token">
         <div class="bj-btn" @click="startBj()">Start</div>
       </div>
+    </div>
+    <div class="player-bet" :class="!roundIsStart ? 'active' : ''">
+      <div class="amount-bet">
+        {{ getPlayerBet }}€
+      </div>
+      <div class="bj-token" :class="getPlayerMoney < 1 ? 'disabled' : ''"><div class="bj-btn" @click="addBet(1)">1€</div></div>
+      <div class="bj-token" :class="getPlayerMoney < 5 ? 'disabled' : ''"><div class="bj-btn" @click="addBet(5)">5€</div></div>
+      <div class="bj-token" :class="getPlayerMoney < 10 ? 'disabled' : ''"><div class="bj-btn" @click="addBet(10)">10€</div></div>
+      <div class="bj-token" :class="getPlayerMoney < 50 ? 'disabled' : ''"><div class="bj-btn" @click="addBet(50)">50€</div></div>
+    </div>
+    <div class="player-action" :class="playerIsActive ? 'active' : ''">
+      <div class="bj-btn" @click="playerClick('S')">Rester</div>
+      <div class="bj-btn" :class="!canDouble ? 'disabled' : ''" @click="playerClick('D')">Doubler</div>
+      <div class="bj-btn" @click="playerClick('H')">Tirer</div>
+      <div class="bj-btn" :class="!canSplit ? 'disabled' : ''" @click="playerClick('P')">Divisier</div>
     </div>
   </section>
 </template>
@@ -22,22 +43,108 @@ export default {
     playerHand,
     bjDeck,
   },
-  props: {},
+  props: {
+    player: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
       blackjack: {},
+      userHand: {},
     };
   },
   created() {
     this.restartBj();
+    this.userHand = this.blackjack.playerHands[3];
   },
   methods: {
     async restartBj() {
       this.gameResult = null;
       this.isGameRestarting = false;
-      this.blackjack = new BlackJack();
+      this.blackjack = new BlackJack(this.player);
+    },
+    async startBj() {
+      this.blackjack.isStart = true;
+      this.blackjack.playerHands.map((playerHand) => {
+        playerHand.resetHand();
+        return playerHand;
+      });
       this.blackjack.playTurn(this.blackjack.playerHands.length - 1);
     },
+    addBet(value) {
+      this.player.money -= value;
+      this.blackjack.playerHands[3].playerBet += value;
+    },
+    async playerClick(event) {
+      if (!this.userHand.isActive && !(this.userHand.split.isActive ?? false)) {
+        return;
+      }
+      const isSplitTurn = this.userHand.hasSplit && this.userHand.split.isActive;
+      const currentHand = isSplitTurn ? this.userHand.split : this.userHand;
+      switch (event) {
+        case 'S':
+          currentHand.hasFinish = true;
+          this.blackjack.playTurn(isSplitTurn ? 3 : 2);
+          break;
+        case 'H':
+          await this.blackjack.takeCard(currentHand, false);
+          this.blackjack.playTurn(3);
+          break;
+        case 'D':
+          if (this.player.money < currentHand.playerBet) {
+            return;
+          }
+          this.player.money -= this.userHand.playerBet;
+          currentHand.playerBet += currentHand.playerBet;
+          currentHand.hasDouble = true;
+          await this.blackjack.takeCard(currentHand, false);
+          currentHand.hasFinish = true;
+          this.blackjack.playTurn(isSplitTurn ? 3 : 2);
+          break;
+        case 'P':
+          if (this.player.money < this.userHand.playerBet || this.userHand.hasSplit) {
+            return;
+          }
+          this.player.money -= this.userHand.playerBet;
+          this.userHand.hasSplit = true;
+          this.userHand.split = this.blackjack.getSplit(this.userHand);
+          this.userHand.cards.pop();
+          this.userHand.split.cards.shift();
+          await this.blackjack.takeCard(this.blackjack.playerHands[3], false);
+          this.blackjack.playTurn(3);
+          break;  
+      }
+    }
   },
+  computed: {
+    playerIsActive() {
+      if (this.userHand.isActive && this.userHand.cards.length >= 2) {
+        return true;
+      }
+      if (this.userHand.split) {
+        return this.userHand.split.isActive && this.userHand.split.cards.length >= 2;
+      }
+    },
+    roundIsStart() {
+      return this.blackjack.isStart;
+    },
+    getPlayerBet() {
+      return this.userHand.playerBet;
+    },
+    canDouble() {
+      return !this.userHand.hasDouble && this.userHand.cards.length == 2 && this.player.money > this.getPlayerBet;
+    },
+    canSplit() {
+      if (this.userHand.cards.length === 2 && !this.userHand.hasSplit && this.userHand.havePair()) {
+        return true;
+      }
+      return false;
+    },
+    getPlayerMoney() {
+      return this.player.money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    }
+  }
 };
 </script>

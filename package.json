@@ -4,13 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "sass": "sass --watch ./src/style/main.scss:./public/style/input.css",
+    "tailwind": "npx tailwindcss -i ./public/style/input.css -o ./public/style/output.css --watch",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --watch",
     "preview": "vite preview"
   },
   "dependencies": {
     "jquery": "^3.6.3",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "sass": "^1.56.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",

@@ -1,6 +1,30 @@
 .bj-container {
-    @apply w-10/12 border-2 aspect-2/1 p-4 pt-0 relative overflow-hidden;
+    @apply w-full border-6 border-dark-500 aspect-2/1 p-4 pt-0 relative overflow-hidden bg-dark-300;
 
+    &.end-game::before {
+        @apply block absolute inset-0 bg-dark-500/70 z-30 bg-no-repeat bg-center;
+        content: '';
+    }
+    
+    &::after {
+        @apply block absolute inset-0 bg-dark-200 z-50 bg-no-repeat bg-center;
+        background-image: url('/icon/rotate.svg');
+        content: '';
+
+        @screen md {
+            @apply hidden;
+        }
+    }
+
+    @screen lg {
+        @apply w-10/12;
+    }
+
+    .player-money {
+        @apply absolute -top-1 -left-1 border-4 border-dark-500 z-50;
+        @apply px-2 py-1 font-bold bg-dark-300 z-50;
+    }
+    
     .bj-table {
         @apply h-full bg-table-big-border rounded-b-full relative;
 
@@ -14,13 +38,113 @@
         }
     }
 
+    &.end-game .player-hand .hand-bet .hand-score  {
+        @apply translate-y-0;
+    }
+
     .bj-token {
-        @apply absolute top-9/20 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-10;
-        @apply p-2 aspect-square border-6 border-dashed border-white bg-black cursor-pointer;
+        @apply absolute top-9/20 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-30;
+        @apply p-1.5 aspect-square border-4 border-dashed border-white bg-black cursor-pointer;
+
+        @screen lg {
+            @apply p-2 border-6;
+        }
         
         .bj-btn {
-            @apply px-2 aspect-square text-xl font-semibold rounded-full flex items-center;
+            @apply px-1.5 aspect-square text-sm font-semibold rounded-full flex items-center;
             @apply border-2 border-dashed border-white text-white;
+
+            @screen lg {
+                @apply px-2 text-xl;
+            }
+        }
+    }
+
+    .player-action {
+        @apply grid grid-cols-4 absolute bottom-0 left-1/2 -translate-x-1/2;
+        @apply border-2 border-white bg-dark-300 w-2/5 p-1 z-10;
+
+        @screen lg {
+            @apply w-auto;
+        }
+
+        .bj-btn {
+            @apply m-1 p-1 text-white text-sm font-semibold bg-gray-500;
+            @apply text-center border-2 border-black cursor-pointer;
+        }
+
+        &.active {
+            @apply bg-table-border;
+
+            .bj-btn {
+                @apply bg-hand-bg;
+
+                &:hover {
+                    @apply bg-table-center;
+                }
+                &.disabled {
+                    @apply bg-gray-500;
+                }
+            }
+        }
+    }
+
+    .player-bet {
+        @apply absolute -bottom-1.5 -left-1.5 grid grid-cols-2 gap-3 p-2;
+        @apply bg-dark-300 border-6 border-dark-500 z-30;
+
+        @screen lg {
+            @apply grid-cols-4;
+        }
+
+        .amount-bet {
+            @apply absolute top-0 left-1/2 px-4 border-6 border-dark-500 bg-dark-300;
+            @apply -translate-x-1/2 -translate-y-full font-extrabold z-20 cursor-default;
+        }
+
+        &::after {
+            @apply absolute bg-dark-400 inset-0 z-30 font-bold text-center;
+            @apply flex items-center justify-center text-xl transition-all;
+            @apply duration-700;
+            content: 'Partie en cours';
+        }
+
+        &.active::after {
+            @apply translate-y-full;
+        }
+
+        .bj-token {
+            @apply relative w-14 inset-0 translate-y-0 translate-x-0 border-4;
+            @apply opacity-60 p-1.5 cursor-pointer;
+
+            &.disabled {
+                @apply bg-dark-200 opacity-100 border-black cursor-default;
+
+                .bj-btn {
+                    @apply text-black border-black line-through;
+                }
+            }
+
+            &:hover {
+                @apply opacity-100;
+            }
+
+            .bj-btn {
+                @apply justify-center text-xs px-4 font-extrabold;
+            }
+
+            &:not(.disabled):first-child {
+                @apply bg-bet-green;
+            }
+            &:not(.disabled):nth-child(2) {
+                @apply bg-bet-blue;
+            }
+            &:not(.disabled):nth-child(3) {
+                @apply bg-bet-purple;
+            }
+            &:not(.disabled):nth-child(4) {
+                @apply bg-bet-dark;
+            }
         }
     }
 }

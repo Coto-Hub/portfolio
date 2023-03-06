@@ -1,12 +1,59 @@
 import { Card, PlayerHand } from "./utils";
 
 const cardSigns = ["coeur", "pique", "carreau", "trefle"];
-const cardValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "V", "D", "R"];
+const cardValues = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, "V", "D", "R"];
 
 export class BlackJack {
-  constructor() {
+  constructor(player) {
     this.cardPackage = this.shufflePackage(this.generateCardPackge());
     this.playerHands = this.generateHand();
+    this.player = player;
+    this.isStart = false;
+  }
+
+  finishRound() {
+    if (!this.isStart) {
+      return;
+    }
+    this.isStart = false;
+    const mainCount = this.playerHands[0].getCardsCount();
+    const mainHaveBj = this.playerHands[0].haveBlackJack();
+    this.playerHands.map((playerHand) => {
+      this.setHandScore(playerHand, mainCount, mainHaveBj);
+      if (playerHand.split) {
+        this.setHandScore(playerHand.split, mainCount, mainHaveBj);
+      }
+    });
+  }
+
+  setHandScore(playerHand, mainCount, mainHaveBj) {
+    const temps = playerHand.playerBet;
+    const playerCount = playerHand.getCardsCount();
+    playerHand.playerBet = 0;
+    playerHand.playerScore = 0;
+    if (playerHand.isMain || playerCount > 21) {
+      return;
+    }
+    if (playerHand.haveBlackJack()) {
+      playerHand.playerScore = mainHaveBj ? temps : temps * 3;
+    }
+    if (mainCount > 21 || playerCount > mainCount) {
+      playerHand.playerScore = temps * 2;
+    }
+    if (mainCount === playerCount) {
+      playerHand.playerScore = temps;
+    }
+    if (!playerHand.isBot) {
+      this.player.money += playerHand.playerScore;
+    }
+  }
+
+  getSplit(playerHand) {
+    const splitHand = new PlayerHand(7, false, false);
+    splitHand.cards = [...playerHand.cards]; 
+    splitHand.hasSplit = false;
+    splitHand.playerBet = playerHand.playerBet;
+    return splitHand;
   }
 
   generateCardPackge() {
@@ -44,38 +91,64 @@ export class BlackJack {
   switchActiveHand(playerHand) {
     this.playerHands.map((h) => {
       h.isActive = false;
+      if (h.split) {
+        h.split.isActive = false;
+      }
     });
     playerHand.isActive = true;
   }
 
   async playTurn(index) {
-    const nextIndex =
-      (index + this.playerHands.length - 1) % this.playerHands.length;
-    if (this.playerHands[index].cards.length < 2) {
-      await this.takeCard(
-        this.playerHands[index],
-        this.playerHands[index].cards.length == 1 &&
-          this.playerHands[index].isMain
-      );
-      this.playTurn(nextIndex);
-    } else {
-      if (this.playerHands[index].isBot) {
-        switch (true) {
-          case this.playerHands[index].getBotCard():
-            await this.takeCard(
-              this.playerHands[index],
-              this.playerHands[index].cards.length == 1 &&
-                this.playerHands[index].isMain
-            );
-            break;
+    const nextIndex = (index + this.playerHands.length - 1) % this.playerHands.length;
+    let currentHand = this.playerHands[index];
+    
+    if (currentHand.hasSplit && currentHand.hasFinish) {
+      currentHand = currentHand.split;
+    }
 
+    this.switchActiveHand(currentHand);
+    if (currentHand.getCardsCount() > 21 && !currentHand.isMain) {
+      this.playTurn(nextIndex);
+    }
+    if (currentHand.cards.length < 2) {
+      await this.takeCard(
+        currentHand,
+        currentHand.cards.length == 1 &&
+        currentHand.isMain
+      );
+      if (!this.playerHands[index].hasSplit) {
+        this.playTurn(nextIndex);
+      }
+    } else {
+      if (currentHand.isMain) {
+        if (currentHand.cards.length == 2) {
+          currentHand.cards[1].reverse = false;
+        }
+        if (currentHand.getCardsCount() < 17) {
+          await this.takeCard(currentHand, false);
+          this.playTurn(index);
+        }
+        else {
+          this.finishRound();
+        }
+      }
+      else if (currentHand.isBot) {
+        await this.sleep(700);
+        
+        switch (currentHand.playBotTurn(this.playerHands[0])) {
+          case 'H':
+            await this.takeCard(currentHand, false);
+            this.playTurn(index);
+            break;
+          case 'D':
+            currentHand.hasDouble = true;
+            await this.takeCard(currentHand, false);
+            this.playTurn(nextIndex);
+            break; 
           default:
+            this.playTurn(nextIndex);
             break;
         }
-        this.playTurn(nextIndex);
-      } else {
-        this.switchActiveHand(this.playerHands[index]);
-        return;
       }
     }
   }
@@ -83,8 +156,8 @@ export class BlackJack {
   async takeCard(playerHand, reverse = false) {
     this.switchActiveHand(playerHand);
     this.cardPackage.cardReturn = this.cardPackage.pop();
-    if (!reverse) {
-      await this.sleep(50);
+    if (!reverse && this.cardPackage.cardReturn) {
+      await this.sleep(100);
       this.cardPackage.cardReturn.reverse = reverse;
       await this.sleep(700);
     }
