@@ -7,7 +7,8 @@
     "sass": "sass --watch ./src/style/main.scss:./public/style/input.css",
     "tailwind": "npx tailwindcss -i ./public/style/input.css -o ./public/style/output.css --watch",
     "dev": "vite",
-    "build": "vite build --watch",
+    "build": "vite build",
+    "watch": "vite build --watch",
     "preview": "vite preview"
   },
   "dependencies": {
