@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import profile from "./../assets/profile.png"
+import profile from "./../assets/profile.webp"
 
 export default {
   name: 'HeaderNav',
