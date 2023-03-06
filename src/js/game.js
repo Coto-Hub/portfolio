@@ -109,7 +109,7 @@ export class BlackJack {
     }
 
     this.switchActiveHand(currentHand);
-    if (currentHand.getCardsCount() > 21 && !currentHand.isMain) {
+    if (currentHand.getCardsCount() >= 21 && !currentHand.isMain) {
       this.playTurn(nextIndex);
     }
     if (currentHand.cards.length < 2) {
