@@ -71,17 +71,25 @@ export default {
         playerHand.resetHand();
         return playerHand;
       });
+
+      if (this.blackjack.numberCard <= 0) {
+        const newPackage = this.blackjack.shufflePackage(this.blackjack.generateCardPackge());
+        this.blackjack.cardPackage = newPackage.concat(this.blackjack.cardPackage);
+        this.blackjack.numberCard = Math.round(Math.random * 26) + 52;
+      }
       this.blackjack.playTurn(this.blackjack.playerHands.length - 1);
     },
     addBet(value) {
-      this.player.money -= value;
-      this.blackjack.playerHands[3].playerBet += value;
+      if (this.player.money >= value) {
+        this.player.money -= value;
+        this.userHand.playerBet += value;
+      }
     },
     async playerClick(event) {
       if (!this.userHand.isActive && !(this.userHand.split.isActive ?? false)) {
         return;
       }
-      const isSplitTurn = this.userHand.hasSplit && this.userHand.split.isActive;
+      const isSplitTurn = this.userHand.hasSplit && (this.userHand.split ? this.userHand.split.isActive : false);
       const currentHand = isSplitTurn ? this.userHand.split : this.userHand;
       switch (event) {
         case 'S':
@@ -144,7 +152,7 @@ export default {
     },
     getPlayerMoney() {
       return this.player.money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-    }
+    },
   }
 };
 </script>

@@ -133,16 +133,16 @@
                 @apply justify-center text-xs px-4 font-extrabold;
             }
 
-            &:not(.disabled):first-child {
+            &:not(.disabled):nth-child(2) {
                 @apply bg-bet-green;
             }
-            &:not(.disabled):nth-child(2) {
+            &:not(.disabled):nth-child(3) {
                 @apply bg-bet-blue;
             }
-            &:not(.disabled):nth-child(3) {
+            &:not(.disabled):nth-child(4) {
                 @apply bg-bet-purple;
             }
-            &:not(.disabled):nth-child(4) {
+            &:not(.disabled):nth-child(5) {
                 @apply bg-bet-dark;
             }
         }

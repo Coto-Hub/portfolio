@@ -5,10 +5,11 @@ const cardValues = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, "V", "D", "R"];
 
 export class BlackJack {
   constructor(player) {
-    this.cardPackage = this.shufflePackage(this.generateCardPackge());
+    this.cardPackage = [];
     this.playerHands = this.generateHand();
     this.player = player;
     this.isStart = false;
+    this.numberCard = 0;
   }
 
   finishRound() {
@@ -24,6 +25,7 @@ export class BlackJack {
         this.setHandScore(playerHand.split, mainCount, mainHaveBj);
       }
     });
+    this.saveCookieMoney();
   }
 
   setHandScore(playerHand, mainCount, mainHaveBj) {
@@ -126,6 +128,7 @@ export class BlackJack {
         }
         if (currentHand.getCardsCount() < 17) {
           await this.takeCard(currentHand, false);
+          await this.sleep(1000);
           this.playTurn(index);
         }
         else {
@@ -155,13 +158,22 @@ export class BlackJack {
 
   async takeCard(playerHand, reverse = false) {
     this.switchActiveHand(playerHand);
-    this.cardPackage.cardReturn = this.cardPackage.pop();
-    if (!reverse && this.cardPackage.cardReturn) {
-      await this.sleep(100);
-      this.cardPackage.cardReturn.reverse = reverse;
-      await this.sleep(700);
+    if (this.cardPackage.cardReturn === undefined) {
+      this.numberCard = this.numberCard > 0 ? this.numberCard - 1 : 0;
+      this.cardPackage.cardReturn = this.cardPackage.pop();
+      if (!reverse && this.cardPackage.cardReturn) {
+        await this.sleep(100);
+        this.cardPackage.cardReturn.reverse = reverse;
+        await this.sleep(700);
+      }
+      playerHand.cards.push(this.cardPackage.cardReturn);
+      this.cardPackage.cardReturn = undefined;
     }
-    playerHand.cards.push(this.cardPackage.cardReturn);
-    this.cardPackage.cardReturn = undefined;
+  }
+
+  saveCookieMoney() {
+    if (localStorage.getItem('vue-cookie-accept-decline-myPanel1') === 'accept') {
+      localStorage.setItem('money', this.player.money);
+    }
   }
 }

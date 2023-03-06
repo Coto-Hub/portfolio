@@ -5,10 +5,12 @@
       <profileCard />
       <bjTable :player="player" />
     </section>
+    <cookie />
   </div>
 </template>
 
 <script>
+import cookie from "../components/cookie.vue";
 import headerNav from "../components/header-nav.vue";
 import bjTable from "../components/blackjack/bj-table.vue";
 import profileCard from "../components/card/profile-card.vue";
@@ -20,6 +22,7 @@ export default {
     headerNav,
     profileCard,
     bjTable,
+    cookie,
   },
   data() {
     return {

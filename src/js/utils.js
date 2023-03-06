@@ -137,7 +137,7 @@ export class PlayerHand {
 
   getCardsCount() {
     const cardsCount = this.cards.slice().reduce((partialSum, c) => {
-      return partialSum + c.getValue();
+      return partialSum + (c ? c.getValue() : 0);
     }, 0);
     return (this.haveAce() && cardsCount <= 11) ? cardsCount + 10 : cardsCount; 
   }

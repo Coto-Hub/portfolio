@@ -10,11 +10,11 @@
 @import 'components/bj-hand';
 
 html {
-  @apply overflow-x-hidden;
+  @apply overflow-x-hidden bg-dark-400;
 }
 
 #app {
-  @apply w-screen min-h-screen bg-white dark:bg-dark-400;
+  @apply w-screen min-h-screen;
 }
 
 .container {
