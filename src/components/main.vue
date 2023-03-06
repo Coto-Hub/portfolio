@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     generatePlayer() {
-      this.player = new Player(50000000);
+      this.player = new Player(100);
     },
   }
 };
