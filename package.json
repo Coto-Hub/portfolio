@@ -9,7 +9,7 @@
     "dev": "vite",
     "build": "vite build",
     "watch": "vite build --watch",
-    "preview": "vite preview"
+    "preview": "vite preview --port 8080"
   },
   "dependencies": {
     "jquery": "^3.6.3",
