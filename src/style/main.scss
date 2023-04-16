@@ -3,11 +3,20 @@
 @tailwind utilities;
 
 @import 'components/header-nav';
-@import 'components/card-profile';
-@import 'components/bj-table';
-@import 'components/playing-card';
-@import 'components/bj-deck';
-@import 'components/bj-hand';
+@import 'components/modal';
+@import 'components/schooling';
+@import 'components/icon';
+
+@import 'components/card/card-profile';
+@import 'components/card/card-schooling';
+
+@import 'components/games/blackjack/bj-deck';
+@import 'components/games/blackjack/bj-hand';
+@import 'components/games/blackjack/bj-table';
+
+@import 'components/games/mastermind/master-table';
+
+@import 'components/games/playing-card';
 
 html {
   @apply overflow-x-hidden bg-dark-400;
@@ -19,4 +28,21 @@ html {
 
 .container {
   @apply flex flex-col items-center;
+}
+
+.part-title {
+  @apply text-center self-center text-3xl font-bold relative;
+
+  &::after, &::before {
+      @apply absolute h-1.5 bg-dark-500 -left-6 -right-6 -top-2 rounded-full;
+      content: "";
+  }
+
+  &::after {
+      @apply -bottom-4 top-auto;
+  }
+}
+
+h1, h2, p {
+  @apply cursor-default;
 }

@@ -3,11 +3,12 @@
     <div class="card-img">
       <a
         target="_blank"
-        href="https://www.instagram.com/abeille.ma"
+        href="https://magicbee.carrd.co/"
         alt="©"
         title="©"
-        ><img :src="profile"
-      /></a>
+      >
+        <img :src="profile" alt="profile"/>
+      </a>
     </div>
     <div class="card-content">
       <h1 class="card-title">Thomas MARTY</h1>
@@ -22,7 +23,7 @@
 </template>
 
 <script>
-import profile from "./../../assets/profile.webp";
+import profile from "./../../assets/image/profile.webp";
 
 export default {
   name: "ProfileCard",

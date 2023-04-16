@@ -42,4 +42,7 @@ var handObserver = new MutationObserver(function(mutations) {
      characterData: true,
      subtree: true
  };
- handObserver.observe($('.bj-table')[0], config);
+
+ if ($('.bj-table').length) {
+    handObserver.observe($('.bj-table')[0], config);
+ }

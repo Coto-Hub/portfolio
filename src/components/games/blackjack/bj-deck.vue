@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import playingCard from "./../games/playing-card.vue";
+import playingCard from "./../playing-card.vue";
 
 export default {
   name: "BjDeck",

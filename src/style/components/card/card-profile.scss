@@ -1,5 +1,5 @@
 .card-profile {
-    @apply w-2/3 flex flex-col items-center rounded-lg my-8 dark:bg-dark-300 border-2;
+    @apply w-2/3 flex flex-col items-center rounded-lg my-8 bg-dark-300 border-2;
 
     @screen md {
         @apply flex-row;

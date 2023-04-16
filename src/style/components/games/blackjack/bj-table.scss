@@ -148,3 +148,79 @@
         }
     }
 }
+
+.player-bet {
+    @apply absolute -bottom-1.5 -left-1.5 grid grid-cols-2 gap-3 p-2;
+    @apply bg-dark-300 border-6 border-dark-500 z-30;
+
+    @screen lg {
+        @apply grid-cols-4;
+    }
+
+    .amount-bet {
+        @apply absolute top-0 left-1/2 px-4 border-6 border-dark-500 bg-dark-300;
+        @apply -translate-x-1/2 -translate-y-full font-extrabold z-20 cursor-default;
+    }
+
+    &::after {
+        @apply absolute bg-dark-400 inset-0 z-30 font-bold text-center;
+        @apply flex items-center justify-center text-xl transition-all;
+        @apply duration-700;
+        content: 'Partie en cours';
+    }
+
+    &.active::after {
+        @apply translate-y-full;
+    }
+
+    .bj-token {
+        @apply relative w-14 inset-0 translate-y-0 translate-x-0 border-4;
+        @apply opacity-60 p-1.5 cursor-pointer;
+
+        &.disabled {
+            @apply bg-dark-200 opacity-100 border-black cursor-default;
+
+            .bj-btn {
+                @apply text-black border-black line-through;
+            }
+        }
+
+        &:hover {
+            @apply opacity-100;
+        }
+
+        .bj-btn {
+            @apply justify-center text-xs px-4 font-extrabold;
+        }
+
+        &:not(.disabled):nth-child(2) {
+            @apply bg-bet-green;
+        }
+        &:not(.disabled):nth-child(3) {
+            @apply bg-bet-blue;
+        }
+        &:not(.disabled):nth-child(4) {
+            @apply bg-bet-purple;
+        }
+        &:not(.disabled):nth-child(5) {
+            @apply bg-bet-dark;
+        }
+    }
+}
+.bj-token {
+    @apply absolute top-9/20 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-30;
+    @apply p-1.5 aspect-square border-4 border-dashed border-white bg-black cursor-pointer;
+
+    @screen lg {
+        @apply p-2 border-6;
+    }
+    
+    .bj-btn {
+        @apply px-1.5 aspect-square text-sm font-semibold rounded-full flex items-center;
+        @apply border-2 border-dashed border-white text-white;
+
+        @screen lg {
+            @apply px-2 text-xl;
+        }
+    }
+}

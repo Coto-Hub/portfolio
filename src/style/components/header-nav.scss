@@ -1,11 +1,11 @@
 .header {
-  @apply w-full h-16 dark:bg-dark-500;
+  @apply w-full h-16 bg-dark-500;
 
   .header-container {
     @apply container h-full;
 
     .header-banner {
-      @apply flex w-3/4 h-full mx-auto;
+      @apply flex w-3/4 h-full mx-auto justify-between;
   
       .header-logo {
         @apply h-3/4 self-center aspect-square overflow-hidden;
@@ -13,6 +13,19 @@
   
         img {
           @apply mx-auto;
+        }
+      }
+
+      .header-nav {
+        @apply flex gap-x-2 items-center;
+      }
+
+      .player-login {
+        @apply flex text-white border-2 px-3 py-1 bg-dark-400;
+        @apply font-semibold rounded-full cursor-pointer;
+
+        &:hover {
+          @apply bg-dark-500;
         }
       }
     }

@@ -35,7 +35,7 @@
 <script>
 import playerHand from "./../blackjack/bj-hand.vue";
 import bjDeck from "./../blackjack/bj-deck.vue";
-import { BlackJack } from "./../../js/game";
+import { BlackJack } from "../../../assets/js/blackjack";
 
 export default {
   name: "BjTable",
@@ -86,10 +86,10 @@ export default {
       }
     },
     async playerClick(event) {
-      if (!this.userHand.isActive && !(this.userHand.split.isActive ?? false)) {
+      const isSplitTurn = this.userHand.hasSplit && (this.userHand.split ? this.userHand.split.isActive : false);
+      if (!this.userHand.isActive && !isSplitTurn) {
         return;
       }
-      const isSplitTurn = this.userHand.hasSplit && (this.userHand.split ? this.userHand.split.isActive : false);
       const currentHand = isSplitTurn ? this.userHand.split : this.userHand;
       switch (event) {
         case 'S':

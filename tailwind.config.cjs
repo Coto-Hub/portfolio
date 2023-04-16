@@ -17,7 +17,7 @@ module.exports = {
         },
         table: {
           "big-border": "#451D13",
-          border: "#6F2C19",
+          border: "#663300",
           center: "#2B6D30",
         },
         hand: {
@@ -26,6 +26,15 @@ module.exports = {
         },
         card: {
           red: "#DC143C",
+        },
+        palette: {
+          default: "",
+          1: "#FF0000",
+          2: "#003DC8",
+          3: "#FFF500",
+          4: "#00DD00",
+          5: "#FF9200",
+          6: "#FFFFFF",
         },
         bet: {
           green: '#0a8f0b',
@@ -37,6 +46,7 @@ module.exports = {
       },
       zIndex: {
         70: 70,
+        100: 100,
       },
       aspectRatio: {
         "2/1": "2 / 1",
@@ -44,6 +54,7 @@ module.exports = {
       },
       borderWidth: {
         6: "6px",
+        12: '12px',
       },
       transitionProperty: {
         "w-h": "width, height",
@@ -59,6 +70,7 @@ module.exports = {
         360: "360deg",
       },
       spacing: {
+        '0.8': '0.2rem',
         19: "4.75rem",
         23: "5.75rem",
         30: "7.5rem",

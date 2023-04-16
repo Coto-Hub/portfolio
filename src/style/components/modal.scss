@@ -1,0 +1,92 @@
+.modal-screen {
+    @apply inset-0 absolute bg-dark-500/70 z-70;
+    @apply flex justify-center items-center p-4;
+
+    .modal-container {
+        @apply relative bg-dark-400 w-full pt-5 pb-8 px-6 rounded-2xl;
+        @apply border-dark-200 border-6;
+
+        @screen md {
+            @apply w-1/2;
+        }
+
+        .modal-title {
+            @apply text-3xl mb-6 text-center font-bold;
+        }
+
+        .modal-close {
+            @apply absolute -top-1.5 -right-1.5 flex cursor-pointer bg-dark-300;
+            @apply w-10 aspect-square border-dark-200 border-6 rounded-full;
+
+            &:hover {
+                @apply bg-dark-400;
+            }
+
+            &::before, &::after {
+                @apply bg-black w-5 h-0.8 absolute top-1/2 left-1/2 rounded-full;
+                @apply -translate-x-1/2 -translate-y-1/2;
+                content: '';
+            }
+
+            &::before {
+                @apply rotate-45;
+            }
+            &::after {
+                @apply -rotate-45;
+            }
+        }
+
+        .modal-content {
+            @apply mt-5 flex flex-col items-center justify-center;
+
+            input {
+                @apply px-2 py-1 rounded-full text-lg text-black w-40 text-center font-bold;
+            }
+
+            label {
+                @apply flex font-bold text-dark-100 pb-4 text-lg items-center;
+
+                input {
+                    @apply ml-4 text-left;
+                }
+            }
+
+            .modal-score {
+                @apply pt-5 flex font-bold justify-center text-lg items-center cursor-default;
+
+                span {
+                    @apply ml-4 px-3 rounded-full border-4 text-black text-center bg-dark-200;
+                }
+            }
+
+            .modal-btn-container {
+                @apply mt-6 grid grid-cols-2 gap-x-8 text-center;
+
+                @screen lg {
+                    @apply gap-x-12;
+                }
+            }
+
+            .modal-btn {
+                @apply bg-dark-300 px-3 py-1 border-4 rounded-full flex items-center justify-center;
+                @apply font-semibold text-white cursor-pointer mt-4;
+
+                &:hover {
+                    @apply bg-dark-400;
+                }
+
+                &.disabled {
+                    @apply cursor-none bg-dark-400 text-dark-100;
+                }
+
+                &.reset {
+                    @apply bg-card-red;
+
+                    &:hover {
+                        @apply bg-red-800;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -25,7 +25,7 @@ export class BlackJack {
         this.setHandScore(playerHand.split, mainCount, mainHaveBj);
       }
     });
-    this.saveCookieMoney();
+    this.player.setCookie();
   }
 
   setHandScore(playerHand, mainCount, mainHaveBj) {
@@ -47,6 +47,9 @@ export class BlackJack {
     }
     if (!playerHand.isBot) {
       this.player.money += playerHand.playerScore;
+      if (this.player.money > this.player.highScore) {
+        this.player.highScore = this.player.money;
+      }
     }
   }
 
@@ -168,12 +171,6 @@ export class BlackJack {
       }
       playerHand.cards.push(this.cardPackage.cardReturn);
       this.cardPackage.cardReturn = undefined;
-    }
-  }
-
-  saveCookieMoney() {
-    if (localStorage.getItem('vue-cookie-accept-decline-myPanel1') === 'accept') {
-      localStorage.setItem('money', this.player.money);
     }
   }
 }

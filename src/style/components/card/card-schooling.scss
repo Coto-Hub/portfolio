@@ -1,0 +1,87 @@
+.card-schooling {
+    @apply w-2/3 flex flex-col items-center rounded-lg mt-16 mb-8 bg-dark-300;
+    @apply border-2 relative px-4 pt-10 pb-2 mx-8 shadow-md shadow-black;
+
+    &.active::before {
+        @apply w-4 absolute -top-16 -bottom-8 rounded-full bg-blue-200 -z-10;
+        content: "";
+    }
+
+    @screen md {
+        @apply w-1/2;
+
+        &::after {
+            @apply w-6 h-6 border-2 absolute top-1/2 -translate-y-1/2 rotate-45 bg-dark-300 -z-10;
+            content: "";
+        }
+
+        &:nth-child(2n) {
+            @apply -ml-6 mr-0 self-start;
+
+            &::after {
+                @apply right-0 translate-x-1/2;
+            }
+            &::before {
+                @apply -right-8 translate-x-0.5;
+            }
+        }
+        &:nth-child(2n+1) {
+            @apply ml-0 -mr-6 self-end;
+
+            &::after {
+                @apply left-0 -translate-x-1/2;
+            }
+            &::before {
+                @apply -left-8 -translate-x-0.5;
+            }
+
+            .card-footer {
+                @apply flex-row-reverse;
+
+                span {
+                    @apply pl-0 pr-6;
+
+                    i::after {
+                        @apply left-auto right-0;
+                    }
+                }
+            }
+        }
+    }
+
+    .card-img {
+        @apply rounded-full w-1/6 bg-white absolute top-0 -translate-y-1/2;
+        @apply border border-dark-500 shadow-sm shadow-black p-1;
+
+        @screen md {
+            @apply w-1/5;
+        }
+    }
+
+    .card-content {
+        @apply pb-2;
+
+        .card-title {
+            @apply text-lg font-semibold text-center mx-2;
+        }
+    }
+
+    .card-footer {
+        @apply flex justify-between items-center w-full font-semibold;
+
+        .card-location {
+            @apply flex flex-col items-center cursor-pointer;
+            p {
+                @apply cursor-pointer;
+            }
+        }
+
+        span {
+            @apply pl-4 relative font-medium;
+
+            i::after {
+                @apply w-5 absolute -left-2 -bottom-1;
+            }
+        }
+    }
+}

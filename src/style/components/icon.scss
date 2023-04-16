@@ -1,0 +1,5 @@
+.icon-map::after {
+    @apply block;
+    content: url('/icon/map.svg');
+}
+
