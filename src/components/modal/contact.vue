@@ -23,6 +23,8 @@
     </div>
 </template>
 <script>
+import emailjs from 'emailjs-com';
+
     
   export default {
       name: 'contactModal',
@@ -51,11 +53,15 @@
         closeModal() {
           this.navInfo.showContactModal = false;
         },
-        async sendEmail() {
-          axios.post("./mail.php", {})
-               .then(res => {
-                console.log(res);
-              });
+        sendEmail(e) {
+          try {
+            emailjs.sendForm('service_yrmqapj', 'template_qog7vfo', e.target, 'vizBlcVMZVBT10G-mQdqo', {
+              email: this.email,
+              message: this.message
+            })
+          } catch(error) {
+            console.log({error});
+          }
         }
       }
   }
