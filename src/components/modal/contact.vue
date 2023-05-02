@@ -55,9 +55,9 @@ import emailjs from 'emailjs-com';
         },
         sendEmail(e) {
           try {
-            emailjs.sendForm('service_yrmqapj', 'template_qog7vfo', e.target, 'vizBlcVMZVBT10G-mQdqo', {
-              email: this.email,
-              message: this.message
+            emailjs.sendForm('service_yrmqapj', 'template_qog7vfo', e.target, 'slMcOPpqC_8RvQZhN', {
+              email: this.form.email,
+              message: this.form.msg
             })
           } catch(error) {
             console.log({error});
