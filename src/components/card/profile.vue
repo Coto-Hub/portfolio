@@ -13,10 +13,8 @@
     <div class="card-content">
       <h1 class="card-title">Thomas MARTY</h1>
       <p class="card-text">
-        J’ai {{ getAge }} ans et je viens de valider ma licence professionnelle
-        en alternance, j’apprécie le challenge que représentent les projets
-        informatiques compliqués. J’aime travailler en équipe, le développement
-        agile est mon crédo.
+        J’ai {{ getAge }} ans et je viens de finir mon premier CDD en tant que développeur web fullstack.
+        Je suis passionné par le développement en grande partie pour l'adrénaline que me procure la résolution d'un problème compliqué.
       </p>
     </div>
   </section>

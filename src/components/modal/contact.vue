@@ -4,7 +4,7 @@
             <span class="modal-close" @click="closeModal"></span>
             <h1 class="modal-title">Contact</h1>
             <form class="part-form" @submit.prevent="sendEmail">
-                <p class="form-msg">{{ form.result }}</p>
+                <p :class="form.success ? 'text-result-success' : 'text-result-error'" class="form-msg">{{ form.result }}</p>
                 <div class="form-fields">
                     <label for="email">Email</label>
                     <input v-model="form.email" class="email" type="email" id="email" name="email" required>
@@ -41,12 +41,14 @@ import emailjs from 'emailjs-com';
                 email: "",
                 result: "",
                 checkbox: false,
+                success: false,
+                wait: false
             },
         }
       },
       computed: {
         canSubmit() {
-            return this.form.email !== "" && this.form.msg !== "" && this.form.checkbox !== false;
+            return this.form.email !== "" && this.form.msg !== "" && this.form.checkbox && !this.form.wait;
         }
       },
       methods: {
@@ -54,14 +56,23 @@ import emailjs from 'emailjs-com';
           this.navInfo.showContactModal = false;
         },
         sendEmail(e) {
-          try {
-            emailjs.sendForm('service_yrmqapj', 'template_qog7vfo', e.target, 'slMcOPpqC_8RvQZhN', {
+          this.form.wait = true;
+          this.form.checkbox = false;
+          emailjs.sendForm('service_yrmqapj', 'template_qog7vfo', e.target, 'slMcOPpqC_8RvQZhN', {
               email: this.form.email,
               message: this.form.msg
-            })
-          } catch(error) {
-            console.log({error});
-          }
+            }).then((result) => {
+              this.form.email = "";
+              this.form.msg = "";
+              this.form.result = "Le mail a bien été envoyé !";
+              this.form.success = true;
+              this.form.wait = false;
+            }, (error) => {
+              this.form.result = "Il y a eu un problème, veuillez réessayer ultérieurement";
+              this.form.success = false;
+              this.form.wait = false;
+              console.log('FAILED...', error.text);
+            });
         }
       }
   }

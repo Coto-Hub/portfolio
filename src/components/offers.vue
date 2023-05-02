@@ -3,12 +3,12 @@
         <h2 class="part-title">Offre exceptionnelle</h2>
         <div class="card-container">
             <div class="part part-left">
-                <h3 class="smal-title">Sociable</h3>
+                <h3 class="smal-title">Esprit d’équipe</h3>
                 <p>
-                    Vous cherchez à ajouter une touche de convivialité à votre lieu de travail ? Nous avons la solution ! Notre offre Socialble vous propose 007, un collègue sociable qui adore discuter et échanger avec ses collègues. Avec 0 compétence et 0 connaissance et 7 pauses café 007, c'est le parfait compagnon pour détendre l'atmosphère.
+                    Vous cherchez à renforcer l'esprit d'équipe sur votre lieu de travail ? Nous avons la solution ! Cette offre vous propose un collègue toujours prêt à collaborer et à échanger avec ses pairs. Avec 0 compétence, 0 connaissance et 7 pauses café 007, c'est le parfait compagnon pour détendre l'atmosphère.
                 </p>
                 <ul class="part-list">
-                    <li>Sociable</li>
+                    <li>Esprit d’équipe</li>
                 </ul>
                 <button class="btn-disabled">Aucun stock</button>
             </div>

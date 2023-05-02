@@ -46,6 +46,10 @@ module.exports = {
         screen: {
           light: '#333333',
           dark: '#222222',
+        },
+        result: {
+          success: '#00FF00',
+          error: '#AE1313'
         }
       },
       zIndex: {
