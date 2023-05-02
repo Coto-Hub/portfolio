@@ -67,7 +67,11 @@
     }
 
     .card-footer {
-        @apply flex justify-between items-center w-full font-semibold;
+        @apply flex justify-between items-center w-full font-semibold text-sm;
+
+        @screen md {
+            @apply text-base;
+        }
 
         .card-location {
             @apply flex flex-col items-center cursor-pointer;

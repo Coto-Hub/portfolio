@@ -736,7 +736,12 @@
   @apply text-lg font-semibold text-center mx-2;
 }
 .card-schooling .card-footer {
-  @apply flex justify-between items-center w-full font-semibold;
+  @apply flex justify-between items-center w-full font-semibold text-sm;
+}
+@screen md {
+  .card-schooling .card-footer {
+    @apply text-base;
+  }
 }
 .card-schooling .card-footer .card-location {
   @apply flex flex-col items-center cursor-pointer;
