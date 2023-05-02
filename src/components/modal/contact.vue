@@ -51,14 +51,16 @@
         closeModal() {
           this.navInfo.showContactModal = false;
         },
-        // sendEmail() {
-        //     emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this.$refs.form, 'YOUR_PUBLIC_KEY')
-        //     .then((result) => {
-        //         console.log('SUCCESS!', result.text);
-        //     }, (error) => {
-        //         console.log('FAILED...', error.text);
-        //     });
-        // }
+        async sendEmail() {
+          const requestOptions = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ title: "Vue POST Request Example" })
+          };
+          const response = await fetch("./mail.php", requestOptions);
+          const data = await response.json();
+          this.postId = data.id;
+        }
       }
   }
   </script>
