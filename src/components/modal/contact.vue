@@ -52,14 +52,10 @@
           this.navInfo.showContactModal = false;
         },
         async sendEmail() {
-          this.$axios
-             .post(
-                 "./mail.php",
-                  querystring.stringify(this.form)
-             )
-             .then(res => {
-              console.log(res);
-             });
+          axios.post("./mail.php", {})
+               .then(res => {
+                console.log(res);
+              });
         }
       }
   }
