@@ -37,7 +37,7 @@ export default {
     nav(value) {
       switch (value) {
         case 'player-login':
-          this.navInfo.showModalLogin = true;
+          this.navInfo.showLoginModal = true;
           break;
       }
     }

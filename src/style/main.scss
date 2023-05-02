@@ -4,11 +4,16 @@
 
 @import 'components/header-nav';
 @import 'components/modal';
-@import 'components/schooling';
+@import 'components/career';
+@import 'components/contact';
 @import 'components/icon';
+@import 'components/schooling';
+@import 'components/screen';
+@import 'components/offers';
 
-@import 'components/card/card-profile';
-@import 'components/card/card-schooling';
+@import 'components/card/profile';
+@import 'components/card/career';
+@import 'components/card/schooling';
 
 @import 'components/games/blackjack/bj-deck';
 @import 'components/games/blackjack/bj-hand';
@@ -43,6 +48,39 @@ html {
   }
 }
 
-h1, h2, p {
+h1, h2, h3, ul, li, p {
   @apply cursor-default;
+}
+
+button {
+  @apply flex justify-center items-center px-2 py-1 border-2 self-center mt-4 font-bold;
+  @apply rounded-md cursor-pointer text-xs;
+
+  span {
+    @apply ml-2;
+  }
+
+  &.btn-primary {
+    @apply border-white bg-dark-200;
+
+    &.disabled, &:hover {
+      @apply bg-dark-300 border-dark-400;
+    }
+
+    &.disabled {
+      @apply cursor-default;
+    }
+  }
+
+  &.btn-disabled {
+    @apply cursor-not-allowed bg-dark-400 border-dark-500;
+  }
+
+  &.btn-secondary {
+    @apply bg-dark-400 border-dark-200;
+  
+    &:not(.disabled):hover {
+        @apply border-dark-400 bg-dark-500 text-white;
+    }
+  }
 }

@@ -17,7 +17,7 @@
     <template #postponeContent>&times;</template>
     
     <template #message>
-        J'aimerais utiliser les cookies pour sauvergarder votre score &#128517
+      Avant d'accepter les cookies, nous souhaitons vous informer que ceux-ci seront utilisés pour sauvegarder votre score si vous souhaitez vous connecter afin de sauvegarder vos données de jeux. &#128517
     </template>
     
     <template #declineContent>Refuser</template>

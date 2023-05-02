@@ -1,5 +1,5 @@
 .card-schooling {
-    @apply w-2/3 flex flex-col items-center rounded-lg mt-16 mb-8 bg-dark-300;
+    @apply flex flex-col items-center rounded-lg mt-8 mb-4 bg-dark-300;
     @apply border-2 relative px-4 pt-10 pb-2 mx-8 shadow-md shadow-black;
 
     &.active::before {

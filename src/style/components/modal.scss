@@ -1,5 +1,5 @@
 .modal-screen {
-    @apply inset-0 absolute bg-dark-500/70 z-70;
+    @apply inset-0 fixed bg-dark-500/70 z-70;
     @apply flex justify-center items-center p-4;
 
     .modal-container {
@@ -11,7 +11,7 @@
         }
 
         .modal-title {
-            @apply text-3xl mb-6 text-center font-bold;
+            @apply text-2xl mb-6 text-center font-bold;
         }
 
         .modal-close {

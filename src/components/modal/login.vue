@@ -73,7 +73,7 @@ export default {
       },
       closeModal() {
         this.player.reset = false;
-        this.navInfo.showModalLogin = false;
+        this.navInfo.showLoginModal = false;
       }
     }
 }

@@ -1,0 +1,55 @@
+.modal-screen .modal-container.modal-contact {
+    @apply bg-dark-300;
+
+    .modal-title {
+        @apply mb-0;
+    }
+
+    .part-form {
+        @apply flex flex-col self-center;
+
+        .form-msg {
+            @apply text-base font-medium text-center h-4 flex items-center justify-center mt-1;
+        }
+
+        .form-fields {
+            @apply flex flex-col my-1;
+
+            label {
+                @apply text-base font-semibold text-left mb-1;
+            }
+            textarea, input {
+                @apply p-1 rounded-md focus:ring-0 outline-0 border-2 border-dark-400 bg-dark-100;
+                @apply text-sm font-medium;
+            }
+
+            textarea {
+                @apply aspect-2/1;
+            }
+        }
+    }
+
+    .form-checkbox {
+        @apply flex items-center mt-2 ml-1;
+
+        .checkbox {
+            @apply accent-dark-300 focus:ring-0 outline outline-2 outline-dark-400 -outline-offset-2;
+            @apply w-5 h-5 rounded;
+        }
+        
+        .link-checkbox {
+            @apply ml-2 text-sm font-medium;
+            a {
+                @apply text-white hover:underline;
+            }
+    
+            @screen lg {
+                @apply text-sm;
+            }
+        }
+    }
+
+    button {
+        @apply text-base;
+    }
+}

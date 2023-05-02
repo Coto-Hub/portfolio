@@ -22,7 +22,7 @@
 
       .player-login {
         @apply flex text-white border-2 px-3 py-1 bg-dark-400;
-        @apply font-semibold rounded-full cursor-pointer;
+        @apply font-semibold rounded-full cursor-pointer text-sm;
 
         &:hover {
           @apply bg-dark-500;

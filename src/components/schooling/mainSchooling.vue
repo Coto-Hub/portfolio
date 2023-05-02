@@ -1,6 +1,6 @@
 <template>
   <section class="schooling-container">
-    <h2 class="part-title">Mon parcours scolaire</h2>
+    <h2 class="part-title">L'historique de notre offre</h2>
     <div class="schooling-timeline">
       <schoolingCard v-for="(c, i) in schooling" :key="i" :card="c" />
     </div>
@@ -8,7 +8,7 @@
 </template>
 <script>
 import schoolingData from './../../assets/json/schooling.json';
-import schoolingCard from "./../card/schooling.vue";
+import schoolingCard from './../card/schooling.vue';
 
 export default {
     name: 'mainSchooling',

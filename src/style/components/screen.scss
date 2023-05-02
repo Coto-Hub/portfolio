@@ -1,0 +1,231 @@
+.screen-container section {
+    @apply flex gap-x-6 h-full absolute inset-0;
+
+    .screen-title {
+        @apply absolute top-0 left-1/2 p-2 -translate-x-1/2 text-center text-sm font-bold w-full;
+        @apply justify-center;
+
+        @screen md {
+            @apply text-lg;
+        }
+        @screen lg {
+            @apply text-xl;
+        }
+        @screen xl {
+            @apply text-2xl;
+        }
+        @screen 2xl {
+            @apply text-3xl;
+        }
+        span {
+            @apply ml-1;
+        }
+    }
+
+    .part-content {
+        @apply pt-14 h-full flex flex-col justify-around;
+
+        .part-subtitle {
+            @apply font-semibold text-xs;
+        }
+        .part-text {
+            @apply text-justify text-xs mt-1 text-ellipsis break-words overflow-hidden w-full h-8;
+            -webkit-line-clamp: 2;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+
+            @screen xl {
+                -webkit-line-clamp: 3;
+                @apply h-16 text-sm;
+            }
+            @screen 2xl {
+                -webkit-line-clamp: 4;
+                @apply h-20;
+            }
+        }
+        .show-more {
+            @apply flex text-xs border border-black p-1 self-center;
+        }
+    }
+
+    .screen-logo {
+        @apply -translate-y-full translate-x-full top-0 right-0 absolute w-1/12 z-10;
+    }
+
+    &:hover {
+        .screen-logo {
+            @apply translate-x-0 translate-y-0;
+        }
+    }
+}
+
+.screen-container {
+    .screen-title {
+        @apply text-white font-extrabold uppercase z-10 h-1/10 flex items-center;
+
+        span {
+            @apply text-[#00B5E0];
+        }
+    }
+    .screen-aldi {
+        @apply w-full bg-[#232B76] flex justify-center items-center gap-0 overflow-hidden;
+
+        &::after {
+            @apply absolute bottom-0 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-9/10 h-8/10 overflow-hidden;
+            content: url('/aldi.svg');
+        }
+    
+        .part-content {
+            @apply w-9/20 h-8/10 px-4 py-0 relative z-10 flex justify-center;
+
+            .part-subtitle {
+                @apply flex w-full h-full justify-center items-center text-center;
+                @apply font-bold text-sm h-20;
+
+                @screen xl {
+                    @apply px-8 text-base h-24;
+                }
+            }
+
+            .part-img {
+                @apply w-7/25 flex self-start mx-auto;
+            }
+
+            .part-info {
+                @apply font-semibold text-justify flex flex-col justify-between px-2;
+                @apply text-black;
+
+                .part-text {
+                    @apply mt-0;
+                }
+
+                .show-more {
+                    @apply rounded-sm shadow-md font-bold text-xs border-2 px-1 cursor-pointer mt-2;
+
+                    @screen lg {
+                        @apply text-sm px-2;
+                    }
+                }
+            }
+
+            &:nth-child(2) {
+                @apply text-white;
+
+                .show-more {
+                    @apply text-[#00B5E0] bg-white border-white;
+
+                    &:hover {
+                        @apply bg-[#00B5E0] text-white;
+                    }
+                }
+            }
+            &:nth-child(3) {
+                @apply text-[#00B5E0];
+
+                .show-more {
+                    @apply text-white bg-[#00B5E0] border-[#00B5E0];
+
+                    &:hover {
+                        @apply bg-white text-[#00B5E0];
+                    }
+                }
+            }
+        }
+        .screen-modal {
+            @apply absolute w-8/10 aspect-16/9 bg-white z-10 border-8;
+            @apply flex flex-col justify-around shadow-2xl shadow-dark-500 p-4;
+
+            .modal-title {
+                @apply text-base font-bold text-center;
+
+                @screen lg {
+                    @apply text-lg;
+                }
+
+                @screen xl {
+                    @apply text-xl;
+                }
+
+                @screen 2xl {
+                    @apply text-2xl;
+                }
+            }
+            .modal-content {
+                @apply text-xs text-justify;
+
+                @screen xl {
+                    @apply text-sm;
+                }
+                @screen 2xl {
+                    @apply text-lg;
+                }
+            }
+
+            .modal-close {
+                @apply absolute top-0 right-0 w-6 h-6 rounded-full border-2 cursor-pointer;
+                @apply translate-x-1/2 -translate-y-1/2 invert border-[#1a1814] bg-[#0db2ae];
+                content: url('/icon/cancel.svg');
+
+                &:hover {
+                    @apply bg-[#11e2dc];
+                }
+
+                @screen xl {
+                    @apply w-8 h-8;
+                }
+            }
+        }
+    }
+    .screen-legrand {
+        @apply bg-[#dc2d20] flex items-center justify-center;
+
+        .screen-logo {
+            @apply p-3 w-28 bg-white/70;
+        }
+
+        .screen-title {
+            @apply h-1/5 text-white text-center;
+        }
+
+        .part-content {
+            @apply bg-white w-9/10 h-27/40 flex flex-col justify-center pt-0 mt-8 rounded-3xl;
+
+            .part-info {
+                @apply flex flex-col justify-around h-full px-8;
+            }
+            .show-more {
+                @apply hidden;
+            }
+
+            .part-text {
+                @apply flex h-auto font-medium;
+            }
+        }
+    }
+    .screen-pixine {
+        @apply bg-[#EA675A] flex items-center justify-center;
+
+        .screen-logo {
+            @apply p-2 w-16;
+        }
+
+        .screen-title {
+            @apply h-1/5 text-white text-center;
+        }
+
+        .part-content {
+            @apply w-9/10 h-27/40 flex flex-col justify-center pt-0 mt-8 rounded-3xl;
+
+            .part-info {
+                @apply flex flex-col justify-around h-full px-8;
+            }
+            .show-more {
+                @apply hidden;
+            }
+
+            .part-text {
+                @apply flex h-auto font-medium;
+            }
+        }
+    }
+}

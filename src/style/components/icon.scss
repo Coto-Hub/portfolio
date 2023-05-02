@@ -2,4 +2,8 @@
     @apply block;
     content: url('/icon/map.svg');
 }
+.icon-arrow::after {
+    @apply block w-3/4;
+    content: url('/icon/arrow.svg');
+}
 

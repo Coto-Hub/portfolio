@@ -1,5 +1,5 @@
 <template>
-  <section class="card card-schooling">
+  <section class="card card-career">
     <div class="card-img">
       <img :src="`data:${card.logo.mime};base64,${card.logo.data}`" alt="Logo"/>
     </div>
@@ -20,7 +20,7 @@
 <script>
   
 export default {
-    name: 'schoolingCard',
+    name: 'careerCard',
     props: {
       card: {
         type: Object,

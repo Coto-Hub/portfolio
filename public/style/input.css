@@ -22,14 +22,14 @@
 }
 .header .header-container .header-banner .player-login {
   @apply flex text-white border-2 px-3 py-1 bg-dark-400;
-  @apply font-semibold rounded-full cursor-pointer;
+  @apply font-semibold rounded-full cursor-pointer text-sm;
 }
 .header .header-container .header-banner .player-login:hover {
   @apply bg-dark-500;
 }
 
 .modal-screen {
-  @apply inset-0 absolute bg-dark-500/70 z-70;
+  @apply inset-0 fixed bg-dark-500/70 z-70;
   @apply flex justify-center items-center p-4;
 }
 .modal-screen .modal-container {
@@ -42,7 +42,7 @@
   }
 }
 .modal-screen .modal-container .modal-title {
-  @apply text-3xl mb-6 text-center font-bold;
+  @apply text-2xl mb-6 text-center font-bold;
 }
 .modal-screen .modal-container .modal-close {
   @apply absolute -top-1.5 -right-1.5 flex cursor-pointer bg-dark-300;
@@ -105,6 +105,130 @@
   @apply bg-red-800;
 }
 
+.career-container {
+  @apply w-full px-8 flex flex-col;
+}
+@screen md {
+  .career-container {
+    @apply px-16;
+  }
+}
+.career-container .screen-structure {
+  @apply flex flex-col mt-12 justify-center items-center relative bg-screen-light;
+  @apply w-full aspect-16/9 self-center rounded-lg mb-30 p-3/100;
+}
+@screen lg {
+  .career-container .screen-structure {
+    @apply p-3/200 w-8/12;
+  }
+}
+.career-container .screen-structure::before {
+  @apply absolute bottom-0 w-3/10 aspect-3/1 bg-screen-dark translate-y-full -z-10;
+  content: "";
+}
+.career-container .screen-structure::after {
+  @apply absolute -bottom-1/5 w-11/20 aspect-20/1 bg-screen-light rounded-t-lg;
+  content: "";
+}
+.career-container .screen-structure .screen-container {
+  @apply w-full h-full relative overflow-hidden;
+}
+.career-container .screen-structure .screen-container .screen-footer {
+  @apply absolute w-full h-auto bottom-0 flex translate-y-full transition-all;
+  @apply bg-dark-400/70 justify-around p-3 z-20;
+}
+.career-container .screen-structure .screen-container .screen-footer span {
+  @apply flex justify-center items-center aspect-square border border-black;
+  @apply w-6 h-6 cursor-pointer rounded-full;
+}
+.career-container .screen-structure .screen-container .screen-footer span .icon-arrow {
+  @apply flex justify-center w-full;
+}
+.career-container .screen-structure .screen-container .screen-footer span .icon-arrow::after {
+  @apply pt-1;
+}
+.career-container .screen-structure .screen-container .screen-footer span:hover {
+  @apply bg-dark-400;
+}
+.career-container .screen-structure .screen-container .screen-footer span.previous-btn {
+  @apply rotate-90;
+}
+.career-container .screen-structure .screen-container .screen-footer span.next-btn {
+  @apply -rotate-90;
+}
+.career-container .screen-structure .screen-container .screen-footer span.progress-bar {
+  @apply w-10/12 h-2 self-center bg-white relative justify-start -z-10;
+}
+.career-container .screen-structure .screen-container .screen-footer span.progress-bar .bar {
+  @apply block h-full relative rounded-full bg-red-700 transition-all duration-700;
+  content: "";
+}
+.career-container .screen-structure .screen-container .screen-footer span.progress-bar .bar::after {
+  @apply block w-4 h-4 rounded-full bg-red-700 border border-black;
+  @apply absolute -right-px top-1/2 -translate-y-1/2 -z-10;
+  content: "";
+}
+.career-container .screen-structure .screen-container:hover .screen-footer {
+  @apply translate-y-0;
+}
+
+.modal-screen .modal-container.modal-contact {
+  @apply bg-dark-300;
+}
+.modal-screen .modal-container.modal-contact .modal-title {
+  @apply mb-0;
+}
+.modal-screen .modal-container.modal-contact .part-form {
+  @apply flex flex-col self-center;
+}
+.modal-screen .modal-container.modal-contact .part-form .form-msg {
+  @apply text-base font-medium text-center h-4 flex items-center justify-center mt-1;
+}
+.modal-screen .modal-container.modal-contact .part-form .form-fields {
+  @apply flex flex-col my-1;
+}
+.modal-screen .modal-container.modal-contact .part-form .form-fields label {
+  @apply text-base font-semibold text-left mb-1;
+}
+.modal-screen .modal-container.modal-contact .part-form .form-fields textarea, .modal-screen .modal-container.modal-contact .part-form .form-fields input {
+  @apply p-1 rounded-md focus:ring-0 outline-0 border-2 border-dark-400 bg-dark-100;
+  @apply text-sm font-medium;
+}
+.modal-screen .modal-container.modal-contact .part-form .form-fields textarea {
+  @apply aspect-2/1;
+}
+.modal-screen .modal-container.modal-contact .form-checkbox {
+  @apply flex items-center mt-2 ml-1;
+}
+.modal-screen .modal-container.modal-contact .form-checkbox .checkbox {
+  @apply accent-dark-300 focus:ring-0 outline outline-2 outline-dark-400 -outline-offset-2;
+  @apply w-5 h-5 rounded;
+}
+.modal-screen .modal-container.modal-contact .form-checkbox .link-checkbox {
+  @apply ml-2 text-sm font-medium;
+}
+.modal-screen .modal-container.modal-contact .form-checkbox .link-checkbox a {
+  @apply text-white hover:underline;
+}
+@screen lg {
+  .modal-screen .modal-container.modal-contact .form-checkbox .link-checkbox {
+    @apply text-sm;
+  }
+}
+.modal-screen .modal-container.modal-contact button {
+  @apply text-base;
+}
+
+.icon-map::after {
+  @apply block;
+  content: url("/icon/map.svg");
+}
+
+.icon-arrow::after {
+  @apply block w-3/4;
+  content: url("/icon/arrow.svg");
+}
+
 .schooling-container {
   @apply w-full px-8 flex flex-col;
 }
@@ -126,9 +250,309 @@
   }
 }
 
-.icon-map::after {
-  @apply block;
-  content: url("/icon/map.svg");
+.screen-container section {
+  @apply flex gap-x-6 h-full absolute inset-0;
+}
+.screen-container section .screen-title {
+  @apply absolute top-0 left-1/2 p-2 -translate-x-1/2 text-center text-sm font-bold w-full;
+  @apply justify-center;
+}
+@screen md {
+  .screen-container section .screen-title {
+    @apply text-lg;
+  }
+}
+@screen lg {
+  .screen-container section .screen-title {
+    @apply text-xl;
+  }
+}
+@screen xl {
+  .screen-container section .screen-title {
+    @apply text-2xl;
+  }
+}
+@screen 2xl {
+  .screen-container section .screen-title {
+    @apply text-3xl;
+  }
+}
+.screen-container section .screen-title span {
+  @apply ml-1;
+}
+.screen-container section .part-content {
+  @apply pt-14 h-full flex flex-col justify-around;
+}
+.screen-container section .part-content .part-subtitle {
+  @apply font-semibold text-xs;
+}
+.screen-container section .part-content .part-text {
+  @apply text-justify text-xs mt-1 text-ellipsis break-words overflow-hidden w-full h-8;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+@screen xl {
+  .screen-container section .part-content .part-text {
+    -webkit-line-clamp: 3;
+    @apply h-16 text-sm;
+  }
+}
+@screen 2xl {
+  .screen-container section .part-content .part-text {
+    -webkit-line-clamp: 4;
+    @apply h-20;
+  }
+}
+.screen-container section .part-content .show-more {
+  @apply flex text-xs border border-black p-1 self-center;
+}
+.screen-container section .screen-logo {
+  @apply -translate-y-full translate-x-full top-0 right-0 absolute w-1/12 z-10;
+}
+.screen-container section:hover .screen-logo {
+  @apply translate-x-0 translate-y-0;
+}
+
+.screen-container .screen-title {
+  @apply text-white font-extrabold uppercase z-10 h-1/10 flex items-center;
+}
+.screen-container .screen-title span {
+  @apply text-[#00B5E0];
+}
+.screen-container .screen-aldi {
+  @apply w-full bg-[#232B76] flex justify-center items-center gap-0 overflow-hidden;
+}
+.screen-container .screen-aldi::after {
+  @apply absolute bottom-0 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-9/10 h-8/10 overflow-hidden;
+  content: url("/aldi.svg");
+}
+.screen-container .screen-aldi .part-content {
+  @apply w-9/20 h-8/10 px-4 py-0 relative z-10 flex justify-center;
+}
+.screen-container .screen-aldi .part-content .part-subtitle {
+  @apply flex w-full h-full justify-center items-center text-center;
+  @apply font-bold text-sm h-20;
+}
+@screen xl {
+  .screen-container .screen-aldi .part-content .part-subtitle {
+    @apply px-8 text-base h-24;
+  }
+}
+.screen-container .screen-aldi .part-content .part-img {
+  @apply w-7/25 flex self-start mx-auto;
+}
+.screen-container .screen-aldi .part-content .part-info {
+  @apply font-semibold text-justify flex flex-col justify-between px-2;
+  @apply text-black;
+}
+.screen-container .screen-aldi .part-content .part-info .part-text {
+  @apply mt-0;
+}
+.screen-container .screen-aldi .part-content .part-info .show-more {
+  @apply rounded-sm shadow-md font-bold text-xs border-2 px-1 cursor-pointer mt-2;
+}
+@screen lg {
+  .screen-container .screen-aldi .part-content .part-info .show-more {
+    @apply text-sm px-2;
+  }
+}
+.screen-container .screen-aldi .part-content:nth-child(2) {
+  @apply text-white;
+}
+.screen-container .screen-aldi .part-content:nth-child(2) .show-more {
+  @apply text-[#00B5E0] bg-white border-white;
+}
+.screen-container .screen-aldi .part-content:nth-child(2) .show-more:hover {
+  @apply bg-[#00B5E0] text-white;
+}
+.screen-container .screen-aldi .part-content:nth-child(3) {
+  @apply text-[#00B5E0];
+}
+.screen-container .screen-aldi .part-content:nth-child(3) .show-more {
+  @apply text-white bg-[#00B5E0] border-[#00B5E0];
+}
+.screen-container .screen-aldi .part-content:nth-child(3) .show-more:hover {
+  @apply bg-white text-[#00B5E0];
+}
+.screen-container .screen-aldi .screen-modal {
+  @apply absolute w-8/10 aspect-16/9 bg-white z-10 border-8;
+  @apply flex flex-col justify-around shadow-2xl shadow-dark-500 p-4;
+}
+.screen-container .screen-aldi .screen-modal .modal-title {
+  @apply text-base font-bold text-center;
+}
+@screen lg {
+  .screen-container .screen-aldi .screen-modal .modal-title {
+    @apply text-lg;
+  }
+}
+@screen xl {
+  .screen-container .screen-aldi .screen-modal .modal-title {
+    @apply text-xl;
+  }
+}
+@screen 2xl {
+  .screen-container .screen-aldi .screen-modal .modal-title {
+    @apply text-2xl;
+  }
+}
+.screen-container .screen-aldi .screen-modal .modal-content {
+  @apply text-xs text-justify;
+}
+@screen xl {
+  .screen-container .screen-aldi .screen-modal .modal-content {
+    @apply text-sm;
+  }
+}
+@screen 2xl {
+  .screen-container .screen-aldi .screen-modal .modal-content {
+    @apply text-lg;
+  }
+}
+.screen-container .screen-aldi .screen-modal .modal-close {
+  @apply absolute top-0 right-0 w-6 h-6 rounded-full border-2 cursor-pointer;
+  @apply translate-x-1/2 -translate-y-1/2 invert border-[#1a1814] bg-[#0db2ae];
+  content: url("/icon/cancel.svg");
+}
+.screen-container .screen-aldi .screen-modal .modal-close:hover {
+  @apply bg-[#11e2dc];
+}
+@screen xl {
+  .screen-container .screen-aldi .screen-modal .modal-close {
+    @apply w-8 h-8;
+  }
+}
+.screen-container .screen-legrand {
+  @apply bg-[#dc2d20] flex items-center justify-center;
+}
+.screen-container .screen-legrand .screen-logo {
+  @apply p-3 w-28 bg-white/70;
+}
+.screen-container .screen-legrand .screen-title {
+  @apply h-1/5 text-white text-center;
+}
+.screen-container .screen-legrand .part-content {
+  @apply bg-white w-9/10 h-27/40 flex flex-col justify-center pt-0 mt-8 rounded-3xl;
+}
+.screen-container .screen-legrand .part-content .part-info {
+  @apply flex flex-col justify-around h-full px-8;
+}
+.screen-container .screen-legrand .part-content .show-more {
+  @apply hidden;
+}
+.screen-container .screen-legrand .part-content .part-text {
+  @apply flex h-auto font-medium;
+}
+.screen-container .screen-pixine {
+  @apply bg-[#EA675A] flex items-center justify-center;
+}
+.screen-container .screen-pixine .screen-logo {
+  @apply p-2 w-16;
+}
+.screen-container .screen-pixine .screen-title {
+  @apply h-1/5 text-white text-center;
+}
+.screen-container .screen-pixine .part-content {
+  @apply w-9/10 h-27/40 flex flex-col justify-center pt-0 mt-8 rounded-3xl;
+}
+.screen-container .screen-pixine .part-content .part-info {
+  @apply flex flex-col justify-around h-full px-8;
+}
+.screen-container .screen-pixine .part-content .show-more {
+  @apply hidden;
+}
+.screen-container .screen-pixine .part-content .part-text {
+  @apply flex h-auto font-medium;
+}
+
+.offers-container {
+  @apply flex flex-col;
+}
+.offers-container .card-container {
+  @apply py-10 px-6 flex flex-col space-y-6 self-center;
+}
+@screen sm {
+  .offers-container .card-container {
+    @apply w-2/3 px-0;
+  }
+}
+@screen md {
+  .offers-container .card-container {
+    @apply grid grid-cols-3 w-full px-6;
+  }
+}
+@screen lg {
+  .offers-container .card-container {
+    @apply px-12;
+  }
+}
+.offers-container .card-container .smal-title {
+  @apply text-lg font-bold pb-1 text-dark-500;
+}
+.offers-container .card-container .part {
+  @apply w-full flex flex-col justify-center p-4 border-4 text-center text-xs;
+  @apply bg-dark-300 border-dark-500 shadow-2xl font-medium rounded-2xl overflow-hidden;
+}
+@screen md {
+  .offers-container .card-container .part {
+    @apply rounded-none;
+  }
+}
+@screen lg {
+  .offers-container .card-container .part {
+    @apply text-sm;
+  }
+}
+.offers-container .card-container .part-left {
+  @apply self-end;
+}
+@screen md {
+  .offers-container .card-container .part-left {
+    @apply rounded-l-3xl border-r-0;
+  }
+}
+.offers-container .card-container .part-middle {
+  @apply bg-dark-200 relative;
+}
+@screen md {
+  .offers-container .card-container .part-middle {
+    @apply rounded-t-3xl;
+  }
+}
+.offers-container .card-container .part-middle .part-active {
+  @apply absolute inset-0 border-0 translate-y-full transition-all duration-700 flex flex-col;
+}
+@screen md {
+  .offers-container .card-container .part-middle .part-active {
+    @apply rounded-t-2xl;
+  }
+}
+.offers-container .card-container .part-middle.active .part-active {
+  @apply translate-y-0;
+}
+.offers-container .card-container .part-right {
+  @apply self-end;
+}
+@screen md {
+  .offers-container .card-container .part-right {
+    @apply rounded-r-3xl border-l-0;
+  }
+}
+.offers-container .card-container ul.part-list {
+  @apply flex flex-col items-center space-y-1.5 pt-2;
+}
+.offers-container .card-container ul.part-list li {
+  @apply flex text-center font-semibold;
+}
+.offers-container .card-container ul.part-list li::before {
+  @apply flex self-center w-5 aspect-square bg-no-repeat bg-center mr-1;
+  content: "";
+  background-image: url("/icon/confirm.svg");
+  background-size: 80%;
+}
+.offers-container .card-container .part-btn {
+  @apply flex space-x-3 justify-center;
 }
 
 .card-profile {
@@ -160,7 +584,7 @@
 }
 
 .card-schooling {
-  @apply w-2/3 flex flex-col items-center rounded-lg mt-16 mb-8 bg-dark-300;
+  @apply flex flex-col items-center rounded-lg mt-8 mb-4 bg-dark-300;
   @apply border-2 relative px-4 pt-10 pb-2 mx-8 shadow-md shadow-black;
 }
 .card-schooling.active::before {
@@ -347,7 +771,7 @@
   @apply left-7/25 rotate-45;
 }
 .hand-container:nth-child(5) {
-  @apply top-3/5;
+  @apply top-3/4;
 }
 .hand-container:nth-child(6) {
   @apply right-7/25 -rotate-45;
@@ -827,8 +1251,34 @@ html {
   @apply -bottom-4 top-auto;
 }
 
-h1, h2, p {
+h1, h2, h3, ul, li, p {
   @apply cursor-default;
+}
+
+button {
+  @apply flex justify-center items-center px-2 py-1 border-2 self-center mt-4 font-bold;
+  @apply rounded-md cursor-pointer text-xs;
+}
+button span {
+  @apply ml-2;
+}
+button.btn-primary {
+  @apply border-white bg-dark-200;
+}
+button.btn-primary.disabled, button.btn-primary:hover {
+  @apply bg-dark-300 border-dark-400;
+}
+button.btn-primary.disabled {
+  @apply cursor-default;
+}
+button.btn-disabled {
+  @apply cursor-not-allowed bg-dark-400 border-dark-500;
+}
+button.btn-secondary {
+  @apply bg-dark-400 border-dark-200;
+}
+button.btn-secondary:not(.disabled):hover {
+  @apply border-dark-400 bg-dark-500 text-white;
 }
 
 /*# sourceMappingURL=input.css.map */
