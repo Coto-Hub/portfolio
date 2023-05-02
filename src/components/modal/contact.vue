@@ -52,7 +52,6 @@
           this.navInfo.showContactModal = false;
         },
         async sendEmail() {
-          e.preventDefault();
           this.$axios
              .post(
                  "./mail.php",
