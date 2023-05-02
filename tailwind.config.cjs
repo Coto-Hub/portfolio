@@ -104,6 +104,7 @@ module.exports = {
       },
       fontSize: {
         0: "0rem",
+        xxs: '0.5rem',
       },
       keyframes: {
         wiggle: {

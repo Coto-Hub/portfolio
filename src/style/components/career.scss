@@ -1,5 +1,9 @@
 .career-container {
-    @apply w-full px-8 flex flex-col;
+    @apply w-full px-3 flex flex-col;
+
+    @screen sm {
+        @apply px-8;
+    }
 
     @screen md {
         @apply px-16;
@@ -26,18 +30,30 @@
             @apply w-full h-full relative overflow-hidden;
 
             .screen-footer {
-                @apply absolute w-full h-auto bottom-0 flex translate-y-full transition-all;
-                @apply bg-dark-400/70 justify-around p-3 z-20;
+                @apply absolute w-full h-auto bottom-0 flex transition-all;
+                @apply bg-dark-400/70 justify-around p-1 z-20;
+
+                @screen sm {
+                    @apply translate-y-full p-3;
+                }
             
                 span {
                     @apply flex justify-center items-center aspect-square border border-black;
-                    @apply w-6 h-6 cursor-pointer rounded-full;
+                    @apply w-4 h-4 cursor-pointer rounded-full;
+
+                    @screen sm {
+                        @apply w-6 h-6;
+                    }
 
                     .icon-arrow {
                         @apply flex justify-center w-full;
 
                         &::after {
-                            @apply pt-1;
+                            @apply pb-0.5;
+
+                            @screen sm {
+                                @apply pt-1;
+                            }
                         }
                     }
 
@@ -51,6 +67,9 @@
                     &.next-btn {
                         @apply -rotate-90;
                     }
+                    &.disabled {
+                        @apply opacity-0 cursor-default;
+                    }
 
                     &.progress-bar {
                         @apply w-10/12 h-2 self-center bg-white relative justify-start -z-10;
@@ -61,7 +80,7 @@
 
                             &::after {
                                 @apply block w-4 h-4 rounded-full bg-red-700 border border-black;
-                                @apply absolute -right-px top-1/2 -translate-y-1/2 -z-10;
+                                @apply absolute -right-px top-1/2 -translate-y-1/2 translate-x-1/2 -z-10;
                                 content: "";
                             }
                         }

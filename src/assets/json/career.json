@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "isActive": false,
+        "isActive": true,
         "name": "aldi",
         "title": "Vous avez le choix,<span>à prix ALDI !</span>",
         "parts": [
@@ -15,7 +15,7 @@
                 }
             },
             {
-                "subtitle": "Partie 2: Un été de plus chez Aldi : Thomas prêt à relever de nouveaux défis",
+                "subtitle": "Partie 2: Un été de plus chez Aldi",
                 "content": "L'été est de retour à Vendays-Montalivet, et avec lui, de nouvelles aventures pour Thomas. L'année dernière, il a découvert le monde effervescent de la grande distribution en travaillant chez Aldi. Aujourd'hui, il pensait cette expérience derrière lui. Mais c'était sans compter sur l'appel de son ancienne équipe, qui lui propose de revenir pour une nouvelle saison. Thomas hésite, mais il sait que l'été dernier a été l'un des plus mémorables de sa vie. Alors, il se lance dans cette nouvelle aventure avec enthousiasme, prêt à relever tous les défis que la saison estivale va lui réserver. Mais il sait aussi que retrouver son ancienne équipe sera comme retrouver sa deuxième famille. Ne manquez pas la suite de l'histoire de Thomas, qui s'annonce encore plus riche en émotions et en surprises !",
                 "img": {
                     "mime": "image/svg+xml",
@@ -47,7 +47,7 @@
     },
     {
         "id": 3,
-        "isActive": true,
+        "isActive": false,
         "name": "pixine",
         "title": "Thomas fait ses preuves chez Pixine",
         "parts": [

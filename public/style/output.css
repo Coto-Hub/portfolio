@@ -957,10 +957,6 @@ video {
   height: 0.5rem;
 }
 
-.h-27\/40 {
-  height: 67.5%;
-}
-
 .h-3\/4 {
   height: 75%;
 }
@@ -1348,6 +1344,11 @@ video {
   border-bottom-right-radius: 1.5rem;
 }
 
+.rounded-t-3xl {
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+}
+
 .border {
   border-width: 1px;
 }
@@ -1657,6 +1658,10 @@ video {
   padding-bottom: 2.5rem;
 }
 
+.pb-0 {
+  padding-bottom: 0px;
+}
+
 .pb-1 {
   padding-bottom: 0.25rem;
 }
@@ -1748,6 +1753,10 @@ video {
   line-height: 1rem;
 }
 
+.text-xxs {
+  font-size: 0.5rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -1800,6 +1809,10 @@ video {
 
 .accent-dark-300 {
   accent-color: #767676;
+}
+
+.opacity-0 {
+  opacity: 0;
 }
 
 .opacity-100 {
@@ -2198,8 +2211,15 @@ video {
   display: flex;
   width: 100%;
   flex-direction: column;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .career-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -2271,15 +2291,21 @@ video {
   display: flex;
   height: auto;
   width: 100%;
-  --tw-translate-y: 100%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
   z-index: 20;
   justify-content: space-around;
   background-color: rgb(81 81 81 / 0.7);
-  padding: 0.75rem;
+  padding: 0.25rem;
+}
+
+@media (min-width: 640px) {
+  .career-container .screen-structure .screen-container .screen-footer {
+    --tw-translate-y: 100%;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    padding: 0.75rem;
+  }
 }
 
 .career-container .screen-structure .screen-container .screen-footer span {
@@ -2290,10 +2316,17 @@ video {
   border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 1rem;
+  width: 1rem;
   cursor: pointer;
   border-radius: 9999px;
+}
+
+@media (min-width: 640px) {
+  .career-container .screen-structure .screen-container .screen-footer span {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
 }
 
 .career-container .screen-structure .screen-container .screen-footer span .icon-arrow {
@@ -2303,7 +2336,13 @@ video {
 }
 
 .career-container .screen-structure .screen-container .screen-footer span .icon-arrow::after {
-  padding-top: 0.25rem;
+  padding-bottom: 0.125rem;
+}
+
+@media (min-width: 640px) {
+  .career-container .screen-structure .screen-container .screen-footer span .icon-arrow::after {
+    padding-top: 0.25rem;
+  }
 }
 
 .career-container .screen-structure .screen-container .screen-footer span:hover {
@@ -2319,6 +2358,11 @@ video {
 .career-container .screen-structure .screen-container .screen-footer span.next-btn {
   --tw-rotate: -90deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.career-container .screen-structure .screen-container .screen-footer span.disabled {
+  cursor: default;
+  opacity: 0;
 }
 
 .career-container .screen-structure .screen-container .screen-footer span.progress-bar {
@@ -2360,6 +2404,7 @@ video {
   top: 50%;
   z-index: -10;
   --tw-translate-y: -50%;
+  --tw-translate-x: 50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   content: "";
 }
@@ -2567,10 +2612,17 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   padding: 0.5rem;
   text-align: center;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
   font-weight: 700;
   justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .screen-container section .screen-title {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -2621,22 +2673,20 @@ video {
 
 .screen-container section .part-content .part-text {
   margin-top: 0.25rem;
-  height: 2rem;
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   overflow-wrap: break-word;
   text-align: justify;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  -webkit-line-clamp: 2;
+  font-size: 0.5rem;
+  line-height: .75rem;
+  -webkit-line-clamp: 3;
   display: -webkit-box;
   -webkit-box-orient: vertical;
 }
 
 @media (min-width: 1280px) {
   .screen-container section .part-content .part-text {
-    -webkit-line-clamp: 3;
     height: 4rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
@@ -2739,10 +2789,18 @@ video {
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 5rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  height: 3.5rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
   font-weight: 700;
+}
+
+@media (min-width: 640px) {
+  .screen-container .screen-aldi .part-content .part-subtitle {
+    height: 5rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -2750,17 +2808,23 @@ video {
     height: 6rem;
     padding-left: 2rem;
     padding-right: 2rem;
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 
 .screen-container .screen-aldi .part-content .part-img {
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  width: 28%;
-  align-self: flex-start;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .screen-container .screen-aldi .part-content .part-img {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    width: 28%;
+    align-self: flex-start;
+  }
 }
 
 .screen-container .screen-aldi .part-content .part-info {
@@ -2777,29 +2841,47 @@ video {
 
 .screen-container .screen-aldi .part-content .part-info .part-text {
   margin-top: 0px;
+  font-size: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .screen-container .screen-aldi .part-content .part-info .part-text {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
 }
 
 .screen-container .screen-aldi .part-content .part-info .show-more {
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
   cursor: pointer;
   border-radius: 0.125rem;
-  border-width: 2px;
+  border-width: 1px;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  font-weight: 700;
+  font-size: 0.5rem;
+  font-weight: 600;
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .screen-container .screen-aldi .part-content .part-info .show-more {
+    margin-top: 0.5rem;
+    border-width: 2px;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .screen-container .screen-aldi .part-content .part-info .show-more {
+    margin-top: 0.5rem;
+    border-width: 2px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 }
 
@@ -2849,14 +2931,14 @@ video {
   position: absolute;
   z-index: 10;
   aspect-ratio: 16 / 9;
-  width: 80%;
-  border-width: 8px;
+  width: 90%;
+  border-width: 4px;
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 1rem;
+  padding: 0.5rem;
   --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -2864,11 +2946,26 @@ video {
   --tw-shadow: var(--tw-shadow-colored);
 }
 
+@media (min-width: 640px) {
+  .screen-container .screen-aldi .screen-modal {
+    width: 80%;
+    border-width: 8px;
+    padding: 1rem;
+  }
+}
+
 .screen-container .screen-aldi .screen-modal .modal-title {
   text-align: center;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
   font-weight: 700;
+}
+
+@media (min-width: 640px) {
+  .screen-container .screen-aldi .screen-modal .modal-title {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -2894,8 +2991,14 @@ video {
 
 .screen-container .screen-aldi .screen-modal .modal-content {
   text-align: justify;
-  font-size: 0.75rem;
-  line-height: 1rem;
+  font-size: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .screen-container .screen-aldi .screen-modal .modal-content {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -2967,9 +3070,9 @@ video {
 }
 
 .screen-container .screen-legrand .part-content {
-  margin-top: 2rem;
+  margin-top: 1.25rem;
   display: flex;
-  height: 67.5%;
+  height: 75%;
   width: 90%;
   flex-direction: column;
   justify-content: center;
@@ -2979,13 +3082,27 @@ video {
   padding-top: 0px;
 }
 
+@media (min-width: 640px) {
+  .screen-container .screen-legrand .part-content {
+    margin-top: 2rem;
+    height: 67.5%;
+  }
+}
+
 .screen-container .screen-legrand .part-content .part-info {
   display: flex;
   height: 100%;
   flex-direction: column;
   justify-content: space-around;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .screen-container .screen-legrand .part-content .part-info {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 .screen-container .screen-legrand .part-content .show-more {
@@ -2996,6 +3113,13 @@ video {
   display: flex;
   height: auto;
   font-weight: 500;
+}
+
+@media (min-width: 640px) {
+  .screen-container .screen-legrand .part-content .part-text {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
 }
 
 .screen-container .screen-pixine {
@@ -3012,21 +3136,32 @@ video {
 }
 
 .screen-container .screen-pixine .screen-title {
-  height: 20%;
+  height: 15%;
   text-align: center;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+@media (min-width: 768px) {
+  .screen-container .screen-pixine .screen-title {
+    height: 20%;
+  }
+}
+
 .screen-container .screen-pixine .part-content {
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   display: flex;
-  height: 67.5%;
   width: 90%;
   flex-direction: column;
   justify-content: center;
   border-radius: 1.5rem;
   padding-top: 0px;
+}
+
+@media (min-width: 768px) {
+  .screen-container .screen-pixine .part-content {
+    margin-top: 2rem;
+  }
 }
 
 .screen-container .screen-pixine .part-content .part-info {
@@ -3044,8 +3179,14 @@ video {
 
 .screen-container .screen-pixine .part-content .part-text {
   display: flex;
-  height: auto;
   font-weight: 500;
+}
+
+@media (min-width: 640px) {
+  .screen-container .screen-pixine .part-content .part-text {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
 }
 
 .offers-container {
@@ -3155,12 +3296,14 @@ video {
 
 .offers-container .card-container .part-middle {
   position: relative;
+  order: 9999;
   --tw-bg-opacity: 1;
   background-color: rgb(153 153 153 / var(--tw-bg-opacity));
 }
 
 @media (min-width: 768px) {
   .offers-container .card-container .part-middle {
+    order: 0;
     border-top-left-radius: 1.5rem;
     border-top-right-radius: 1.5rem;
   }

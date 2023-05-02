@@ -15,7 +15,7 @@
                 </div>
                 <div class="form-checkbox">
                     <input  v-model="form.checkbox" id="link-checkbox" type="checkbox" value="" class="checkbox">
-                    <label for="link-checkbox" class="link-checkbox">J'ai lu et j'accepte les <a href="#">conditions générales d'utilisation</a>.</label>
+                    <label for="link-checkbox" class="link-checkbox">J'ai lu et j'accepte les <a href="./cgu.pdf">conditions générales d'utilisation</a>.</label>
                 </div>
                 <button type="submit" class="btn-primary" :class="!canSubmit ? 'disabled' : ''">Envoyer</button>
             </form>

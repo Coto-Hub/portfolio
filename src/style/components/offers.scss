@@ -40,9 +40,10 @@
             }
         }
         .part-middle {
-            @apply bg-dark-200 relative;
+            @apply bg-dark-200 relative order-last;
+
             @screen md {
-                @apply rounded-t-3xl;
+                @apply rounded-t-3xl order-none;
             }
 
             .part-active {

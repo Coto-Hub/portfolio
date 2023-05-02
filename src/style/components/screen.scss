@@ -2,9 +2,12 @@
     @apply flex gap-x-6 h-full absolute inset-0;
 
     .screen-title {
-        @apply absolute top-0 left-1/2 p-2 -translate-x-1/2 text-center text-sm font-bold w-full;
+        @apply absolute top-0 left-1/2 p-2 -translate-x-1/2 text-center text-xs font-bold w-full;
         @apply justify-center;
 
+        @screen sm {
+            @apply text-base;
+        }
         @screen md {
             @apply text-lg;
         }
@@ -29,13 +32,13 @@
             @apply font-semibold text-xs;
         }
         .part-text {
-            @apply text-justify text-xs mt-1 text-ellipsis break-words overflow-hidden w-full h-8;
-            -webkit-line-clamp: 2;
+            @apply text-justify text-xxs mt-1 text-ellipsis break-words overflow-hidden w-full;
+            @apply leading-3;
+            -webkit-line-clamp: 3;
             display: -webkit-box;
             -webkit-box-orient: vertical;
 
             @screen xl {
-                -webkit-line-clamp: 3;
                 @apply h-16 text-sm;
             }
             @screen 2xl {
@@ -80,15 +83,22 @@
 
             .part-subtitle {
                 @apply flex w-full h-full justify-center items-center text-center;
-                @apply font-bold text-sm h-20;
-
+                @apply font-bold text-xs h-14;
+                
+                @screen sm {
+                    @apply text-lg h-20;
+                }
                 @screen xl {
-                    @apply px-8 text-base h-24;
+                    @apply px-8 text-xl h-24;
                 }
             }
 
             .part-img {
-                @apply w-7/25 flex self-start mx-auto;
+                @apply hidden;
+
+                @screen sm {
+                    @apply w-7/25 flex self-start mx-auto;
+                }
             }
 
             .part-info {
@@ -96,14 +106,21 @@
                 @apply text-black;
 
                 .part-text {
-                    @apply mt-0;
+                    @apply mt-0 text-xxs;
+
+                    @screen md {
+                        @apply text-xs;
+                    }
                 }
 
                 .show-more {
-                    @apply rounded-sm shadow-md font-bold text-xs border-2 px-1 cursor-pointer mt-2;
+                    @apply rounded-sm shadow-md font-semibold text-xxs border px-1 mt-1 cursor-pointer;
 
+                    @screen md {
+                        @apply text-sm border-2 px-2 mt-2;
+                    }
                     @screen lg {
-                        @apply text-sm px-2;
+                        @apply border-2 px-2 mt-2;
                     }
                 }
             }
@@ -132,27 +149,35 @@
             }
         }
         .screen-modal {
-            @apply absolute w-8/10 aspect-16/9 bg-white z-10 border-8;
-            @apply flex flex-col justify-around shadow-2xl shadow-dark-500 p-4;
+            @apply absolute w-9/10 aspect-16/9 bg-white z-10 border-4;
+            @apply flex flex-col justify-around shadow-2xl shadow-dark-500 p-2;
+
+            @screen sm {
+                @apply w-8/10 p-4 border-8;
+            }
 
             .modal-title {
-                @apply text-base font-bold text-center;
+                @apply text-xs font-bold text-center;
 
+                @screen sm {
+                    @apply text-sm;
+                }
                 @screen lg {
                     @apply text-lg;
                 }
-
                 @screen xl {
                     @apply text-xl;
                 }
-
                 @screen 2xl {
                     @apply text-2xl;
                 }
             }
             .modal-content {
-                @apply text-xs text-justify;
+                @apply text-xxs text-justify;
 
+                @screen sm {
+                    @apply text-xs;
+                }
                 @screen xl {
                     @apply text-sm;
                 }
@@ -188,10 +213,18 @@
         }
 
         .part-content {
-            @apply bg-white w-9/10 h-27/40 flex flex-col justify-center pt-0 mt-8 rounded-3xl;
+            @apply bg-white w-9/10 h-3/4 flex flex-col justify-center pt-0 mt-5 rounded-3xl;
+
+            @screen sm {
+                @apply mt-8 h-27/40;
+            }
 
             .part-info {
-                @apply flex flex-col justify-around h-full px-8;
+                @apply flex flex-col justify-around h-full px-3;
+
+                @screen md {
+                    @apply px-8;
+                }
             }
             .show-more {
                 @apply hidden;
@@ -199,6 +232,10 @@
 
             .part-text {
                 @apply flex h-auto font-medium;
+
+                @screen sm {
+                    @apply text-xs;
+                }
             }
         }
     }
@@ -210,11 +247,19 @@
         }
 
         .screen-title {
-            @apply h-1/5 text-white text-center;
+            @apply text-white text-center h-3/20;
+
+            @screen md {
+                @apply h-1/5;
+            }
         }
 
         .part-content {
-            @apply w-9/10 h-27/40 flex flex-col justify-center pt-0 mt-8 rounded-3xl;
+            @apply w-9/10 flex flex-col justify-center pt-0 mt-2 rounded-3xl;
+
+            @screen md {
+                @apply mt-8;
+            }
 
             .part-info {
                 @apply flex flex-col justify-around h-full px-8;
@@ -224,7 +269,11 @@
             }
 
             .part-text {
-                @apply flex h-auto font-medium;
+                @apply flex font-medium;
+
+                @screen sm {
+                    @apply text-xs;
+                }
             }
         }
     }
