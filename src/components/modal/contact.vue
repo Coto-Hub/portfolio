@@ -52,14 +52,15 @@
           this.navInfo.showContactModal = false;
         },
         async sendEmail() {
-          const requestOptions = {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ title: "Vue POST Request Example" })
-          };
-          const response = await fetch("./mail.php", requestOptions);
-          const data = await response.json();
-          this.postId = data.id;
+          e.preventDefault();
+          this.$axios
+             .post(
+                 "./mail.php",
+                  querystring.stringify(this.form)
+             )
+             .then(res => {
+              console.log(res);
+             });
         }
       }
   }
