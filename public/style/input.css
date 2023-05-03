@@ -196,10 +196,13 @@
 }
 
 .modal-screen .modal-container.modal-contact {
-  @apply bg-dark-300;
+  @apply bg-dark-300 overflow-hidden;
 }
 .modal-screen .modal-container.modal-contact .modal-title {
   @apply mb-0;
+}
+.modal-screen .modal-container.modal-contact .modal-close {
+  @apply z-10;
 }
 .modal-screen .modal-container.modal-contact .part-form {
   @apply flex flex-col self-center;
@@ -240,6 +243,12 @@
 }
 .modal-screen .modal-container.modal-contact button {
   @apply text-base;
+}
+.modal-screen .modal-container.modal-contact .modal-wait {
+  @apply absolute inset-0 bg-dark-500/70 flex justify-center items-center;
+}
+.modal-screen .modal-container.modal-contact .modal-wait .wait-svg {
+  @apply animate-spin w-1/5 aspect-square text-white;
 }
 
 .icon-map::after {

@@ -1001,6 +1001,10 @@ video {
   width: 25%;
 }
 
+.w-1\/5 {
+  width: 20%;
+}
+
 .w-1\/6 {
   width: 16.666667%;
 }
@@ -1166,6 +1170,16 @@ video {
 
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
 }
 
 .cursor-none {
@@ -1802,11 +1816,6 @@ video {
   color: rgb(185 28 28 / var(--tw-text-opacity));
 }
 
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
 .text-result-error {
   --tw-text-opacity: 1;
   color: rgb(174 19 19 / var(--tw-text-opacity));
@@ -1815,6 +1824,11 @@ video {
 .text-result-success {
   --tw-text-opacity: 1;
   color: rgb(0 255 0 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .accent-dark-300 {
@@ -1829,12 +1843,20 @@ video {
   opacity: 1;
 }
 
+.opacity-25 {
+  opacity: 0.25;
+}
+
 .opacity-50 {
   opacity: 0.5;
 }
 
 .opacity-60 {
   opacity: 0.6;
+}
+
+.opacity-75 {
+  opacity: 0.75;
 }
 
 .opacity-80 {
@@ -2425,12 +2447,17 @@ video {
 }
 
 .modal-screen .modal-container.modal-contact {
+  overflow: hidden;
   --tw-bg-opacity: 1;
   background-color: rgb(118 118 118 / var(--tw-bg-opacity));
 }
 
 .modal-screen .modal-container.modal-contact .modal-title {
   margin-bottom: 0px;
+}
+
+.modal-screen .modal-container.modal-contact .modal-close {
+  z-index: 10;
 }
 
 .modal-screen .modal-container.modal-contact .part-form {
@@ -2546,6 +2573,35 @@ video {
 .modal-screen .modal-container.modal-contact button {
   font-size: 1rem;
   line-height: 1.5rem;
+}
+
+.modal-screen .modal-container.modal-contact .modal-wait {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(34 34 34 / 0.7);
+}
+
+.modal-screen .modal-container.modal-contact .modal-wait .wait-svg {
+  aspect-ratio: 1 / 1;
+  width: 20%;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.modal-screen .modal-container.modal-contact .modal-wait .wait-svg {
+  animation: spin 1s linear infinite;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .icon-map::after {
