@@ -1,6 +1,6 @@
 <template>
   <section class="card card-career">
-    <div class="card-img">
+    <div v-if="card.logo" class="card-img">
       <img :src="`data:${card.logo.mime};base64,${card.logo.data}`" alt="Logo"/>
     </div>
     <div class="card-content">

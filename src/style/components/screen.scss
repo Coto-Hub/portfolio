@@ -239,8 +239,9 @@
             }
         }
     }
+    .screen-search,
     .screen-pixine {
-        @apply bg-[#EA675A] flex items-center justify-center;
+        @apply flex items-center justify-center;
 
         .screen-logo {
             @apply p-2 w-16;
@@ -274,6 +275,30 @@
                 @screen sm {
                     @apply text-xs;
                 }
+
+                @screen xl {
+                    @apply text-base;
+                }
+
+                @screen md {
+                    @apply h-auto;
+                }
+            }
+        }
+    }
+
+    .screen-pixine {
+        @apply bg-[#EA675A];
+    }
+
+    .screen-search {
+        @apply bg-dark-300;
+
+        .screen-title {
+            @apply px-3 h-auto;
+
+            @screen md {
+                @apply py-4;
             }
         }
     }

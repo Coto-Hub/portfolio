@@ -8,14 +8,26 @@
         @apply w-1/2;
     }
     .card-content {
-        @apply flex flex-col justify-around p-4 text-center text-lg;
+        @apply flex flex-col justify-around p-4 text-center;
 
         @screen md {
             @apply text-justify;
         }
 
         .card-title {
-            @apply flex flex-col justify-between pb-2 font-bold;
+            @apply flex flex-col justify-between pb-1 font-bold text-lg;
+
+            @screen md {
+                @apply text-xl;
+            }
+        }
+
+        .card-text {
+            @apply text-sm;
+
+            @screen md {
+                @apply text-base;
+            }
         }
     }
     .card-img {

@@ -13,8 +13,7 @@
     <div class="card-content">
       <h1 class="card-title">Thomas MARTY</h1>
       <p class="card-text">
-        J’ai {{ getAge }} ans et je viens de finir mon premier CDD en tant que développeur web fullstack.
-        Je suis passionné par le développement en grande partie pour l'adrénaline que me procure la résolution d'un problème compliqué.
+        Bienvenue dans mon portfolio ! J'ai {{ getAge }} ans et je suis développeur web fullstack. Récemment, j'ai terminé mon premier contrat à durée déterminée dans ce domaine et j'ai été ravi de pouvoir appliquer mes compétences pour résoudre des problèmes complexes. Ma passion pour le développement web s'est développée grâce à l'adrénaline que j'ai ressentie chaque fois que j'ai réussi à surmonter un obstacle technique. 
       </p>
     </div>
   </section>

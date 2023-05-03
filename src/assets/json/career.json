@@ -60,5 +60,18 @@
             "mime": "image/png",
             "data": "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAbUExURf///+poWignLOtnWv7///nPyvSqo/3s6upnWYXjB7oAAAI9elRYdFJhdyBwcm9maWxlIHR5cGUgeG1wAAA4jZVVXdLbMAh85xQ9ggQIpOPYkfXWmT72+F3kz/lxnK9tMuPIgNhlQQr9/vmLfsTHq5HcZHj1ZNnEViuunIytmFuzTTrzNtZ1HcywN9OwFJeiXZJ2TyqIrdZIqy+OjUV80a2o4RcJRbCJWYZsnOTmVRbAYqP1ALPMKd7tZptL+CgQwEZtBA9Zdsc9fDJ5pIFtjR1638GpVO0lEQe54dMkhTcx7uCTRSUsLg22LDDB0vB2g5UlwVZ54DeeWYS4z7AFYQlPFjA4ffmrPAYLRBZWVTuVxjSdUV51xRfJUM7w+eHNEcXbZOwTuU1WwYTxDNi+A4CRi6M/oYhXlAWE8L+yAAW0Co1ga1OpBoUQcfgtEwQbDmGD1S7scy9C4He+E2x7tAhrISw7Sqngk4I8pE1Hr84ptWN6PqSl17zXaZGwXyQX1xKjOzWmv5O+Th7D7dALMSPSkcvUiLGh7PlD6h070msIXJBEo3clAIbd3oYygRECIkjmKsWAqtyHrmGOMLnzJO69nZHcHmBTuYU03BLNtyijaNPZwT0IpbV5VBepWqRK06wggmnCVM55z5LhaYQAWGDOGgYciTBLHI40x+6ErFGOeInTGAwPYLoj6xWy5jPyJ2B6IB8Xxgt6mbNsQMcL1tHB9NT4xb6kof/Uxj8xpG+1eUb+oM0BTNfaYPWP2hzAxHEdTHV4fH/Wz1H7vXRY6f023l0Xfwkoab/8nffbnP4AThtvIyzteA0AAABSdEVYdFJhdyBwcm9maWxlIHR5cGUgZXhpZgAKZXhpZgogICAgICAyMgo0NTc4Njk2NjAwMDA0OTQ5MmEwMDA4MDAwMDAwMDAwMDAwMDAwMDAwMDAwMAr5oEG6AAAARnRFWHRSYXcgcHJvZmlsZSB0eXBlIGFwcDEyAAphcHAxMgogICAgICAxNQo0NDc1NjM2Yjc5MDAwMTAwMDQwMDAwMDA2NDAwMDAKj3ticwAAAJVJREFUKM+NkckNgDAMBBeJ45tIQfxpgQroADqCzokdb64X/sQae30FvjP8AW5K7hFNATAo2KMJcMDYAzRghWkIYg0sDaAmA2+aAiylgI1l8+hgZwJXpaQIOG0FmFIAuhpMyV2ivQTOAAjEnymy5dJZcHJ9iZkoHUiE+t52Qu34qAMfykxSpPoGydWiYebq1/nzb1v7AJ/zHhyNELEXAAAAV3pUWHRSYXcgcHJvZmlsZSB0eXBlIGlwdGMAAHic4/IMCHFWKCjKT8vMSeVSAAMjCy5jCxMjE0uTFAMTIESANMNkAyOzVCDL2NTIxMzEHMQHy4BIoEouAOoXEXTyQjWVAAAAAElFTkSuQmCC"
         }
+    },
+    {
+        "id": 4,
+        "isActive": false,
+        "name": "search",
+        "title": "Thomas en quête d'un nouveau défi professionnel",
+        "parts": [
+            {
+                "subtitle": "",
+                "content": "À la recherche de nouveaux défis professionnels, Thomas se lance dans la quête de son prochain travail. Armé de ses compétences et de son expérience, il parcourt les annonces, peaufine son CV et prépare ses lettres de motivation. Mais dans un marché de l'emploi de plus en plus exigeant, la tâche s'annonce ardue. Entre les refus et les entretiens infructueux, Thomas doit redoubler d'efforts pour atteindre son objectif. Mais sa détermination, son savoir-faire et sa persévérance pourraient bien faire la différence. Parviendra-t-il à décrocher le job de ses rêves ?"
+            }
+        ],
+        "logo": null
     }
 ]
