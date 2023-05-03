@@ -733,6 +733,9 @@
 .card-profile .card-img {
   @apply w-1/4 my-1 flex-none;
 }
+.card-profile .card-img img {
+  @apply w-full;
+}
 
 .card-schooling {
   @apply flex flex-col items-center rounded-lg mt-8 mb-4 bg-dark-300;
@@ -786,6 +789,9 @@
   .card-schooling .card-img {
     @apply w-1/5;
   }
+}
+.card-schooling .card-img img {
+  @apply w-full;
 }
 .card-schooling .card-content {
   @apply pb-2;

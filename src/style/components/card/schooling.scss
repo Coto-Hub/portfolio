@@ -56,6 +56,10 @@
         @screen md {
             @apply w-1/5;
         }
+
+        img {
+            @apply w-full;
+        }
     }
 
     .card-content {

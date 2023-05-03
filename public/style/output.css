@@ -3582,6 +3582,10 @@ video {
   flex: none;
 }
 
+.card-profile .card-img img {
+  width: 100%;
+}
+
 .card-schooling {
   margin-top: 2rem;
   margin-bottom: 1rem;
@@ -3713,6 +3717,10 @@ video {
   .card-schooling .card-img {
     width: 20%;
   }
+}
+
+.card-schooling .card-img img {
+  width: 100%;
 }
 
 .card-schooling .card-content {

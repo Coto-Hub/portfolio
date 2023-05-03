@@ -1,7 +1,7 @@
 <template>
   <section class="card card-schooling">
     <div class="card-img">
-      <img :src="`data:${card.logo.mime};base64,${card.logo.data}`" alt="Logo"/>
+      <img :src="`data:${card.logo.mime};base64,${card.logo.data}`" alt="Logo" width="50" height="50"/>
     </div>
     <div class="card-content">
       <h1 class="card-title" v-html="card.title"></h1>

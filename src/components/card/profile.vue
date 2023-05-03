@@ -7,7 +7,7 @@
         alt="©"
         title="©"
       >
-        <img :src="profile" alt="profile"/>
+        <img :src="profile" alt="profile" width="120" height="200"/>
       </a>
     </div>
     <div class="card-content">

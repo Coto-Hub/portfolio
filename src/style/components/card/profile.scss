@@ -32,5 +32,9 @@
     }
     .card-img {
         @apply w-1/4 my-1 flex-none;
+
+        img {
+            @apply w-full;
+        }
     }
 }

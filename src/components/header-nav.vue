@@ -3,7 +3,7 @@
     <div class="header-container">
       <div class="header-banner">
         <div class="header-logo">
-          <img :src="profile" alt="profile">
+          <img :src="profile" alt="profile" width="40" height="40">
         </div>
         <div class="header-nav">
           <span class="player-login" @click="nav('player-login')">{{ getBtnLabelLogin }}</span>
