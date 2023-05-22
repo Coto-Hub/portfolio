@@ -4,19 +4,20 @@
     </footer>
 </template>
   
-  <script>
-  
-  export default {
-    name: 'Footer',
-    props: {
-    },
-    data: function () {
-      return {
-      }
-    },
-    methods: {
-    },
-    computed: {
+<script>
+export default {
+  name: 'Footer',
+  props: {
+
+  },
+  data: function () {
+    return {}
+  },
+  methods: {
+  },
+  computed: {
+
   }
-  </script>
+}
+</script>
   

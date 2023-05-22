@@ -15,7 +15,7 @@
             <div class="part part-middle" :class="contactIsActive ? 'active': ''">
                 <h3 class="smal-title">Complète</h3>
                 <p>
-                    Pourquoi choisir entre compétence et sociabilité lorsque vous pouvez avoir les deux ? Notre offre Complète vous propose un collègue sociable ET compétent, qui sera facile à travailler et fera preuve de dévouement dans toutes les tâches qu'il entreprendra. Avec notre collègue, vous bénéficierez de la convivialité et de la bonne humeur de notre offre Socialble, tout en profitant de l'expertise et du sérieux de notre offre Compétent.
+                    Pourquoi choisir entre compétence et esprit d'équipe lorsque vous pouvez avoir les deux ? Notre offre Complète vous propose un collègue compétent ET avec un bon esprit d'équipe. Il sera toujours prêt à travailler et fera preuve de dévouement dans toutes les tâches qu'il entreprendra. Avec ce collègue, vous bénéficierez de la convivialité et de la bonne humeur de notre offre "Esprit d’équipe", tout en profitant de l'expertise et du sérieux de notre offre "Compétent".
                 </p>
                 <ul class="part-list">
                     <li>Sociable</li>

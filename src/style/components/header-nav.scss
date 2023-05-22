@@ -18,11 +18,27 @@
 
       .header-nav {
         @apply flex gap-x-2 items-center;
+
+        .nav-list {
+          @apply flex items-center space-x-5;
+          
+          a {
+            @apply text-white font-semibold relative;
+
+            &.router-link-active::after, &:hover::after {
+              @apply absolute -inset-x-1 -bottom-1 h-1 bg-white;
+              content: '';
+            }
+            &:not(.router-link-active):hover::after {
+              @apply bg-dark-300;
+            }
+          }
+        }
       }
 
-      .player-login {
+      .btn-contact {
         @apply flex text-white border-2 px-3 py-1 bg-dark-400;
-        @apply font-semibold rounded-full cursor-pointer text-sm;
+        @apply font-semibold rounded-full cursor-pointer text-sm my-0;
 
         &:hover {
           @apply bg-dark-500;

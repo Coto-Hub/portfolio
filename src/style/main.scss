@@ -10,9 +10,12 @@
 @import 'components/schooling';
 @import 'components/screen';
 @import 'components/offers';
+@import 'components/games';
 
 @import 'components/card/profile';
 @import 'components/card/schooling';
+
+@import 'components/games/playing-card';
 
 @import 'components/games/blackjack/bj-deck';
 @import 'components/games/blackjack/bj-hand';
@@ -20,10 +23,8 @@
 
 @import 'components/games/mastermind/master-table';
 
-@import 'components/games/playing-card';
-
 html {
-  @apply overflow-x-hidden bg-dark-400;
+  @apply overflow-x-hidden bg-dark-400 select-none;
 }
 
 #app {
@@ -35,7 +36,7 @@ html {
 }
 
 .part-title {
-  @apply text-center self-center text-3xl font-bold relative;
+  @apply text-center self-center text-3xl font-bold relative my-6;
 
   &::after, &::before {
       @apply absolute h-1.5 bg-dark-500 -left-6 -right-6 -top-2 rounded-full;
@@ -47,7 +48,7 @@ html {
   }
 }
 
-h1, h2, h3, ul, li, p {
+h1, h2, h3, ul, li, span, p {
   @apply cursor-default;
 }
 

@@ -39,10 +39,11 @@
             -webkit-box-orient: vertical;
 
             @screen xl {
+                -webkit-line-clamp: 4;
                 @apply h-16 text-sm;
             }
             @screen 2xl {
-                -webkit-line-clamp: 4;
+                -webkit-line-clamp: 5;
                 @apply h-20;
             }
         }

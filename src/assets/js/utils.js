@@ -1,3 +1,5 @@
+export const defaultMoney = 1000;
+
 const tableStats = {
   'A-7' : {
     1 : 'H', 2 : 'S',

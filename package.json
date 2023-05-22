@@ -16,7 +16,8 @@
     "jquery": "^3.6.3",
     "sass": "^1.56.1",
     "vue": "^3.2.45",
-    "vue-cookie-accept-decline": "^6.1.0"
+    "vue-cookie-accept-decline": "^6.1.0",
+    "vue-router": "^4.2.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",

@@ -20,11 +20,24 @@
 .header .header-container .header-banner .header-nav {
   @apply flex gap-x-2 items-center;
 }
-.header .header-container .header-banner .player-login {
-  @apply flex text-white border-2 px-3 py-1 bg-dark-400;
-  @apply font-semibold rounded-full cursor-pointer text-sm;
+.header .header-container .header-banner .header-nav .nav-list {
+  @apply flex items-center space-x-5;
 }
-.header .header-container .header-banner .player-login:hover {
+.header .header-container .header-banner .header-nav .nav-list a {
+  @apply text-white font-semibold relative;
+}
+.header .header-container .header-banner .header-nav .nav-list a.router-link-active::after, .header .header-container .header-banner .header-nav .nav-list a:hover::after {
+  @apply absolute -inset-x-1 -bottom-1 h-1 bg-white;
+  content: "";
+}
+.header .header-container .header-banner .header-nav .nav-list a:not(.router-link-active):hover::after {
+  @apply bg-dark-300;
+}
+.header .header-container .header-banner .btn-contact {
+  @apply flex text-white border-2 px-3 py-1 bg-dark-400;
+  @apply font-semibold rounded-full cursor-pointer text-sm my-0;
+}
+.header .header-container .header-banner .btn-contact:hover {
   @apply bg-dark-500;
 }
 
@@ -64,6 +77,12 @@
 }
 .modal-screen .modal-container .modal-content {
   @apply mt-5 flex flex-col items-center justify-center;
+}
+.modal-screen .modal-container .modal-content form {
+  @apply flex flex-col items-center justify-center;
+}
+.modal-screen .modal-container .modal-content form .modal-btn {
+  @apply mx-auto;
 }
 .modal-screen .modal-container .modal-content input {
   @apply px-2 py-1 rounded-full text-lg text-black w-40 text-center font-bold;
@@ -144,7 +163,7 @@
 }
 @screen sm {
   .career-container .screen-structure .screen-container .screen-footer {
-    @apply translate-y-full p-3;
+    @apply p-3;
   }
 }
 .career-container .screen-structure .screen-container .screen-footer span {
@@ -190,9 +209,6 @@
   @apply block w-4 h-4 rounded-full bg-red-700 border border-black;
   @apply absolute -right-px top-1/2 -translate-y-1/2 translate-x-1/2 -z-10;
   content: "";
-}
-.career-container .screen-structure .screen-container:hover .screen-footer {
-  @apply translate-y-0;
 }
 
 .modal-screen .modal-container.modal-contact {
@@ -332,12 +348,13 @@
 }
 @screen xl {
   .screen-container section .part-content .part-text {
+    -webkit-line-clamp: 4;
     @apply h-16 text-sm;
   }
 }
 @screen 2xl {
   .screen-container section .part-content .part-text {
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 5;
     @apply h-20;
   }
 }
@@ -693,8 +710,91 @@
   @apply flex space-x-3 justify-center;
 }
 
+.games-container {
+  @apply flex flex-col w-full justify-center my-7;
+}
+.games-container .account-container {
+  @apply w-27/40 bg-dark-300 border-6 border-dark-500/70 rounded-xl;
+  @apply mx-auto my-2 flex flex-col items-center pb-3 relative transition-all duration-500;
+}
+@screen md {
+  .games-container .account-container {
+    @apply rounded-3xl;
+  }
+}
+@screen lg {
+  .games-container .account-container {
+    @apply w-2/5;
+  }
+}
+.games-container .account-container .account-title {
+  @apply font-bold text-lg ml-4 px-3 py-0.5 relative z-30;
+  @apply border-4 border-dark-500/70 bg-dark-300 rounded-xl;
+}
+.games-container .account-container .account-title .title-loading {
+  @apply absolute inset-0 bg-dark-300 flex justify-center items-center rounded-lg;
+}
+.games-container .account-container .account-title .title-loading .wait-svg {
+  @apply animate-spin w-1/6 aspect-square text-white;
+}
+.games-container .account-container .account-chart {
+  @apply aspect-5/2 bg-dark-400/80 border-4 border-dark-200;
+  @apply rounded-md flex justify-center items-center w-27/40;
+}
+.games-container .account-container .account-chart .coming-soon {
+  @apply rotate-15;
+}
+.games-container .account-container .login-input, .games-container .account-container .login-btn {
+  @apply rounded-lg border-4 border-dark-400 p-1 font-medium outline-none;
+}
+.games-container .account-container .login-btn {
+  @apply px-3 py-1 rounded-xl border-dark-400 font-semibold cursor-pointer;
+}
+.games-container .account-container .login-btn:hover {
+  @apply text-white bg-dark-400 border-dark-300;
+}
+.games-container .account-container .account-loading {
+  @apply absolute inset-0 -top-4.25 bg-dark-300 rounded-md flex justify-center items-center z-20;
+}
+@screen md {
+  .games-container .account-container .account-loading {
+    @apply rounded-2xl;
+  }
+}
+.games-container .account-container .account-loading .wait-svg {
+  @apply animate-spin w-1/10 aspect-square text-white;
+}
+.games-container .account-container .account-login {
+  @apply absolute bg-dark-300 inset-0 flex justify-center items-center rounded-2xl;
+}
+.games-container .account-container .account-login .login-form {
+  @apply flex flex-col items-center space-y-5;
+}
+.games-container .account-container .account-info {
+  @apply flex flex-col items-center w-full bg-dark-300;
+}
+.games-container .account-container .account-info .reset-form {
+  @apply w-3/4 flex justify-around items-center mt-3;
+}
+.games-container .account-container .account-info .reset-form .account-money {
+  @apply flex flex-col space-y-1 font-bold;
+}
+.games-container .account-container .account-info .reset-form .account-money span {
+  @apply underline font-semibold;
+}
+.games-container .account-container .account-info .reset-form .login-btn {
+  @apply bg-card-red/90;
+}
+
+.coming-soon {
+  @apply hidden;
+}
+.coming-soon.active {
+  @apply block text-dark-100 text-2xl font-medium underline text-center;
+}
+
 .card-profile {
-  @apply w-2/3 flex flex-col items-center rounded-lg my-8 bg-dark-300 border-2;
+  @apply w-2/3 flex flex-col items-center rounded-lg my-8 mx-auto bg-dark-300 border-2;
 }
 @screen md {
   .card-profile {
@@ -818,6 +918,130 @@
 }
 .card-schooling .card-footer span i::after {
   @apply w-5 absolute -left-2 -bottom-1;
+}
+
+.playing-card {
+  @apply flex flex-col justify-between overflow-hidden relative pointer-events-none;
+  @apply w-12 aspect-2/3 rounded-md border border-black select-none bg-transparent;
+  perspective: 100vw;
+}
+.playing-card .card-inner {
+  @apply relative w-full h-full duration-700;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+.playing-card.reverse .card-inner, .playing-card .card-back {
+  transform: rotateY(180deg);
+}
+.playing-card .card-front, .playing-card .card-back {
+  @apply absolute w-full h-full;
+  backface-visibility: hidden;
+}
+.playing-card .card-front {
+  @apply absolute w-full h-full bg-white flex flex-col justify-between;
+}
+.playing-card .card-front .card-number {
+  @apply flex flex-col items-center mx-1;
+}
+.playing-card .card-front .card-number h1 {
+  @apply m-0 flex flex-col items-center text-sm font-bold;
+}
+.playing-card .card-front .card-number h1::after {
+  @apply w-2 h-2;
+}
+.playing-card .card-front .card-number h1::after, .playing-card .card-front .card-icon::before {
+  @apply block bg-center bg-no-repeat -mt-0.5 bg-cover;
+  background-image: var(--main-card-icon);
+  content: "";
+}
+.playing-card .card-front .card-icon::before {
+  @apply w-4 h-4 mx-auto;
+}
+.playing-card .card-front .card-header {
+  @apply self-start;
+}
+.playing-card .card-front .card-footer {
+  @apply self-end rotate-180;
+}
+.playing-card .card-back {
+  @apply absolute w-full h-full flex flex-col bg-red-700;
+  background-image: radial-gradient(circle at 100% 150%, red 25%, white 25%, white 29%, red 29%, red 36%, white 36%, white 40%, transparent 40%, transparent), radial-gradient(circle at 0 150%, red 25%, white 25%, white 29%, red 29%, red 36%, white 36%, white 40%, transparent 40%, transparent), radial-gradient(circle at 50% 100%, white 10%, red 10%, red 23%, white 23%, white 30%, red 30%, red 43%, white 43%, white 50%, red 50%, red 63%, white 63%, white 70%, transparent 70%, transparent), radial-gradient(circle at 100% 50%, white 5%, red 5%, red 15%, white 15%, white 20%, red 20%, red 30%, white 30%, white 35%, red 35%, red 45%, white 45%, white 50%, transparent 50%, transparent), radial-gradient(circle at 0 50%, white 5%, red 5%, red 15%, white 15%, white 20%, red 20%, red 30%, white 30%, white 35%, red 35%, red 45%, white 45%, white 50%, transparent 50%, transparent);
+  background-size: 2rem 1rem;
+}
+.playing-card .card-back .card-top::before, .playing-card .card-back .card-top::after,
+.playing-card .card-back .card-bottom::before, .playing-card .card-back .card-bottom::after {
+  @apply flex absolute w-4 h-4 items-center justify-center;
+  @apply bg-white rounded-full bg-center bg-no-repeat;
+  background-size: 60%;
+  content: "";
+}
+@screen lg {
+  .playing-card .card-back .card-top::before, .playing-card .card-back .card-top::after,
+  .playing-card .card-back .card-bottom::before, .playing-card .card-back .card-bottom::after {
+    @apply w-5 h-5;
+  }
+}
+.playing-card .card-back .card-top, .playing-card .card-back .card-bottom {
+  @apply m-4 border-2 border-black flex-1;
+}
+.playing-card .card-back .card-top {
+  @apply mb-0 border-b-0;
+}
+.playing-card .card-back .card-top::before, .playing-card .card-back .card-top::after {
+  @apply top-2;
+}
+.playing-card .card-back .card-top::before {
+  @apply -rotate-45;
+  background-image: url("/icon/coeur.svg");
+}
+.playing-card .card-back .card-top::after {
+  @apply rotate-45;
+  background-image: url("/icon/pique.svg");
+}
+.playing-card .card-back .card-bottom {
+  @apply mt-0 border-t-0;
+}
+.playing-card .card-back .card-bottom::before, .playing-card .card-back .card-bottom::after {
+  @apply bottom-2;
+}
+.playing-card .card-back .card-bottom::before {
+  @apply -rotate-135;
+  background-image: url("/icon/trefle.svg");
+}
+.playing-card .card-back .card-bottom::after {
+  @apply rotate-135;
+  background-image: url("/icon/carreau.svg");
+}
+.playing-card .card-back .card-top::before, .playing-card .card-back .card-bottom::before {
+  @apply left-2;
+}
+.playing-card .card-back .card-top::after, .playing-card .card-back .card-bottom::after {
+  @apply right-2;
+}
+
+.pique, .trefle {
+  @apply text-black;
+}
+
+.coeur, .carreau {
+  @apply text-card-red;
+}
+
+.pique {
+  --main-card-icon: url("/icon/pique.svg");
+}
+
+.trefle {
+  --main-card-icon: url("/icon/trefle.svg");
+}
+
+.coeur {
+  --main-card-icon: url("/icon/coeur.svg");
+}
+
+.carreau {
+  --main-card-icon: url("/icon/carreau.svg");
 }
 
 .card-package {
@@ -946,7 +1170,8 @@
 }
 
 .bj-container {
-  @apply w-full border-6 border-dark-500 aspect-2/1 p-4 pt-0 relative overflow-hidden bg-dark-300;
+  @apply w-full border-6 border-dark-500 aspect-2/1 p-4 pt-0;
+  @apply relative overflow-hidden bg-dark-300 my-8;
 }
 .bj-container.end-game::before {
   @apply block absolute inset-0 bg-dark-500/70 z-30 bg-no-repeat bg-center;
@@ -964,7 +1189,7 @@
 }
 @screen lg {
   .bj-container {
-    @apply w-10/12;
+    @apply w-10/12 mx-auto my-12;
   }
 }
 .bj-container .player-money {
@@ -988,6 +1213,7 @@
 .bj-container .bj-token {
   @apply absolute top-9/20 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-30;
   @apply p-1.5 aspect-square border-4 border-dashed border-white bg-black cursor-pointer;
+  @apply select-none;
 }
 @screen lg {
   .bj-container .bj-token {
@@ -1266,132 +1492,8 @@
   background-size: 65%;
 }
 
-.playing-card {
-  @apply flex flex-col justify-between overflow-hidden relative pointer-events-none;
-  @apply w-12 aspect-2/3 rounded-md border border-black select-none bg-transparent;
-  perspective: 100vw;
-}
-.playing-card .card-inner {
-  @apply relative w-full h-full duration-700;
-  transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d;
-}
-.playing-card.reverse .card-inner, .playing-card .card-back {
-  transform: rotateY(180deg);
-}
-.playing-card .card-front, .playing-card .card-back {
-  @apply absolute w-full h-full;
-  backface-visibility: hidden;
-}
-.playing-card .card-front {
-  @apply absolute w-full h-full bg-white flex flex-col justify-between;
-}
-.playing-card .card-front .card-number {
-  @apply flex flex-col items-center mx-1;
-}
-.playing-card .card-front .card-number h1 {
-  @apply m-0 flex flex-col items-center text-sm font-bold;
-}
-.playing-card .card-front .card-number h1::after {
-  @apply w-2 h-2;
-}
-.playing-card .card-front .card-number h1::after, .playing-card .card-front .card-icon::before {
-  @apply block bg-center bg-no-repeat -mt-0.5 bg-cover;
-  background-image: var(--main-card-icon);
-  content: "";
-}
-.playing-card .card-front .card-icon::before {
-  @apply w-4 h-4 mx-auto;
-}
-.playing-card .card-front .card-header {
-  @apply self-start;
-}
-.playing-card .card-front .card-footer {
-  @apply self-end rotate-180;
-}
-.playing-card .card-back {
-  @apply absolute w-full h-full flex flex-col bg-red-700;
-  background-image: radial-gradient(circle at 100% 150%, red 25%, white 25%, white 29%, red 29%, red 36%, white 36%, white 40%, transparent 40%, transparent), radial-gradient(circle at 0 150%, red 25%, white 25%, white 29%, red 29%, red 36%, white 36%, white 40%, transparent 40%, transparent), radial-gradient(circle at 50% 100%, white 10%, red 10%, red 23%, white 23%, white 30%, red 30%, red 43%, white 43%, white 50%, red 50%, red 63%, white 63%, white 70%, transparent 70%, transparent), radial-gradient(circle at 100% 50%, white 5%, red 5%, red 15%, white 15%, white 20%, red 20%, red 30%, white 30%, white 35%, red 35%, red 45%, white 45%, white 50%, transparent 50%, transparent), radial-gradient(circle at 0 50%, white 5%, red 5%, red 15%, white 15%, white 20%, red 20%, red 30%, white 30%, white 35%, red 35%, red 45%, white 45%, white 50%, transparent 50%, transparent);
-  background-size: 2rem 1rem;
-}
-.playing-card .card-back .card-top::before, .playing-card .card-back .card-top::after,
-.playing-card .card-back .card-bottom::before, .playing-card .card-back .card-bottom::after {
-  @apply flex absolute w-4 h-4 items-center justify-center;
-  @apply bg-white rounded-full bg-center bg-no-repeat;
-  background-size: 60%;
-  content: "";
-}
-@screen lg {
-  .playing-card .card-back .card-top::before, .playing-card .card-back .card-top::after,
-  .playing-card .card-back .card-bottom::before, .playing-card .card-back .card-bottom::after {
-    @apply w-5 h-5;
-  }
-}
-.playing-card .card-back .card-top, .playing-card .card-back .card-bottom {
-  @apply m-4 border-2 border-black flex-1;
-}
-.playing-card .card-back .card-top {
-  @apply mb-0 border-b-0;
-}
-.playing-card .card-back .card-top::before, .playing-card .card-back .card-top::after {
-  @apply top-2;
-}
-.playing-card .card-back .card-top::before {
-  @apply -rotate-45;
-  background-image: url("/icon/coeur.svg");
-}
-.playing-card .card-back .card-top::after {
-  @apply rotate-45;
-  background-image: url("/icon/pique.svg");
-}
-.playing-card .card-back .card-bottom {
-  @apply mt-0 border-t-0;
-}
-.playing-card .card-back .card-bottom::before, .playing-card .card-back .card-bottom::after {
-  @apply bottom-2;
-}
-.playing-card .card-back .card-bottom::before {
-  @apply -rotate-135;
-  background-image: url("/icon/trefle.svg");
-}
-.playing-card .card-back .card-bottom::after {
-  @apply rotate-135;
-  background-image: url("/icon/carreau.svg");
-}
-.playing-card .card-back .card-top::before, .playing-card .card-back .card-bottom::before {
-  @apply left-2;
-}
-.playing-card .card-back .card-top::after, .playing-card .card-back .card-bottom::after {
-  @apply right-2;
-}
-
-.pique, .trefle {
-  @apply text-black;
-}
-
-.coeur, .carreau {
-  @apply text-card-red;
-}
-
-.pique {
-  --main-card-icon: url("/icon/pique.svg");
-}
-
-.trefle {
-  --main-card-icon: url("/icon/trefle.svg");
-}
-
-.coeur {
-  --main-card-icon: url("/icon/coeur.svg");
-}
-
-.carreau {
-  --main-card-icon: url("/icon/carreau.svg");
-}
-
 html {
-  @apply overflow-x-hidden bg-dark-400;
+  @apply overflow-x-hidden bg-dark-400 select-none;
 }
 
 #app {
@@ -1403,7 +1505,7 @@ html {
 }
 
 .part-title {
-  @apply text-center self-center text-3xl font-bold relative;
+  @apply text-center self-center text-3xl font-bold relative my-6;
 }
 .part-title::after, .part-title::before {
   @apply absolute h-1.5 bg-dark-500 -left-6 -right-6 -top-2 rounded-full;
@@ -1413,7 +1515,7 @@ html {
   @apply -bottom-4 top-auto;
 }
 
-h1, h2, h3, ul, li, p {
+h1, h2, h3, ul, li, span, p {
   @apply cursor-default;
 }
 

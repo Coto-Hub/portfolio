@@ -2,12 +2,14 @@ import { Card, PlayerHand } from "./utils";
 
 const cardSigns = ["coeur", "pique", "carreau", "trefle"];
 const cardValues = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, "V", "D", "R"];
+const gameTag = "bj";
 
 export class BlackJack {
-  constructor(player) {
+  constructor(player, statistics) {
     this.cardPackage = [];
     this.playerHands = this.generateHand();
     this.player = player;
+    this.statistics = statistics;
     this.isStart = false;
     this.numberCard = 0;
   }
@@ -34,6 +36,14 @@ export class BlackJack {
     playerHand.playerBet = 0;
     playerHand.playerScore = 0;
     if (playerHand.isMain || playerCount > 21) {
+
+      if (!playerHand.isBot) {
+        this.statistics.addStatistic({
+          money: this.player.money,
+          playerScore: - temps,
+          game: gameTag,
+        });
+      }
       return;
     }
     if (playerHand.haveBlackJack()) {
@@ -45,8 +55,16 @@ export class BlackJack {
     if (mainCount === playerCount) {
       playerHand.playerScore = temps;
     }
+
     if (!playerHand.isBot) {
       this.player.money += playerHand.playerScore;
+      
+      this.statistics.addStatistic({
+        money: this.player.money,
+        playerScore: playerHand.playerScore - temps,
+        game: gameTag,
+      });
+
       if (this.player.money > this.player.highScore) {
         this.player.highScore = this.player.money;
       }

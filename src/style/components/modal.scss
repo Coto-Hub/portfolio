@@ -39,6 +39,14 @@
         .modal-content {
             @apply mt-5 flex flex-col items-center justify-center;
 
+            form {
+                @apply flex flex-col items-center justify-center;
+                
+                .modal-btn {
+                    @apply mx-auto;
+                }
+            }
+
             input {
                 @apply px-2 py-1 rounded-full text-lg text-black w-40 text-center font-bold;
             }

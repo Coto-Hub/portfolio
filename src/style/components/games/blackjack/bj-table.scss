@@ -1,5 +1,6 @@
 .bj-container {
-    @apply w-full border-6 border-dark-500 aspect-2/1 p-4 pt-0 relative overflow-hidden bg-dark-300;
+    @apply w-full border-6 border-dark-500 aspect-2/1 p-4 pt-0;
+    @apply relative overflow-hidden bg-dark-300 my-8;
 
     &.end-game::before {
         @apply block absolute inset-0 bg-dark-500/70 z-30 bg-no-repeat bg-center;
@@ -17,7 +18,7 @@
     }
 
     @screen lg {
-        @apply w-10/12;
+        @apply w-10/12 mx-auto my-12;
     }
 
     .player-money {
@@ -45,6 +46,7 @@
     .bj-token {
         @apply absolute top-9/20 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-30;
         @apply p-1.5 aspect-square border-4 border-dashed border-white bg-black cursor-pointer;
+        @apply select-none;
 
         @screen lg {
             @apply p-2 border-6;

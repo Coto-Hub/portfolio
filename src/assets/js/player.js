@@ -1,9 +1,10 @@
+import { defaultMoney } from "./utils";
+
 export class Player {
-    constructor(money) {
+    constructor() {
         this.isStorage = false;
-        this.reset = false;
-        this.money = money;
-        this.highScore = 0;
+        this.money = defaultMoney;
+        this.highScore = defaultMoney;
         this.username = '';
         this.getCookie();
     }
@@ -16,9 +17,23 @@ export class Player {
         this.isStorage = Boolean(localPlayer);
     }
 
+    resetCookie() {
+        localStorage.removeItem('player');
+        this.isStorage = false;
+        this.money = defaultMoney;
+        this.highScore = 0;
+        this.username = '';
+    }
+
     setCookie() {
-        if (localStorage.getItem('vue-cookie-accept-decline-myPanel1') === 'accept') {
-            localStorage.setItem('player', JSON.stringify(this));
+        if (!this.isAcceptCookie()) {
+            return;
         }
+        localStorage.setItem('player', JSON.stringify(this));
+        this.getCookie();
+    }
+
+    isAcceptCookie() {
+        return localStorage.getItem('vue-cookie-accept-decline-myPanel1') === 'accept';
     }
 }

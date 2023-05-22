@@ -6,7 +6,11 @@
           <img :src="profile" alt="profile" width="40" height="40">
         </div>
         <div class="header-nav">
-          <span class="player-login" @click="nav('player-login')">{{ getBtnLabelLogin }}</span>
+          <nav class="nav-list">
+            <router-link to="/">Profil</router-link>
+            <router-link to="/games">Divertissement</router-link>
+            <button class="btn-contact" @click="nav('contact')">Contact</button>
+          </nav>
         </div>
       </div>
     </div>
@@ -23,10 +27,6 @@ export default {
       type: Object,
       required: true,
     },
-    player: {
-      type: Object,
-      required: true,
-    }
   },
   data: function () {
     return {
@@ -36,16 +36,12 @@ export default {
   methods: {
     nav(value) {
       switch (value) {
-        case 'player-login':
-          this.navInfo.showLoginModal = true;
-          break;
+        case 'contact':
+          this.navInfo.showContactModal = true;
+          break;  
       }
     }
   },
-  computed: {
-    getBtnLabelLogin() {
-      return (this.player.username && this.player.highScore > 0) ? this.player.username : 'Commencer';
-    }
-  }
+  computed: {}
 }
 </script>

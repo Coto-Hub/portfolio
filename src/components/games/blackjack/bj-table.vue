@@ -18,10 +18,10 @@
       <div class="amount-bet">
         {{ getPlayerBet }}€
       </div>
-      <div class="bj-token" :class="getPlayerMoney < 1 ? 'disabled' : ''"><div class="bj-btn" @click="addBet(1)">1€</div></div>
-      <div class="bj-token" :class="getPlayerMoney < 5 ? 'disabled' : ''"><div class="bj-btn" @click="addBet(5)">5€</div></div>
-      <div class="bj-token" :class="getPlayerMoney < 10 ? 'disabled' : ''"><div class="bj-btn" @click="addBet(10)">10€</div></div>
-      <div class="bj-token" :class="getPlayerMoney < 50 ? 'disabled' : ''"><div class="bj-btn" @click="addBet(50)">50€</div></div>
+      <div class="bj-token" :class="player.money < 50 ? 'disabled' : ''"><div class="bj-btn" @click="addBet(50)">50€</div></div>
+      <div class="bj-token" :class="player.money < 100 ? 'disabled' : ''"><div class="bj-btn" @click="addBet(100)">100€</div></div>
+      <div class="bj-token" :class="player.money < 500 ? 'disabled' : ''"><div class="bj-btn" @click="addBet(500)">500€</div></div>
+      <div class="bj-token" :class="player.money < 1 ? 'disabled' : ''"><div class="bj-btn" @click="addBet(player.money)">ALL</div></div>
     </div>
     <div class="player-action" :class="playerIsActive ? 'active' : ''">
       <div class="bj-btn" @click="playerClick('S')">Rester</div>
@@ -48,6 +48,10 @@ export default {
       type: Object,
       required: true,
     },
+    statistics: {
+      type: Object,
+      required: true,
+    }
   },
   data() {
     return {
@@ -63,7 +67,7 @@ export default {
     async restartBj() {
       this.gameResult = null;
       this.isGameRestarting = false;
-      this.blackjack = new BlackJack(this.player);
+      this.blackjack = new BlackJack(this.player, this.statistics);
     },
     async startBj() {
       this.blackjack.isStart = true;
