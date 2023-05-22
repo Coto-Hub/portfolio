@@ -146,7 +146,7 @@ export default {
       return this.userHand.playerBet;
     },
     canDouble() {
-      return !this.userHand.hasDouble && this.userHand.cards.length == 2 && this.player.money > this.getPlayerBet;
+      return !this.userHand.hasDouble && this.userHand.cards.length == 2 && this.player.money >= this.getPlayerBet;
     },
     canSplit() {
       if (this.userHand.cards.length === 2 && !this.userHand.hasSplit && this.userHand.havePair()) {
