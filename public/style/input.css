@@ -793,6 +793,14 @@
   @apply block text-dark-100 text-2xl font-medium underline text-center;
 }
 
+.custom-tooltip {
+  @apply bg-dark-300 text-sm font-semibold px-1 py-0.5;
+}
+
+.apexcharts-yaxis tspan {
+  @apply text-dark-100 font-semibold fill-current;
+}
+
 .card-profile {
   @apply w-2/3 flex flex-col items-center rounded-lg my-8 mx-auto bg-dark-300 border-2;
 }

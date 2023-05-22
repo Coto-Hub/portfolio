@@ -33,7 +33,7 @@ export class Statistics {
 
     addStatistic(statObject) {
         this.table.push(statObject);
-        this.table.slice(-20);
+        this.table.slice(-10);
         this.setCookie();
     }
 

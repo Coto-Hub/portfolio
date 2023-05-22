@@ -1,10 +1,11 @@
 import { createApp } from 'vue';
 import {createRouter, createWebHistory} from 'vue-router';
+import VueApexCharts from "vue3-apexcharts";
 import './../public/style/output.css';
 import App from './App.vue';
-import mainPage from "./components/main-page.vue";
-import gamesPage from "./components/games-page.vue";
 import $ from 'jquery'
+import mainPage from './components/main-page.vue'
+import gamesPage from './components/games-page.vue'
 const cardSize = 48;
 
 const router = createRouter({
@@ -15,7 +16,7 @@ const router = createRouter({
     ]
 });
 
-createApp(App).use(router).mount('#app');
+createApp(App).use(router).use(VueApexCharts).mount('#app');
 
 if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     document.documentElement.classList.add('dark')

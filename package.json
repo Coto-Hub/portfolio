@@ -12,12 +12,14 @@
     "preview": "vite preview --port 8080 --host"
   },
   "dependencies": {
+    "apexcharts": "^3.40.0",
     "emailjs-com": "^3.2.0",
     "jquery": "^3.6.3",
     "sass": "^1.56.1",
     "vue": "^3.2.45",
     "vue-cookie-accept-decline": "^6.1.0",
-    "vue-router": "^4.2.1"
+    "vue-router": "^4.2.1",
+    "vue3-apexcharts": "^1.4.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
