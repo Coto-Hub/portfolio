@@ -1,8 +1,7 @@
 import { Card, PlayerHand } from "./utils";
 
 const cardSigns = ["coeur", "pique", "carreau", "trefle"];
-// const cardValues = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, "V", "D", "R"];
-const cardValues = ['A', 'A', 'A', 'A', 'A', 10, 10, 10, 10, 10];
+const cardValues = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, "V", "D", "R"];
 const gameTag = "bj";
 
 export class BlackJack {
