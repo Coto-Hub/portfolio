@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import {createRouter, createWebHistory} from 'vue-router';
+import {createRouter, createMemoryHistory} from 'vue-router';
 import VueApexCharts from "vue3-apexcharts";
 import './../public/style/output.css';
 import App from './App.vue';
@@ -9,7 +9,7 @@ import gamesPage from './components/games-page.vue'
 const cardSize = 48;
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createMemoryHistory(),
     routes: [
         {path: '/', name: 'Home', component: mainPage, props: true},
         {path: '/games', name: 'Games', component: gamesPage, props: true}

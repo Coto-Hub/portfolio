@@ -147,7 +147,7 @@ export class PlayerHand {
   }
 
   havePair() {
-    return this.cards[0].value === this.cards[1].value;
+    return (this.cards[0].value === this.cards[1].value && this.cards.length === 2);
   }
 
   haveBlackJack() {

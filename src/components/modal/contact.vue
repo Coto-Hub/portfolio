@@ -65,7 +65,7 @@ export default {
     sendEmail(e) {
       this.form.wait = true;
       this.form.checkbox = false;
-      emailjs.sendForm('service_yrmqapj', 'template_qog7vfo', e.target, 'slMcOPpqC_8RvQZhN', {
+      emailjs.sendForm('service_k95s9li', 'template_qog7vfo', e.target, 'slMcOPpqC_8RvQZhN', {
         email: this.form.email,
         message: this.form.msg
       }).then((result) => {
