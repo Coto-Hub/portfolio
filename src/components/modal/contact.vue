@@ -16,7 +16,7 @@
           <textarea v-model="form.msg" id="message" name="message" required></textarea>
         </div>
         <div class="form-checkbox">
-          <input  v-model="form.checkbox" id="link-checkbox" type="checkbox" value="" class="checkbox">
+          <input  v-model="form.checkbox" id="link-checkbox" type="checkbox" value="" class="checkbox" required>
           <label for="link-checkbox" class="link-checkbox">J'ai lu et j'accepte les <a href="./cgu.pdf" target="_blank">conditions générales d'utilisation</a>.</label>
         </div>
         
@@ -63,6 +63,9 @@ export default {
       this.navInfo.showContactModal = false;
     },
     sendEmail(e) {
+      if (!this.canSubmit)
+        return;
+      
       this.form.wait = true;
       this.form.checkbox = false;
       emailjs.sendForm('service_k95s9li', 'template_qog7vfo', e.target, 'slMcOPpqC_8RvQZhN', {
