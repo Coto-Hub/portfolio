@@ -3371,7 +3371,6 @@ video {
 
 .offers-container .card-container .smal-title {
   padding-bottom: 0.25rem;
-  font-weight: 700;
   --tw-text-opacity: 1;
   color: rgb(34 34 34 / var(--tw-text-opacity));
 }
@@ -3899,7 +3898,7 @@ video {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .skills-container .group-container .skill-container {

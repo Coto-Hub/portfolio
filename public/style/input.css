@@ -617,7 +617,7 @@
   }
 }
 .offers-container .card-container .smal-title {
-  @apply font-bold pb-1 text-dark-500;
+  @apply pb-1 text-dark-500;
 }
 .offers-container .card-container .part {
   @apply w-full flex flex-col justify-center p-4 border-4 text-center;
@@ -815,7 +815,7 @@
   @apply mt-2 flex w-1/4;
 }
 .skills-container .group-container {
-  @apply flex flex-wrap justify-center gap-8;
+  @apply flex flex-wrap justify-center gap-12;
 }
 .skills-container .group-container .skill-container {
   @apply flex flex-col items-center p-2 border-2 border-dark-400;

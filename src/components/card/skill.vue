@@ -1,5 +1,5 @@
 <template>
-    <div class="skill-container" :class="isActive ? 'active' : ''" @touchstart="toggleIsActive()" @mouseenter="toggleIsActive()" @mouseleave="toggleIsActive()">
+    <div class="skill-container" :class="isActive ? 'active' : ''" @auxclick="toggleIsActive" @mouseenter="toggleIsActive()" @mouseleave="toggleIsActive()">
         <img :alt="'Logo ' + skill.subtitle" :src="skill.img" width="50" height="50" draggable="false" loading="lazy" />
         <h3 class="skill-subtitle">{{ skill.subtitle }}</h3>
         <starsContainer :rate="skill.rate" />
