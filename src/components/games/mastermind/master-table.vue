@@ -9,25 +9,26 @@
       <div v-if="getPlayerBet > 0 && !roundIsStart" class="bj-token">
         <div class="bj-btn" @click="startBj()">Start</div>
       </div>
-    </div>
-    <div class="player-action" :class="playerIsActive ? 'active' : ''">
-      <div class="color-glass bg-palette-1" @click="playerClickColor(1)"></div>
-      <div class="color-glass bg-palette-2" @click="playerClickColor(2)"></div>
-      <div class="color-glass bg-palette-3" @click="playerClickColor(3)"></div>
-      <div class="color-glass bg-palette-4" @click="playerClickColor(4)"></div>
-      <div class="color-glass bg-palette-5" @click="playerClickColor(5)"></div>
-      <div class="color-glass bg-palette-6" @click="playerClickColor(6)"></div>
-      <div class="color-glass glass-remove" @click="playerClickRemove()"></div>
-      <div class="color-glass glass-save" @click="playerClickSave()"></div>
+
+      <div class="player-action" :class="playerIsActive ? 'active' : ''">
+        <div class="color-glass bg-palette-1" @click="playerClickColor(1)"></div>
+        <div class="color-glass bg-palette-2" @click="playerClickColor(2)"></div>
+        <div class="color-glass bg-palette-3" @click="playerClickColor(3)"></div>
+        <div class="color-glass bg-palette-4" @click="playerClickColor(4)"></div>
+        <div class="color-glass bg-palette-5" @click="playerClickColor(5)"></div>
+        <div class="color-glass bg-palette-6" @click="playerClickColor(6)"></div>
+        <div class="color-glass glass-remove" @click="playerClickRemove()"></div>
+        <div class="color-glass glass-save" @click="playerClickSave()"></div>
+      </div>
     </div>
     <div class="player-bet" :class="!roundIsStart ? 'active' : ''">
       <div class="amount-bet">
         {{ getPlayerBet }}€
       </div>
-      <div class="bj-token" :class="getPlayerMoney < 1 ? 'disabled' : ''"><div class="bj-btn" @click="addBet(1)">1€</div></div>
-      <div class="bj-token" :class="getPlayerMoney < 5 ? 'disabled' : ''"><div class="bj-btn" @click="addBet(5)">5€</div></div>
-      <div class="bj-token" :class="getPlayerMoney < 10 ? 'disabled' : ''"><div class="bj-btn" @click="addBet(10)">10€</div></div>
       <div class="bj-token" :class="getPlayerMoney < 50 ? 'disabled' : ''"><div class="bj-btn" @click="addBet(50)">50€</div></div>
+      <div class="bj-token" :class="getPlayerMoney < 100 ? 'disabled' : ''"><div class="bj-btn" @click="addBet(100)">100€</div></div>
+      <div class="bj-token" :class="getPlayerMoney < 500 ? 'disabled' : ''"><div class="bj-btn" @click="addBet(500)">500€</div></div>
+      <div class="bj-token" :class="getPlayerMoney < 1 ? 'disabled' : ''"><div class="bj-btn" @click="addBet(player.money)">ALL</div></div>
     </div>
   </section>
 </template>
@@ -82,7 +83,6 @@ export default {
         return;
       }
       this.masterMind.addColorLine(event);
-      console.log(this.masterMind);
     },
     async playerClickRemove() {
       if (!this.masterMind.isActive) {
@@ -94,6 +94,7 @@ export default {
       if (!this.masterMind.isActive) {
         return;
       }
+      this.masterMind.saveColorLine();
       this.masterMind.indexLines++;
     }
   },

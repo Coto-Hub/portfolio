@@ -73,27 +73,6 @@ const tableStats = {
   }
 }
 
-export class LineColor {
-  constructor(id, numberColors) {
-    this.id = id;
-    this.colors = this.generateColors(numberColors);
-  }
-
-  generateColors(numberColors) {
-    let colors = [];
-    for (let index = 0; index < numberColors; index++) {
-      colors.push({ id: index, class: '', });
-    }
-    return colors;
-  }
-
-  changeFromArray(array) {
-    for (let index = 0; index < array.length; index++) {
-      this.colors[index].class = `bg-palette-${array[index]}`;
-    }
-  }
-}
-
 export class Card {
   constructor(id, value, sign) {
     this.id = id;

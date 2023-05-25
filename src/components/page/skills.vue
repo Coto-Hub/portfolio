@@ -3,10 +3,10 @@
     <h1 class="part-title">Compétences</h1>
     <fieldset class="information-container">
       <legend class="information-title">Information</legend>
-      <p>Pour savoir dans quelles cadres j'ai pu obtenir une compétence, vous pouvez <span class="hidden md:inline">placer votre curseur</span><span class="md:hidden">taper</span> sur celle-ci.</p>
+      <p>Pour savoir dans quels cadres j'ai pu obtenir une compétence, vous pouvez <span class="hidden md:inline">placer votre curseur</span><span class="md:hidden">taper</span> sur celle-ci.</p>
       <h3>Barème:</h3>
       <ul>
-        <li><starsContainer :rate="1"/>J'ai commencé à comprendre et à l'utiliser.</li>
+        <li><starsContainer :rate="1"/>J'ai commencé à comprendre et à utiliser.</li>
         <li><starsContainer :rate="2"/>J'ai encore un peu de mal à appréhender certaines notions.</li>
         <li><starsContainer :rate="3"/>J'ai compris les notions les plus importantes et j'arrive à trouver les informations qu'il me manque, simplement.</li>
       </ul>

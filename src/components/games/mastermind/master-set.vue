@@ -1,11 +1,9 @@
 <template>
   <div class="line-container">
-    <div class="color-glass" v-for="(c, i) in values.colors" :class="c.class"></div>
-    <div class="tooltip-glass">
-      <div class="tooltip-info">
-        {{ getInformations }}
-      </div>
+    <div class="colors-container">
+      <div class="color-glass" v-for="(c, i) in values.colors" :class="c.class"></div>
     </div>
+    <div class="tooltip-info" v-html="getInformations()"></div>
   </div>
 </template>
   
@@ -27,10 +25,19 @@
     data: function () {
       return {};
     },
-    computed: {
+    methods: {
       getInformations() {
-        console.log(this.resultLine);
-        return "";
+        var goodColor = "?";
+        var goodPlace = "?";
+        if (this.values.isValidated) {
+          goodColor = this.values.goodColor;
+          goodPlace = this.values.goodPlace;
+        }
+        return `
+        <ul>
+          <li title="Bonne couleur mais mauvaise position">${goodColor}<span class="good-color"></span></li>
+          <li title="Bonne couleur et bonne position">${goodPlace}<span class="good-place"></span></li>
+        </ul>`;
       },
     }
   };

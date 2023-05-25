@@ -1,6 +1,4 @@
-import { LineColor } from "./utils";
-
-const numberLines = 12;
+const numberLines = 8;
 const numberColors = 5;
 
 export class MasterMind {
@@ -45,8 +43,26 @@ export class MasterMind {
         });
     }
 
+    saveColorLine() {
+        const listColors = this.linesColors[this.indexLines].colors
+        const resultColors = this.resultLine.colors
+        var newGoodColor = 0;
+        var newGoodplace = 0;
+        this.resultLine.colors.forEach((value) => {
+            const index = listColors.findIndex(c => c.class === value.class);
+            if (index > -1) {
+                if (listColors[index].class === resultColors[index].class)
+                    newGoodplace++
+                else
+                    newGoodColor++
+            }
+        });
+        this.linesColors[this.indexLines].goodColor = newGoodColor;
+        this.linesColors[this.indexLines].goodPlace = newGoodplace;
+        this.linesColors[this.indexLines].isValidated = true;
+    }
+
     shuffleArray(array) {
-        console.log(array.length);
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
@@ -54,3 +70,28 @@ export class MasterMind {
         return array;
     }
 }
+
+export class LineColor {
+    constructor(id, numberColors) {
+      this.id = id;
+      this.colors = this.generateColors(numberColors);
+      this.isValidated = false;
+      this.goodColor = 0;
+      this.goodPlace = 0;
+    }
+  
+    generateColors(numberColors) {
+      let colors = [];
+      for (let index = 0; index < numberColors; index++) {
+        colors.push({ id: index, class: '', });
+      }
+      return colors;
+    }
+  
+    changeFromArray(array) {
+      for (let index = 0; index < array.length; index++) {
+        this.colors[index].class = `bg-palette-${array[index]}`;
+      }
+    }
+  }
+  

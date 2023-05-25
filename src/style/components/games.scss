@@ -1,6 +1,10 @@
 .games-container {
     @apply flex flex-col w-full justify-center my-7;
 
+    @screen md {
+        @apply px-8;
+    }
+
     .account-container {
         @apply w-27/40 bg-dark-300 border-6 border-dark-500/70 rounded-xl;
         @apply mx-auto my-2 flex flex-col items-center pb-3 relative transition-all duration-500;

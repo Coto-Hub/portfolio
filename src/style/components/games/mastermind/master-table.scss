@@ -1,6 +1,6 @@
 .master-container {
     @apply w-full border-6 border-dark-500 aspect-2/1;
-    @apply relative overflow-hidden bg-table-big-border p-5;
+    @apply relative overflow-hidden bg-table-big-border p-5 mx-auto;
 
     &.end-game::before {
         @apply block absolute inset-0 bg-dark-500/70 z-30 bg-no-repeat bg-center;
@@ -43,30 +43,28 @@
     }
     
     .master-table {
-        @apply h-full bg-table-border relative rounded-xl grid grid-cols-2 p-3 pb-10;
-
-        @screen lg {
-            @apply pb-20;
-        }
+        @apply h-full bg-table-border relative rounded-xl grid grid-cols-2 p-2;
     }
 
     .line-container {
-        @apply bg-table-center border-4 rounded-full border-dark-500 mx-0.5 my-1.5 py-1 px-20;
-        @apply flex justify-around gap-2 justify-self-center;
+        @apply bg-table-center border-4 rounded-full border-dark-500 mx-0.5 my-1.5 py-1;
+        @apply flex justify-around justify-self-center px-2 w-2/3;
 
-        @screen lg {
-            @apply px-28;
-        }
-        @screen xl {
-            @apply py-2;
-        }
-        @screen 2xl {
-            @apply py-4;
+        .colors-container {
+            @apply flex items-center space-x-1;
+            
+            @screen md {
+                @apply space-x-2;
+            }
         }
     }
 
     .color-glass {
-        @apply border-2 aspect-square border-dark-500 rounded-full h-full relative;
+        @apply border-2 w-5 h-5 border-dark-500 rounded-full relative;
+
+        @screen xl {
+            @apply w-7 h-7;
+        }
 
         &::after {
             @apply rounded-full absolute inset-0;
@@ -76,17 +74,48 @@
         }
     }
 
+    .tooltip-info {
+        @apply flex;
+
+        ul {
+            @apply flex items-center;
+            
+            li {
+                @apply flex items-center z-10 cursor-pointer px-1.5 font-semibold;
+
+                &:last-child {
+                    @apply border-l-2 border-black;
+                }
+            }
+            .good-color, .good-place {
+                @apply ml-1 border-4 w-4 h-4 border-green-900 bg-green-50 rounded-full relative cursor-pointer;
+                
+                &::before {
+                    @apply rounded-full absolute -inset-1.5 bg-black -z-10;
+                    content: "";
+                }
+
+                &.good-place {
+                    @apply bg-green-900;
+                }
+            }
+        }
+    }
+
     .player-action {
-        @apply w-2/5 h-12 absolute bottom-0 bg-table-center flex justify-around p-1;
-        @apply left-0 right-0 mx-auto rounded-full border-table-big-border border-8;
-        margin-bottom: 5px;
+        @apply w-3/5 col-span-2 bg-table-center flex items-center self-center justify-around p-1;
+        @apply mx-auto rounded-full border-table-big-border border-8;
 
         @screen lg {
-            @apply w-1/2 h-19 border-12 p-2;
+            @apply border-12 p-2;
         }
         
         .color-glass {
-            @apply cursor-pointer opacity-80 border-4;
+            @apply w-8 h-8 cursor-pointer opacity-80 border-4;
+
+            @screen xl {
+                @apply w-10 h-10;
+            }
 
             &:hover {
                 @apply opacity-100;
