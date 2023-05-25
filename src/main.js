@@ -3,15 +3,17 @@ import {createRouter, createMemoryHistory} from 'vue-router';
 import VueApexCharts from "vue3-apexcharts";
 import './../public/style/output.css';
 import App from './App.vue';
-import $ from 'jquery'
-import mainPage from './components/main-page.vue'
-import gamesPage from './components/games-page.vue'
+import $ from 'jquery';
+import mainPage from './components/page/main.vue'
+import skillsPage from './components/page/skills.vue';
+import gamesPage from './components/page/games.vue';
 const cardSize = 48;
 
 const router = createRouter({
     history: createMemoryHistory(),
     routes: [
         {path: '/', name: 'Home', component: mainPage, props: true},
+        {path: '/skills', name: 'Skills', component: skillsPage, props: true},
         {path: '/games', name: 'Games', component: gamesPage, props: true}
     ]
 });

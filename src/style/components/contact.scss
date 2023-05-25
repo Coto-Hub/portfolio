@@ -10,25 +10,34 @@
     }
 
     .part-form {
-        @apply flex flex-col self-center;
+        @apply flex flex-col self-center w-full px-4;
+
+        @screen md {
+            @apply px-8;
+        }
+
+        @screen xl {
+            @apply w-4/5;
+        }
 
         .form-msg {
-            @apply text-base font-medium text-center h-4 flex items-center justify-center mt-1;
+            @apply font-medium text-center h-4 flex items-center justify-center mt-1;
         }
 
         .form-fields {
-            @apply flex flex-col my-1;
+            @apply flex flex-col;
 
             label {
-                @apply text-base font-semibold text-left mb-1;
+                @apply font-semibold text-left mb-1;
+                @extend .large-font;
             }
             textarea, input {
                 @apply p-1 rounded-md focus:ring-0 outline-0 border-2 border-dark-400 bg-dark-100;
-                @apply text-sm font-medium;
+                @apply font-medium;
             }
 
             textarea {
-                @apply aspect-2/1;
+                @apply aspect-5/2;
             }
         }
     }
@@ -42,19 +51,12 @@
         }
         
         .link-checkbox {
-            @apply ml-2 text-sm font-medium;
+            @apply ml-2 font-medium leading-none;
+
             a {
                 @apply text-white hover:underline;
             }
-    
-            @screen lg {
-                @apply text-sm;
-            }
         }
-    }
-
-    button {
-        @apply text-base;
     }
 
     .modal-wait {

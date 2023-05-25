@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import offers from "../components/offers.vue";
-import schooling from "../components/schooling/mainSchooling.vue";
-import career from "../components/career/mainCareer.vue";
-import profileCard from "./card/profile.vue";
+import offers from "../offers.vue";
+import schooling from "../schooling/main.vue";
+import career from "../career/main.vue";
+import profileCard from "../card/profile.vue";
 
 export default {
   name: "MainApp",

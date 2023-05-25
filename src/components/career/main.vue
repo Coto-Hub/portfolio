@@ -1,6 +1,6 @@
 <template>
   <section class="career-container">
-    <h2 class="part-title">Des épisodes inédits !</h2>
+    <h1 class="part-title">Des épisodes inédits !</h1>
     <div class="screen-structure">
       <div class="screen-container">
         <fullScreen v-for="(s, i) in career" :key="i" :screen="s" />
@@ -24,7 +24,7 @@ export default {
     },
     props: {
     },
-    data: function () {
+    data() {
       return {
         career: careerData,
         elementActive: 0,

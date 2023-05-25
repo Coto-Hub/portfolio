@@ -14,7 +14,7 @@
         }
 
         .account-title {
-            @apply font-bold text-lg ml-4 px-3 py-0.5 relative z-30;
+            @apply font-bold ml-4 px-3 py-0.5 relative z-30;
             @apply border-4 border-dark-500/70 bg-dark-300 rounded-xl;
 
             .title-loading {
@@ -95,7 +95,8 @@
     }
 }
 .custom-tooltip {
-    @apply bg-dark-300 text-sm font-semibold px-1 py-0.5;
+    @apply bg-dark-300 font-semibold px-1 py-0.5;
+    @extend .small-font;
 }
 .apexcharts-yaxis tspan {
     @apply text-dark-100 font-semibold fill-current;

@@ -1,6 +1,6 @@
 <template>
   <div class="modal-screen">
-    <div class="modal-container modal-contact">
+    <div class="container modal-container modal-contact">
       <span class="modal-close" @click="closeModal"></span>
       <h1 class="modal-title">Contact</h1>
         

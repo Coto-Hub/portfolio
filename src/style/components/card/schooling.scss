@@ -66,19 +66,16 @@
         @apply pb-2;
 
         .card-title {
-            @apply text-lg font-semibold text-center mx-2;
+            @apply text-center mx-8;
         }
     }
 
     .card-footer {
-        @apply flex justify-between items-center w-full font-semibold text-sm;
-
-        @screen md {
-            @apply text-base;
-        }
+        @apply flex justify-between items-center w-full leading-5;
 
         .card-location {
             @apply flex flex-col items-center cursor-pointer;
+
             p {
                 @apply cursor-pointer;
             }
@@ -88,7 +85,7 @@
             @apply pl-4 relative font-medium;
 
             i::after {
-                @apply w-5 absolute -left-2 -bottom-1;
+                @apply w-4 absolute -left-2 -bottom-px;
             }
         }
     }

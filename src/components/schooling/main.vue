@@ -1,6 +1,6 @@
 <template>
   <section class="schooling-container">
-    <h2 class="part-title">L'historique de notre offre</h2>
+    <h1 class="part-title">L'historique de notre offre</h1>
     <div class="schooling-timeline">
       <schoolingCard v-for="(c, i) in schooling" :key="i" :card="c" />
     </div>

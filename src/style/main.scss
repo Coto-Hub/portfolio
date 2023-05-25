@@ -11,6 +11,8 @@
 @import 'components/screen';
 @import 'components/offers';
 @import 'components/games';
+@import 'components/skills';
+@import 'components/footer';
 
 @import 'components/card/profile';
 @import 'components/card/schooling';
@@ -28,7 +30,7 @@ html {
 }
 
 #app {
-  @apply w-screen min-h-screen;
+  @apply w-screen min-h-screen relative pb-10 overflow-hidden;
 }
 
 .container {
@@ -36,7 +38,7 @@ html {
 }
 
 .part-title {
-  @apply text-center self-center text-3xl font-bold relative my-6;
+  @apply text-center self-center font-bold relative my-6;
 
   &::after, &::before {
       @apply absolute h-1.5 bg-dark-500 -left-6 -right-6 -top-2 rounded-full;
@@ -47,7 +49,6 @@ html {
       @apply -bottom-4 top-auto;
   }
 }
-
 h1, h2, h3, ul, li, span, p {
   @apply cursor-default;
 }
@@ -82,5 +83,64 @@ button {
     &:not(.disabled):hover {
         @apply border-dark-400 bg-dark-500 text-white;
     }
+  }
+}
+html {
+  @apply text-xs font-medium;
+
+  @screen md {
+    @apply text-sm;
+  }
+  @screen lg {
+    @apply text-base;
+  }
+}
+h1, .h1 {
+  @apply text-xl font-extrabold;
+
+  @screen md {
+    @apply text-2xl;
+  }
+  @screen lg {
+    @apply text-3xl;
+  }
+}
+h2, legend {
+  @apply text-lg font-bold;
+  @screen md {
+    @apply text-xl;
+  }
+  @screen lg {
+    @apply text-2xl;
+  }
+}
+h3, .large-font {
+  @apply text-base font-semibold;
+
+  @screen md {
+    @apply text-lg;
+  }
+  @screen lg {
+    @apply text-xl;
+  }
+}
+.medium-font {
+  @apply text-sm;
+
+  @screen md {
+    @apply text-base;
+  }
+  @screen lg {
+    @apply text-lg;
+  }
+}
+.small-font {
+  @apply text-xxs;
+
+  @screen md {
+    @apply text-xs;
+  }
+  @screen lg {
+    @apply text-sm;
   }
 }

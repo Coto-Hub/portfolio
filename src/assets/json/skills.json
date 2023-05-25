@@ -1,0 +1,177 @@
+[
+    {
+        "title": "Utilitaires",
+        "items": [
+            {
+                "subtitle": "Github",
+                "projects": {
+                    "personal": true,
+                    "company": true,
+                    "school": true
+                },
+                "rate": 2,
+                "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+            },
+            {
+                "subtitle": "Jira",
+                "projects": {
+                    "personal": false,
+                    "company": true,
+                    "school": true
+                },
+                "rate": 3,
+                "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg"
+            }
+        ]
+    },
+    {
+        "title": "Frameworks",
+        "items": [
+            {
+                "subtitle": "Socket.io",
+                "projects": {
+                    "personal": true,
+                    "company": false,
+                    "school": false
+                },
+                "rate": 1,
+                "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg"
+            },
+            {
+                "subtitle": "Jquery",
+                "projects": {
+                    "personal": true,
+                    "company": true,
+                    "school": true
+                },
+                "rate": 2,
+                "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-plain.svg"
+            },
+            {
+                "subtitle": "Vue.js",
+                "projects": {
+                    "personal": true,
+                    "company": false,
+                    "school": false
+                },
+                "rate": 2,
+                "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
+            },
+            {
+                "subtitle": "Angular",
+                "projects": {
+                    "personal": false,
+                    "company": false,
+                    "school": true
+                },
+                "rate": 2,
+                "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg"
+            },
+            {
+                "subtitle": "Laravel (Themosis)",
+                "projects": {
+                    "personal": false,
+                    "company": true,
+                    "school": false
+                },
+                "rate": 2,
+                "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg"
+            },
+            {
+                "subtitle": "Symfony",
+                "projects": {
+                    "personal": false,
+                    "company": false,
+                    "school": true
+                },
+                "rate": 2,
+                "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/symfony/symfony-original.svg"
+            },
+            {
+                "subtitle": "Tailwind",
+                "projects": {
+                    "personal": true,
+                    "company": true,
+                    "school": false
+                },
+                "rate": 2,
+                "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg"
+            },
+            {
+                "subtitle": "Sass",
+                "projects": {
+                    "personal": true,
+                    "company": true,
+                    "school": false
+                },
+                "rate": 3,
+                "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg"
+            }
+        ]
+    },
+    {
+        "title": "Langages",
+        "items": [
+            {
+                "subtitle": "Docker",
+                "projects": {
+                    "personal": false,
+                    "company": true,
+                    "school": true
+                },
+                "rate": 1,
+                "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg"
+            },
+            {
+                "subtitle": "JavaScript",
+                "projects": {
+                    "personal": true,
+                    "company": true,
+                    "school": true
+                },
+                "rate": 2,
+                "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg"
+            },
+            {
+                "subtitle": "MySQL",
+                "projects": {
+                    "personal": true,
+                    "company": true,
+                    "school": true
+                },
+                "rate": 2,
+                "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain.svg"
+            },
+            {
+                "subtitle": "PHP",
+                "projects": {
+                    "personal": true,
+                    "company": true,
+                    "school": true
+                },
+                "rate": 3,
+                "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-plain.svg"
+            },
+            {
+                "subtitle": "CSS",
+                "projects": {
+                    "personal": true,
+                    "company": true,
+                    "school": true
+                },
+                "rate": 3,
+                "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg"
+            },
+            {
+                "subtitle": "HTML",
+                "projects": {
+                    "personal": true,
+                    "company": true,
+                    "school": true
+                },
+                "rate": 3,
+                "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg"
+            }
+        ]
+    }
+]

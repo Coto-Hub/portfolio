@@ -8,6 +8,7 @@
         <div class="header-nav">
           <nav class="nav-list">
             <router-link to="/">Profil</router-link>
+            <router-link to="/skills">Compétences</router-link>
             <router-link to="/games">Divertissement</router-link>
             <button class="btn-contact" @click="nav('contact')">Contact</button>
           </nav>

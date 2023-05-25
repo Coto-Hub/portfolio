@@ -8,14 +8,24 @@
   @apply container h-full;
 }
 .header .header-container .header-banner {
-  @apply flex w-3/4 h-full mx-auto justify-between;
+  @apply flex w-full h-full mx-auto justify-around;
+}
+@screen md {
+  .header .header-container .header-banner {
+    @apply w-3/4 justify-between;
+  }
 }
 .header .header-container .header-banner .header-logo {
-  @apply h-3/4 self-center aspect-square overflow-hidden;
+  @apply hidden h-3/4 self-center aspect-square overflow-hidden;
   @apply bg-neutral-400 border-2 border-white rounded-full;
 }
 .header .header-container .header-banner .header-logo img {
   @apply mx-auto;
+}
+@screen md {
+  .header .header-container .header-banner .header-logo {
+    @apply block;
+  }
 }
 .header .header-container .header-banner .header-nav {
   @apply flex gap-x-2 items-center;
@@ -35,7 +45,7 @@
 }
 .header .header-container .header-banner .btn-contact {
   @apply flex text-white border-2 px-3 py-1 bg-dark-400;
-  @apply font-semibold rounded-full cursor-pointer text-sm my-0;
+  @apply font-semibold rounded-full cursor-pointer my-0;
 }
 .header .header-container .header-banner .btn-contact:hover {
   @apply bg-dark-500;
@@ -51,11 +61,11 @@
 }
 @screen md {
   .modal-screen .modal-container {
-    @apply w-1/2;
+    @apply w-2/3;
   }
 }
 .modal-screen .modal-container .modal-title {
-  @apply text-2xl mb-6 text-center font-bold;
+  @apply mb-6 text-center font-bold;
 }
 .modal-screen .modal-container .modal-close {
   @apply absolute -top-1.5 -right-1.5 flex cursor-pointer bg-dark-300;
@@ -74,54 +84,6 @@
 }
 .modal-screen .modal-container .modal-close::after {
   @apply -rotate-45;
-}
-.modal-screen .modal-container .modal-content {
-  @apply mt-5 flex flex-col items-center justify-center;
-}
-.modal-screen .modal-container .modal-content form {
-  @apply flex flex-col items-center justify-center;
-}
-.modal-screen .modal-container .modal-content form .modal-btn {
-  @apply mx-auto;
-}
-.modal-screen .modal-container .modal-content input {
-  @apply px-2 py-1 rounded-full text-lg text-black w-40 text-center font-bold;
-}
-.modal-screen .modal-container .modal-content label {
-  @apply flex font-bold text-dark-100 pb-4 text-lg items-center;
-}
-.modal-screen .modal-container .modal-content label input {
-  @apply ml-4 text-left;
-}
-.modal-screen .modal-container .modal-content .modal-score {
-  @apply pt-5 flex font-bold justify-center text-lg items-center cursor-default;
-}
-.modal-screen .modal-container .modal-content .modal-score span {
-  @apply ml-4 px-3 rounded-full border-4 text-black text-center bg-dark-200;
-}
-.modal-screen .modal-container .modal-content .modal-btn-container {
-  @apply mt-6 grid grid-cols-2 gap-x-8 text-center;
-}
-@screen lg {
-  .modal-screen .modal-container .modal-content .modal-btn-container {
-    @apply gap-x-12;
-  }
-}
-.modal-screen .modal-container .modal-content .modal-btn {
-  @apply bg-dark-300 px-3 py-1 border-4 rounded-full flex items-center justify-center;
-  @apply font-semibold text-white cursor-pointer mt-4;
-}
-.modal-screen .modal-container .modal-content .modal-btn:hover {
-  @apply bg-dark-400;
-}
-.modal-screen .modal-container .modal-content .modal-btn.disabled {
-  @apply cursor-none bg-dark-400 text-dark-100;
-}
-.modal-screen .modal-container .modal-content .modal-btn.reset {
-  @apply bg-card-red;
-}
-.modal-screen .modal-container .modal-content .modal-btn.reset:hover {
-  @apply bg-red-800;
 }
 
 .career-container {
@@ -221,23 +183,33 @@
   @apply z-10;
 }
 .modal-screen .modal-container.modal-contact .part-form {
-  @apply flex flex-col self-center;
+  @apply flex flex-col self-center w-full px-4;
+}
+@screen md {
+  .modal-screen .modal-container.modal-contact .part-form {
+    @apply px-8;
+  }
+}
+@screen xl {
+  .modal-screen .modal-container.modal-contact .part-form {
+    @apply w-4/5;
+  }
 }
 .modal-screen .modal-container.modal-contact .part-form .form-msg {
-  @apply text-base font-medium text-center h-4 flex items-center justify-center mt-1;
+  @apply font-medium text-center h-4 flex items-center justify-center mt-1;
 }
 .modal-screen .modal-container.modal-contact .part-form .form-fields {
-  @apply flex flex-col my-1;
+  @apply flex flex-col;
 }
 .modal-screen .modal-container.modal-contact .part-form .form-fields label {
-  @apply text-base font-semibold text-left mb-1;
+  @apply font-semibold text-left mb-1;
 }
 .modal-screen .modal-container.modal-contact .part-form .form-fields textarea, .modal-screen .modal-container.modal-contact .part-form .form-fields input {
   @apply p-1 rounded-md focus:ring-0 outline-0 border-2 border-dark-400 bg-dark-100;
-  @apply text-sm font-medium;
+  @apply font-medium;
 }
 .modal-screen .modal-container.modal-contact .part-form .form-fields textarea {
-  @apply aspect-2/1;
+  @apply aspect-5/2;
 }
 .modal-screen .modal-container.modal-contact .form-checkbox {
   @apply flex items-center mt-2 ml-1;
@@ -247,18 +219,10 @@
   @apply w-5 h-5 rounded;
 }
 .modal-screen .modal-container.modal-contact .form-checkbox .link-checkbox {
-  @apply ml-2 text-sm font-medium;
+  @apply ml-2 font-medium leading-none;
 }
 .modal-screen .modal-container.modal-contact .form-checkbox .link-checkbox a {
   @apply text-white hover:underline;
-}
-@screen lg {
-  .modal-screen .modal-container.modal-contact .form-checkbox .link-checkbox {
-    @apply text-sm;
-  }
-}
-.modal-screen .modal-container.modal-contact button {
-  @apply text-base;
 }
 .modal-screen .modal-container.modal-contact .modal-wait {
   @apply absolute inset-0 bg-dark-500/70 flex justify-center items-center;
@@ -278,15 +242,25 @@
 }
 
 .schooling-container {
-  @apply w-full px-8 flex flex-col;
+  @apply w-3/4 flex flex-col pb-12 mx-auto;
 }
 @screen md {
   .schooling-container {
-    @apply px-16;
+    @apply w-4/5;
+  }
+}
+@screen lg {
+  .schooling-container {
+    @apply w-5/6;
+  }
+}
+@screen xl {
+  .schooling-container {
+    @apply w-3/4;
   }
 }
 .schooling-container .schooling-timeline {
-  @apply flex flex-col pt-12 items-center relative;
+  @apply flex flex-col pt-10 items-center relative;
 }
 .schooling-container .schooling-timeline::before {
   @apply absolute top-12 bottom-0 w-4 bg-white rounded-full -z-10;
@@ -643,20 +617,15 @@
   }
 }
 .offers-container .card-container .smal-title {
-  @apply text-lg font-bold pb-1 text-dark-500;
+  @apply font-bold pb-1 text-dark-500;
 }
 .offers-container .card-container .part {
-  @apply w-full flex flex-col justify-center p-4 border-4 text-center text-xs;
+  @apply w-full flex flex-col justify-center p-4 border-4 text-center;
   @apply bg-dark-300 border-dark-500 shadow-2xl font-medium rounded-2xl overflow-hidden;
 }
 @screen md {
   .offers-container .card-container .part {
     @apply rounded-none;
-  }
-}
-@screen lg {
-  .offers-container .card-container .part {
-    @apply text-sm;
   }
 }
 .offers-container .card-container .part-left {
@@ -728,7 +697,7 @@
   }
 }
 .games-container .account-container .account-title {
-  @apply font-bold text-lg ml-4 px-3 py-0.5 relative z-30;
+  @apply font-bold ml-4 px-3 py-0.5 relative z-30;
   @apply border-4 border-dark-500/70 bg-dark-300 rounded-xl;
 }
 .games-container .account-container .account-title .title-loading {
@@ -794,15 +763,102 @@
 }
 
 .custom-tooltip {
-  @apply bg-dark-300 text-sm font-semibold px-1 py-0.5;
+  @apply bg-dark-300 font-semibold px-1 py-0.5;
 }
 
 .apexcharts-yaxis tspan {
   @apply text-dark-100 font-semibold fill-current;
 }
 
+.skills-container {
+  @apply flex flex-col items-center w-full space-y-8 pt-0 px-8 pb-20;
+}
+@screen md {
+  .skills-container {
+    @apply px-20;
+  }
+}
+.skills-container .information-container, .skills-container .group-container {
+  @apply border-4 border-dark-500/80 rounded-md p-3 pt-2;
+}
+.skills-container .information-container legend, .skills-container .group-container legend {
+  @apply px-3 py-1 font-bold;
+}
+.skills-container .information-container {
+  @apply flex flex-col items-center;
+}
+@screen md {
+  .skills-container .information-container {
+    @apply w-3/5 px-4 pb-4;
+  }
+}
+.skills-container .information-container p {
+  @apply text-center;
+}
+.skills-container .information-container h3 {
+  @apply font-bold pt-4;
+}
+.skills-container .information-container ul {
+  @apply flex flex-col space-y-3 mt-3;
+}
+.skills-container .information-container ul li {
+  @apply flex flex-col items-center text-center;
+}
+.skills-container .information-container ul li::before {
+  @apply w-1/2 h-1 bg-dark-300/80;
+  content: "";
+}
+.skills-container .information-container ul li:first-child::before {
+  @apply hidden;
+}
+.skills-container .information-container ul .stars-container {
+  @apply mt-2 flex w-1/4;
+}
+.skills-container .group-container {
+  @apply flex flex-wrap justify-center gap-8;
+}
+.skills-container .group-container .skill-container {
+  @apply flex flex-col items-center p-2 border-2 border-dark-400;
+  @apply rounded-2xl cursor-pointer transition-all relative;
+}
+.skills-container .group-container .skill-container:hover, .skills-container .group-container .skill-container.active {
+  @apply border-dark-500;
+}
+.skills-container .group-container .skill-container:hover::after, .skills-container .group-container .skill-container.active::after {
+  @apply absolute inset-0 bg-dark-500/30;
+  content: "";
+}
+.skills-container .group-container .skill-container .skill-subtitle {
+  @apply font-bold;
+}
+.skills-container .group-container .skill-container .stars-container {
+  @apply flex;
+}
+.skills-container .group-container .skill-container .stars-container .star-svg {
+  @apply w-5 h-5;
+}
+.skills-container .group-container .skill-container .skill-tooltip {
+  @apply absolute flex flex-col font-bold bg-dark-300 py-2 px-3 z-20;
+  @apply -bottom-2 translate-y-full border-6 border-dark-500 rounded-3xl;
+}
+.skills-container .group-container .skill-container .skill-tooltip ul {
+  @apply pl-2;
+}
+.skills-container .group-container .skill-container .skill-tooltip ul li {
+  @apply ml-3 list-item list-disc leading-5;
+}
+.skills-container .group-container .skill-container .skill-tooltip::before {
+  @apply absolute -top-1 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 z-10;
+  @apply w-6 h-6 border-6 border-dark-500 bg-dark-300 border-b-0 border-r-0;
+  content: "";
+}
+
+footer {
+  @apply flex h-10 w-full bg-dark-500 absolute -bottom-px;
+}
+
 .card-profile {
-  @apply w-2/3 flex flex-col items-center rounded-lg my-8 mx-auto bg-dark-300 border-2;
+  @apply flex flex-col items-center rounded-lg m-8 bg-dark-300 border-2;
 }
 @screen md {
   .card-profile {
@@ -811,7 +867,7 @@
 }
 @screen lg {
   .card-profile {
-    @apply w-1/2;
+    @apply w-2/3 mx-auto;
   }
 }
 .card-profile .card-content {
@@ -823,20 +879,7 @@
   }
 }
 .card-profile .card-content .card-title {
-  @apply flex flex-col justify-between pb-1 font-bold text-lg;
-}
-@screen md {
-  .card-profile .card-content .card-title {
-    @apply text-xl;
-  }
-}
-.card-profile .card-content .card-text {
-  @apply text-sm;
-}
-@screen md {
-  .card-profile .card-content .card-text {
-    @apply text-base;
-  }
+  @apply flex flex-col justify-between pb-1 font-bold;
 }
 .card-profile .card-img {
   @apply w-1/4 my-1 flex-none;
@@ -905,15 +948,10 @@
   @apply pb-2;
 }
 .card-schooling .card-content .card-title {
-  @apply text-lg font-semibold text-center mx-2;
+  @apply text-center mx-8;
 }
 .card-schooling .card-footer {
-  @apply flex justify-between items-center w-full font-semibold text-sm;
-}
-@screen md {
-  .card-schooling .card-footer {
-    @apply text-base;
-  }
+  @apply flex justify-between items-center w-full leading-5;
 }
 .card-schooling .card-footer .card-location {
   @apply flex flex-col items-center cursor-pointer;
@@ -925,7 +963,7 @@
   @apply pl-4 relative font-medium;
 }
 .card-schooling .card-footer span i::after {
-  @apply w-5 absolute -left-2 -bottom-1;
+  @apply w-4 absolute -left-2 -bottom-px;
 }
 
 .playing-card {
@@ -1505,7 +1543,7 @@ html {
 }
 
 #app {
-  @apply w-screen min-h-screen;
+  @apply w-screen min-h-screen relative pb-10 overflow-hidden;
 }
 
 .container {
@@ -1513,7 +1551,7 @@ html {
 }
 
 .part-title {
-  @apply text-center self-center text-3xl font-bold relative my-6;
+  @apply text-center self-center font-bold relative my-6;
 }
 .part-title::after, .part-title::before {
   @apply absolute h-1.5 bg-dark-500 -left-6 -right-6 -top-2 rounded-full;
@@ -1551,6 +1589,90 @@ button.btn-secondary {
 }
 button.btn-secondary:not(.disabled):hover {
   @apply border-dark-400 bg-dark-500 text-white;
+}
+
+html {
+  @apply text-xs font-medium;
+}
+@screen md {
+  html {
+    @apply text-sm;
+  }
+}
+@screen lg {
+  html {
+    @apply text-base;
+  }
+}
+
+h1, .h1 {
+  @apply text-xl font-extrabold;
+}
+@screen md {
+  h1, .h1 {
+    @apply text-2xl;
+  }
+}
+@screen lg {
+  h1, .h1 {
+    @apply text-3xl;
+  }
+}
+
+h2, legend {
+  @apply text-lg font-bold;
+}
+@screen md {
+  h2, legend {
+    @apply text-xl;
+  }
+}
+@screen lg {
+  h2, legend {
+    @apply text-2xl;
+  }
+}
+
+h3, .large-font, .modal-screen .modal-container.modal-contact .part-form .form-fields label, .card-profile {
+  @apply text-base font-semibold;
+}
+@screen md {
+  h3, .large-font, .modal-screen .modal-container.modal-contact .part-form .form-fields label, .card-profile {
+    @apply text-lg;
+  }
+}
+@screen lg {
+  h3, .large-font, .modal-screen .modal-container.modal-contact .part-form .form-fields label, .card-profile {
+    @apply text-xl;
+  }
+}
+
+.medium-font, .modal-screen .modal-container, .skills-container {
+  @apply text-sm;
+}
+@screen md {
+  .medium-font, .modal-screen .modal-container, .skills-container {
+    @apply text-base;
+  }
+}
+@screen lg {
+  .medium-font, .modal-screen .modal-container, .skills-container {
+    @apply text-lg;
+  }
+}
+
+.small-font, .custom-tooltip {
+  @apply text-xxs;
+}
+@screen md {
+  .small-font, .custom-tooltip {
+    @apply text-xs;
+  }
+}
+@screen lg {
+  .small-font, .custom-tooltip {
+    @apply text-sm;
+  }
 }
 
 /*# sourceMappingURL=input.css.map */

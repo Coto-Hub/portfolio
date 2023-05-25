@@ -1,6 +1,6 @@
 <template>
     <section class="offers-container">
-        <h2 class="part-title">Offre exceptionnelle</h2>
+        <h1 class="part-title">Offre exceptionnelle</h1>
         <div class="card-container">
             <div class="part part-left">
                 <h3 class="smal-title">Esprit d’équipe</h3>
@@ -18,7 +18,7 @@
                     Pourquoi choisir entre compétence et esprit d'équipe lorsque vous pouvez avoir les deux ? Notre offre Complète vous propose un collègue compétent ET avec un bon esprit d'équipe. Il sera toujours prêt à travailler et fera preuve de dévouement dans toutes les tâches qu'il entreprendra. Avec ce collègue, vous bénéficierez de la convivialité et de la bonne humeur de notre offre "Esprit d’équipe", tout en profitant de l'expertise et du sérieux de notre offre "Compétent".
                 </p>
                 <ul class="part-list">
-                    <li>Sociable</li>
+                    <li>Esprit d’équipe</li>
                     <li>Compétent</li>
                 </ul>
                 <button class="btn-primary" @click="toggleContact()">S'abonner <span>-100% !</span></button>

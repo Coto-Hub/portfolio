@@ -4,7 +4,7 @@
       <img :src="`data:${card.logo.mime};base64,${card.logo.data}`" alt="Logo" width="50" height="50"/>
     </div>
     <div class="card-content">
-      <h1 class="card-title" v-html="card.title"></h1>
+      <h3 class="card-title" v-html="card.title"></h3>
       <p class="card-text">
       </p>
     </div>

@@ -1,12 +1,18 @@
 .schooling-container {
-    @apply w-full px-8 flex flex-col;
+    @apply w-3/4 flex flex-col pb-12 mx-auto;
 
     @screen md {
-        @apply px-16;
+        @apply w-4/5;
+    }
+    @screen lg {
+        @apply w-5/6;
+    }
+    @screen xl {
+        @apply w-3/4;
     }
 
     .schooling-timeline {
-        @apply flex flex-col pt-12 items-center relative;
+        @apply flex flex-col pt-10 items-center relative;
 
         &::before {
             @apply absolute top-12 bottom-0 w-4 bg-white rounded-full -z-10;

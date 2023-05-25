@@ -1,6 +1,6 @@
 <template>
   <div class="games-container">
-    <h2 class="part-title">Divertissement</h2>
+    <h1 class="part-title">Divertissement</h1>
     <account :player="player" :statistics="statistics" />
     <blackjack :player="player" :statistics="statistics"/>
     <!-- <masterMind :player="player" :statistics="statistics"/> -->
@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import blackjack from "../components/games/blackjack/bj-table.vue";
-import masterMind from "../components/games/mastermind/master-table.vue";
-import account from "../components/games/account.vue";
+import blackjack from "../games/blackjack/bj-table.vue";
+import masterMind from "../games/mastermind/master-table.vue";
+import account from "../games/account.vue";
 
 export default {
   name: "GamesPage",
