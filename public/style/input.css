@@ -812,7 +812,10 @@
   @apply hidden;
 }
 .skills-container .information-container ul .stars-container {
-  @apply mt-2 flex w-1/4;
+  @apply mt-2 flex;
+}
+.skills-container .information-container ul .stars-container .star-svg {
+  @apply w-8 h-8;
 }
 .skills-container .group-container {
   @apply flex flex-wrap justify-center gap-12;

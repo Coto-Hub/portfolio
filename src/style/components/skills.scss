@@ -42,7 +42,11 @@
                 }
             }
             .stars-container {
-                @apply mt-2 flex w-1/4;
+                @apply mt-2 flex;
+
+                .star-svg {
+                    @apply w-8 h-8;
+                }
             }
         }
     }

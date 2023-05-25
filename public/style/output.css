@@ -3891,7 +3891,11 @@ video {
 .skills-container .information-container ul .stars-container {
   margin-top: 0.5rem;
   display: flex;
-  width: 25%;
+}
+
+.skills-container .information-container ul .stars-container .star-svg {
+  height: 2rem;
+  width: 2rem;
 }
 
 .skills-container .group-container {
