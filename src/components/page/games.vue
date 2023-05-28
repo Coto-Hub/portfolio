@@ -2,7 +2,9 @@
   <div class="games-container">
     <h1 class="part-title">Divertissement</h1>
     <account :player="player" :statistics="statistics" />
+    <h1 class="part-title">Blackjack</h1>
     <blackjack :player="player" :statistics="statistics" :notificationCenter="notificationCenter"/>
+    <h1 class="part-title">MasterMind</h1>
     <masterMind :player="player" :statistics="statistics" :notificationCenter="notificationCenter"/>
   </div>
 </template>
