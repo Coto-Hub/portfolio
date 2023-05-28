@@ -48,7 +48,7 @@
 
     .line-container {
         @apply bg-table-center border-4 rounded-full border-dark-500 mx-0.5 my-1.5 py-1;
-        @apply flex justify-around justify-self-center px-2 w-2/3;
+        @apply flex justify-around justify-self-center px-2 w-2/3 relative;
 
         .colors-container {
             @apply flex items-center space-x-1;
@@ -56,6 +56,15 @@
             @screen md {
                 @apply space-x-2;
             }
+        }
+
+        .multiplier {
+            @apply inset-y-0 -left-12 -translate-x-1/2 aspect-square rounded-full absolute bg-dark-300 border-2;
+            @apply flex justify-center items-center text-dark-100 font-extrabold z-10;
+        }
+
+        &.active {
+            @apply border-white;
         }
     }
 

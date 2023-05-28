@@ -10,9 +10,15 @@
         <playerHand :hand="p" />
       </div>
 
-      <div v-if="getPlayerBet > 0 && !roundIsStart" class="bj-token">
-        <div class="bj-btn" @click="startBj()">Start</div>
+      <div v-if="getPlayerBet > 0 && !roundIsStart" class="bj-token-container">
+        <div class="bj-token">
+          <div class="bj-btn" @click="addBet(- userHand.playerBet)">Cancel</div>
+        </div>
+        <div class="bj-token">
+          <div class="bj-btn" @click="startGame()">Start</div>
+        </div>
       </div>
+
     </div>
     <div class="player-bet" :class="!roundIsStart ? 'active' : ''">
       <div class="amount-bet">
@@ -51,6 +57,10 @@ export default {
     statistics: {
       type: Object,
       required: true,
+    },
+    notificationCenter: {
+      type: Object,
+      required: true,
     }
   },
   data() {
@@ -60,16 +70,16 @@ export default {
     };
   },
   created() {
-    this.restartBj();
+    this.restartGame();
     this.userHand = this.blackjack.playerHands[3];
   },
   methods: {
-    async restartBj() {
+    async restartGame() {
       this.gameResult = null;
       this.isGameRestarting = false;
-      this.blackjack = new BlackJack(this.player, this.statistics);
+      this.blackjack = new BlackJack(this.player, this.statistics, this.notificationCenter);
     },
-    async startBj() {
+    async startGame() {
       this.blackjack.isStart = true;
       this.blackjack.playerHands.map((playerHand) => {
         playerHand.resetHand();
@@ -85,7 +95,7 @@ export default {
     },
     addBet(value) {
       if (this.player.money >= value) {
-        this.player.money -= value;
+        this.player.addMoney(- value);
         this.userHand.playerBet += value;
       }
     },

@@ -1,7 +1,7 @@
 <template>
     <div class="part-content">
         <h2 class="part-subtitle" v-if="part.subtitle" v-html="part.subtitle"></h2>
-        <img v-if="part.img" class="part-img" :src="`data:${part.img.mime};base64,${part.img.data}`" :alt="part.img.alt"/>
+        <img v-if="part.img" class="part-img" :src="`data:${part.img.mime};base64,${part.img.data}`" :alt="part.img.alt" loading="lazy"/>
         <div class="part-info">
             <p class="part-text" v-html="part.content"></p>
             <p class="show-more" @click="openModal()">Afficher plus</p>

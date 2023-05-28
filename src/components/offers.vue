@@ -5,7 +5,7 @@
             <div class="part part-left">
                 <h2 class="smal-title">Esprit d’équipe</h2>
                 <p>
-                    Vous cherchez à renforcer l'esprit d'équipe sur votre lieu de travail ? Nous avons la solution ! Cette offre vous propose un collègue toujours prêt à collaborer et à échanger avec ses pairs. Avec 0 compétence, 0 connaissance et 7 pauses café 007, c'est le parfait compagnon pour détendre l'atmosphère.
+                    Vous cherchez à renforcer l'esprit d'équipe sur votre lieu de travail ? Nous avons la solution ! Cette offre vous propose un collègue toujours prêt à collaborer et à échanger avec ses pairs. Avec 0 compétence, 0 connaissance et 7 pauses café. 007 est le parfait compagnon pour détendre l'atmosphère.
                 </p>
                 <ul class="part-list">
                     <li>Esprit d’équipe</li>

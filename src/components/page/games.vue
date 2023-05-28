@@ -2,8 +2,8 @@
   <div class="games-container">
     <h1 class="part-title">Divertissement</h1>
     <account :player="player" :statistics="statistics" />
-    <blackjack :player="player" :statistics="statistics"/>
-    <!-- <masterMind :player="player" :statistics="statistics"/> -->
+    <blackjack :player="player" :statistics="statistics" :notificationCenter="notificationCenter"/>
+    <masterMind :player="player" :statistics="statistics" :notificationCenter="notificationCenter"/>
   </div>
 </template>
 
@@ -25,6 +25,10 @@ export default {
       required: true,
     },
     statistics: {
+      type: Object,
+      required: true,
+    },
+    notificationCenter: {
       type: Object,
       required: true,
     }

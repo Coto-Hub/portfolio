@@ -115,13 +115,14 @@ module.exports = {
         xxs: '0.5rem',
       },
       keyframes: {
-        wiggle: {
-          "25%, 75%": { transform: "rotate(-20deg)" },
-          "50%": { transform: "rotate(20deg)" },
+        notif: {
+          "0%": { width: '0%' },
+          "100%": { width: '100%' },
         },
       },
       animation: {
-        wiggle: "wiggle 1s linear",
+        notif: "notif 1.5s linear",
+        opacity: "opacity 0.5s linear",
       },
       lineHeight: {
         0: "0rem",

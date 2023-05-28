@@ -5,8 +5,6 @@
       <h1 class="modal-title">Contact</h1>
         
       <form class="part-form" @submit.prevent="sendEmail">
-        <p :class="form.success ? 'text-result-success' : 'text-result-error'" class="form-msg">{{ form.result }}</p>
-        
         <div class="form-fields">
           <label for="email">Email</label>
           <input v-model="form.email" class="email" type="email" id="email" name="email" required>
@@ -32,6 +30,7 @@
 <script>
 import emailjs from 'emailjs-com';
 import waitSvg from "../svg/wait.vue";
+import { Notification } from "./../../assets/js/notification";
 
 export default {
   name: 'contactModal',
@@ -40,13 +39,16 @@ export default {
       type: Object,
       required: true,
     },
+    notificationCenter: {
+      type: Object,
+      required: true,
+    }
   },
   data() {
     return {
       form: {
         msg: "",
         email: "",
-        result: "",
         checkbox: false,
         success: false,
         wait: false
@@ -74,13 +76,23 @@ export default {
       }).then((result) => {
         this.form.email = "";
         this.form.msg = "";
-        this.form.result = "Le mail a bien été envoyé !";
+        this.notificationCenter.addNotification(new Notification("icon", {
+          title: "Messagerie",
+          message: "Le mail a bien été envoyé !",
+          icon: "contact",
+          success: true,
+        }));
         this.form.success = true;
         this.form.wait = false;
       }, (error) => {
-        this.form.result = "Il y a eu un problème, veuillez réessayer ultérieurement";
         this.form.success = false;
         this.form.wait = false;
+        this.notificationCenter.addNotification(new Notification("icon", {
+          title: "Messagerie",
+          message: "Il y a eu un problème...",
+          icon: "contact",
+          success: false,
+        }));
         console.log('FAILED...', error.text);
       });
     }

@@ -241,6 +241,11 @@
   content: url("/icon/arrow.svg");
 }
 
+.icon-money::after {
+  @apply block w-3/4;
+  content: url("/icon/money.svg");
+}
+
 .schooling-container {
   @apply w-3/4 flex flex-col pb-12 mx-auto;
 }
@@ -865,6 +870,102 @@ footer {
   @apply flex h-10 w-full bg-dark-500 absolute -bottom-px;
 }
 
+.notifications-container {
+  @apply fixed bottom-2 flex flex-col items-center w-9/10 z-100 left-1/2 -translate-x-1/2 space-y-2;
+  @apply transition-transform overflow-hidden;
+  max-width: 30rem;
+}
+@screen md {
+  .notifications-container {
+    @apply w-1/2 px-0;
+  }
+}
+@screen lg {
+  .notifications-container {
+    @apply w-2/5 bottom-auto top-2 left-auto right-2 translate-x-0 items-end;
+    max-width: 25rem;
+  }
+}
+@screen lg {
+  .notifications-container.top {
+    @apply absolute right-6 top-20;
+  }
+}
+.notifications-container .notification {
+  @apply relative flex bg-dark-400 border-2 w-full h-20 animate-notif duration-200;
+  @apply border-dark-500 rounded-md shadow-2xl shadow-black z-100 overflow-hidden text-base;
+}
+.notifications-container .notification.disabled {
+  @apply w-0 h-0 hidden;
+}
+@screen lg {
+  .notifications-container .notification {
+    @apply h-20;
+  }
+}
+.notifications-container .notification * {
+  @apply cursor-pointer;
+}
+.notifications-container .notification.notification-icon .icon-container {
+  @apply flex aspect-square h-full p-3 items-center justify-center;
+}
+.notifications-container .notification.notification-icon .icon-container svg {
+  @apply h-full;
+}
+.notifications-container .notification.notification-icon .notification-content {
+  @apply flex flex-col justify-around ml-2 pl-3 relative py-2;
+}
+.notifications-container .notification.notification-icon .notification-content::before {
+  @apply w-1 bg-black/30 rounded-full absolute left-0 inset-y-3 -translate-x-full;
+  content: "";
+}
+.notifications-container .notification.notification-icon .notification-content .content-title {
+  @apply text-lg font-bold;
+}
+.notifications-container .notification.notification-icon .notification-content .content-message {
+  @apply font-semibold h-7 overflow-hidden;
+}
+.notifications-container .notification .notification-close {
+  @apply absolute left-3/4 translate-x-1/2 inset-y-5 cursor-pointer opacity-70 transition-all duration-300;
+}
+@screen lg {
+  .notifications-container .notification .notification-close {
+    @apply inset-y-6;
+  }
+}
+.notifications-container .notification .notification-close::before, .notifications-container .notification .notification-close::after {
+  @apply absolute inset-y-2 w-1 -translate-x-1/2 rounded-full bg-dark-500;
+  content: "";
+}
+@screen lg {
+  .notifications-container .notification .notification-close::before, .notifications-container .notification .notification-close::after {
+    @apply w-0.5;
+  }
+}
+.notifications-container .notification .notification-close::before {
+  @apply rotate-45;
+}
+.notifications-container .notification .notification-close::after {
+  @apply -rotate-45;
+}
+.notifications-container .notification .notification-close svg {
+  @apply -rotate-90 h-full -translate-x-1/2;
+}
+.notifications-container .notification .notification-close svg .close-circle {
+  stroke-dasharray: 100;
+  stroke-dashoffset: calc(100 - var(--val));
+}
+.notifications-container .notification:hover .notification-close {
+  @apply opacity-70;
+}
+
+.contact-svg {
+  @apply w-full h-full flex relative;
+}
+.contact-svg svg {
+  @apply w-full h-full;
+}
+
 .card-profile {
   @apply flex flex-col items-center rounded-lg m-8 bg-dark-300 border-2;
 }
@@ -1264,25 +1365,6 @@ footer {
 .bj-container.end-game .player-hand .hand-bet .hand-score {
   @apply translate-y-0;
 }
-.bj-container .bj-token {
-  @apply absolute top-9/20 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-30;
-  @apply p-1.5 aspect-square border-4 border-dashed border-white bg-black cursor-pointer;
-  @apply select-none;
-}
-@screen lg {
-  .bj-container .bj-token {
-    @apply p-2 border-6;
-  }
-}
-.bj-container .bj-token .bj-btn {
-  @apply px-1.5 aspect-square text-sm font-semibold rounded-full flex items-center;
-  @apply border-2 border-dashed border-white text-white;
-}
-@screen lg {
-  .bj-container .bj-token .bj-btn {
-    @apply px-2 text-xl;
-  }
-}
 .bj-container .player-action {
   @apply grid grid-cols-4 absolute bottom-0 left-1/2 -translate-x-1/2;
   @apply border-2 border-white bg-dark-300 w-2/5 p-1 z-10;
@@ -1410,9 +1492,22 @@ footer {
   @apply bg-bet-dark;
 }
 
+.bj-token-container {
+  @apply absolute top-9/20 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30;
+  @apply flex space-x-10;
+}
+.bj-token-container .bj-token {
+  @apply w-24 h-full aspect-square text-center;
+}
+.bj-token-container .bj-token .bj-btn {
+  @apply justify-center;
+}
+.bj-token-container .bj-token:first-child {
+  @apply bg-card-red/90;
+}
+
 .bj-token {
-  @apply absolute top-9/20 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-30;
-  @apply p-1.5 aspect-square border-4 border-dashed border-white bg-black cursor-pointer;
+  @apply p-1.5 aspect-square border-4 border-dashed border-white bg-black cursor-pointer rounded-full;
 }
 @screen lg {
   .bj-token {
@@ -1425,7 +1520,7 @@ footer {
 }
 @screen lg {
   .bj-token .bj-btn {
-    @apply px-2 text-xl;
+    @apply px-2 text-lg;
   }
 }
 
@@ -1474,7 +1569,7 @@ footer {
 }
 .master-container .line-container {
   @apply bg-table-center border-4 rounded-full border-dark-500 mx-0.5 my-1.5 py-1;
-  @apply flex justify-around justify-self-center px-2 w-2/3;
+  @apply flex justify-around justify-self-center px-2 w-2/3 relative;
 }
 .master-container .line-container .colors-container {
   @apply flex items-center space-x-1;
@@ -1483,6 +1578,13 @@ footer {
   .master-container .line-container .colors-container {
     @apply space-x-2;
   }
+}
+.master-container .line-container .multiplier {
+  @apply inset-y-0 -left-12 -translate-x-1/2 aspect-square rounded-full absolute bg-dark-300 border-2;
+  @apply flex justify-center items-center text-dark-100 font-extrabold z-10;
+}
+.master-container .line-container.active {
+  @apply border-white;
 }
 .master-container .color-glass {
   @apply border-2 w-5 h-5 border-dark-500 rounded-full relative;

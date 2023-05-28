@@ -1,15 +1,23 @@
-const numberLines = 8;
-const numberColors = 5;
+import { Notification } from "./notification";
+
+export const multiplierList = [500, 100, 50, 25, 10, 5, 4, 3, 2, 1]
+export const numberLines = 10;
+export const numberColors = 5;
+const gameTag = "mm";
 
 export class MasterMind {
-    constructor(player) {
+    constructor(player, statistics, notificationCenter) {
         this.linesColors = this.generateLinesColors(numberLines);
         this.resultLine = this.generateResultLine(numberColors);
+        this.statistics = statistics;
+        this.notificationCenter = notificationCenter;
         this.player = player;
         this.isStart = false;
+        this.isActive = false;
         this.indexLines = 0;
+        this.playerBet = 0;
     }
-
+7
     generateLinesColors(numberLines) {
         let linesColors = [];
         for (let index = 0; index < numberLines; index++) {
@@ -60,6 +68,43 @@ export class MasterMind {
         this.linesColors[this.indexLines].goodColor = newGoodColor;
         this.linesColors[this.indexLines].goodPlace = newGoodplace;
         this.linesColors[this.indexLines].isValidated = true;
+
+        if (newGoodplace === 5) {
+            this.isStart = false;
+            this.isActive = false;
+
+            const win = this.playerBet * multiplierList[this.indexLines];
+            this.player.addMoney(win);
+            const msg = (win == this.player.playerBet) ? "Vous venez de récupérer votre mise." : `Vous venez de gagner ${win.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}€ !`
+
+            this.statistics.addStatistic({
+                money: this.player.money,
+                playerScore: win,
+                game: gameTag,
+            });
+            this.notificationCenter.addNotification(new Notification("icon", {
+                title: "MasterMind",
+                message: msg,
+                icon: "money",
+            }));
+            this.playerBet = 0;
+        }
+        else if(this.indexLines + 1 >= numberLines) {
+            this.statistics.addStatistic({
+                money: this.player.money,
+                playerScore: - this.playerBet,
+                game: gameTag,
+            });
+            this.notificationCenter.addNotification(new Notification("icon", {
+                title: "MasterMind",
+                message: "Vous avez perdu...",
+                icon: "money",
+            }));
+            this.isStart = false;
+            this.isActive = false;
+            this.playerBet = 0;
+        }
+        return newGoodplace === 5;
     }
 
     shuffleArray(array) {
@@ -68,6 +113,10 @@ export class MasterMind {
             [array[i], array[j]] = [array[j], array[i]];
         }
         return array;
+    }
+
+    currentLineIsFull() {
+        return this.linesColors[this.indexLines].isFull();
     }
 }
 
@@ -93,5 +142,8 @@ export class LineColor {
         this.colors[index].class = `bg-palette-${array[index]}`;
       }
     }
-  }
-  
+
+    isFull() {
+        return this.colors.every((c) => c.class !== "");
+    }
+}

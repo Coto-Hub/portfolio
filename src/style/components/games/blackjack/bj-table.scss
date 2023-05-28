@@ -43,25 +43,6 @@
         @apply translate-y-0;
     }
 
-    .bj-token {
-        @apply absolute top-9/20 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-30;
-        @apply p-1.5 aspect-square border-4 border-dashed border-white bg-black cursor-pointer;
-        @apply select-none;
-
-        @screen lg {
-            @apply p-2 border-6;
-        }
-        
-        .bj-btn {
-            @apply px-1.5 aspect-square text-sm font-semibold rounded-full flex items-center;
-            @apply border-2 border-dashed border-white text-white;
-
-            @screen lg {
-                @apply px-2 text-xl;
-            }
-        }
-    }
-
     .player-action {
         @apply grid grid-cols-4 absolute bottom-0 left-1/2 -translate-x-1/2;
         @apply border-2 border-white bg-dark-300 w-2/5 p-1 z-10;
@@ -209,9 +190,24 @@
         }
     }
 }
+.bj-token-container {
+    @apply absolute top-9/20 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30;
+    @apply flex space-x-10;
+
+    .bj-token {
+        @apply w-24 h-full aspect-square text-center;
+
+        .bj-btn {
+            @apply justify-center;
+        }
+
+        &:first-child {
+            @apply bg-card-red/90;
+        }
+    }
+}
 .bj-token {
-    @apply absolute top-9/20 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-30;
-    @apply p-1.5 aspect-square border-4 border-dashed border-white bg-black cursor-pointer;
+    @apply p-1.5 aspect-square border-4 border-dashed border-white bg-black cursor-pointer rounded-full;
 
     @screen lg {
         @apply p-2 border-6;
@@ -222,7 +218,7 @@
         @apply border-2 border-dashed border-white text-white;
 
         @screen lg {
-            @apply px-2 text-xl;
+            @apply px-2 text-lg;
         }
     }
 }

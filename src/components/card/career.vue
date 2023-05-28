@@ -1,7 +1,7 @@
 <template>
   <section class="card card-career">
     <div v-if="card.logo" class="card-img">
-      <img :src="`data:${card.logo.mime};base64,${card.logo.data}`" alt="Logo"/>
+      <img :src="`data:${card.logo.mime};base64,${card.logo.data}`" alt="Logo"  loading="lazy"/>
     </div>
     <div class="card-content">
       <h1 class="card-title" v-html="card.title"></h1>

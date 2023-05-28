@@ -1,5 +1,8 @@
 <template>
-  <div class="line-container">
+  <div class="line-container" :class="`${customOrder[values.id]} ${isActive ? 'active' : ''}`">
+    <div class="multiplier">
+      ×{{ multiplierList[values.id] }}
+    </div>
     <div class="colors-container">
       <div class="color-glass" v-for="(c, i) in values.colors" :class="c.class"></div>
     </div>
@@ -7,8 +10,9 @@
   </div>
 </template>
   
-  <script>
-  
+<script>
+import { multiplierList } from "../../../assets/js/mastermind.js"
+
   export default {
     name: "MasterSet",
     components: {},
@@ -20,10 +24,17 @@
       resultLine: {
         type: Array,
         required: true,
+      },
+      isActive: {
+        type: Boolean,
+        required: true,
       }
     },
-    data: function () {
-      return {};
+    data() {
+      return {
+        customOrder: ["order-1","order-3","order-5","order-7","order-9", "order-2", "order-4", "order-6", "order-8", "order-10"],
+        multiplierList,
+      };
     },
     methods: {
       getInformations() {

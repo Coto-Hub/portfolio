@@ -1,0 +1,105 @@
+.notifications-container {
+    @apply fixed bottom-2 flex flex-col items-center w-9/10 z-100 left-1/2 -translate-x-1/2 space-y-2;
+    @apply transition-transform overflow-hidden;
+    max-width: 30rem;
+
+    @screen md {
+        @apply w-1/2 px-0;
+    }
+
+    @screen lg {
+        @apply w-2/5 bottom-auto top-2 left-auto right-2 translate-x-0 items-end;
+        max-width: 25rem;
+    }
+
+    &.top {
+        @screen lg {
+            @apply absolute right-6 top-20;
+        }
+    }
+
+    .notification {
+        @apply relative flex bg-dark-400 border-2 w-full h-20 animate-notif duration-200;
+        @apply border-dark-500 rounded-md shadow-2xl shadow-black z-100 overflow-hidden text-base;
+
+        &.disabled {
+            @apply w-0 h-0 hidden;
+        }
+
+        @screen lg {
+            @apply h-20;
+        }
+
+        * {
+            @apply cursor-pointer;
+        }
+
+        &.notification-icon {
+            .icon-container {
+                @apply flex aspect-square h-full p-3 items-center justify-center;
+    
+                svg {
+                    @apply h-full;
+                }
+            }
+    
+            .notification-content {
+                @apply flex flex-col justify-around ml-2 pl-3 relative py-2;
+                
+                &::before {
+                    @apply w-1 bg-black/30 rounded-full absolute left-0 inset-y-3 -translate-x-full;
+                    content: '';
+                }
+    
+                .content-title {
+                    @apply text-lg font-bold;
+                }
+                .content-message {
+                    @apply font-semibold h-7 overflow-hidden;
+                }
+            }
+        }
+
+        .notification-close {
+            @apply absolute left-3/4 translate-x-1/2 inset-y-5 cursor-pointer opacity-70 transition-all duration-300;
+
+            @screen lg {
+                @apply inset-y-6;
+            }
+
+            &::before, &::after {
+                @apply absolute inset-y-2 w-1 -translate-x-1/2 rounded-full bg-dark-500;
+                content: '';
+
+                @screen lg {
+                    @apply w-0.5;
+                }
+            }
+            &::before {
+                @apply rotate-45;
+            }
+            &::after {
+                @apply -rotate-45;
+            }
+            
+            svg {
+                @apply -rotate-90 h-full -translate-x-1/2;
+    
+                .close-circle {
+                    stroke-dasharray: 100;
+                    stroke-dashoffset: calc(100 - var(--val));
+                }
+            }
+        }
+        &:hover .notification-close {
+            @apply opacity-70;
+        }
+    }
+}
+.contact-svg {
+    @apply w-full h-full flex relative;
+
+    svg {
+        @apply w-full h-full;
+    }
+}

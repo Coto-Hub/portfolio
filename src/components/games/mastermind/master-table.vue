@@ -4,13 +4,18 @@
       Solde : {{ getPlayerMoney }}€
     </div>
     <div class="master-table">
-      <masterSet v-for="(p, i) in masterMind.linesColors" :values="p" :resultLine="masterMind.resultLine" />
+      <masterSet v-for="(p, i) in masterMind.linesColors" :values="p" :resultLine="masterMind.resultLine" :isActive="masterMind.indexLines === p.id" />
 
-      <div v-if="getPlayerBet > 0 && !roundIsStart" class="bj-token">
-        <div class="bj-btn" @click="startBj()">Start</div>
+      <div v-if="getPlayerBet > 0 && !roundIsStart" class="bj-token-container">
+        <div class="bj-token">
+          <div class="bj-btn" @click="addBet(- masterMind.playerBet)">Cancel</div>
+        </div>
+        <div class="bj-token">
+          <div class="bj-btn" @click="startGame()">Start</div>
+        </div>
       </div>
 
-      <div class="player-action" :class="playerIsActive ? 'active' : ''">
+      <div class="player-action order-last" :class="playerIsActive ? 'active' : ''">
         <div class="color-glass bg-palette-1" @click="playerClickColor(1)"></div>
         <div class="color-glass bg-palette-2" @click="playerClickColor(2)"></div>
         <div class="color-glass bg-palette-3" @click="playerClickColor(3)"></div>
@@ -35,7 +40,7 @@
 
 <script>
 import masterSet from "./master-set.vue";
-import { MasterMind } from "../../../assets/js/mastermind";
+import { MasterMind, numberLines, numberColors } from "../../../assets/js/mastermind";
 
 export default {
   name: "MasterTable",
@@ -50,6 +55,10 @@ export default {
     statistics: {
       type: Object,
       required: true,
+    },
+    notificationCenter: {
+      type: Object,
+      required: true,
     }
   },
   data() {
@@ -59,23 +68,25 @@ export default {
     };
   },
   created() {
-    this.restartBj();
+    this.restartGame();
   },
   methods: {
-    async restartBj() {
+    async restartGame() {
       this.gameResult = null;
       this.isGameRestarting = false;
-      this.masterMind = new MasterMind(this.player);
-      this.userSet.playerBet = 0;
+      this.masterMind = new MasterMind(this.player, this.statistics, this.notificationCenter);
     },
-    async startBj() {
+    async startGame() {
       this.masterMind.isStart = true;
       this.masterMind.isActive = true;
+      this.masterMind.indexLines = 0;
+      this.masterMind.linesColors = this.masterMind.generateLinesColors(numberLines);
+      this.masterMind.resultLine = this.masterMind.generateResultLine(numberColors);
     },
     addBet(value) {
       if (this.player.money >= value) {
-        this.player.money -= value;
-        this.userSet.playerBet += value;
+        this.player.addMoney(- value);
+        this.masterMind.playerBet += value;
       }
     },
     async playerClickColor(event) {
@@ -91,11 +102,12 @@ export default {
       this.masterMind.removeColorLine();
     },
     async playerClickSave() {
-      if (!this.masterMind.isActive) {
+      if (!this.masterMind.isActive || !this.masterMind.currentLineIsFull()) {
         return;
       }
-      this.masterMind.saveColorLine();
-      this.masterMind.indexLines++;
+      if (!this.masterMind.saveColorLine()) {
+        this.masterMind.indexLines++;
+      }
     }
   },
   computed: {
@@ -105,10 +117,10 @@ export default {
       }
     },
     roundIsStart() {
-      return this.masterMind.isStart;
+      return this.masterMind.isStart || this.masterMind.isGameRestarting;
     },
     getPlayerBet() {
-      return this.userSet.playerBet;
+      return this.masterMind.playerBet;
     },
     getPlayerMoney() {
       return this.player.money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");

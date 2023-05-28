@@ -36,4 +36,13 @@ export class Player {
     isAcceptCookie() {
         return localStorage.getItem('vue-cookie-accept-decline-myPanel1') === 'accept';
     }
+
+    addMoney(value) {
+        this.money += value;
+
+        if (this.money > this.highScore) {
+            this.highScore = this.money;
+        }
+        this.setCookie();
+    }
 }

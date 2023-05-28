@@ -3,7 +3,7 @@
     <div class="header-container">
       <div class="header-banner">
         <div class="header-logo">
-          <img :src="profile" alt="profile" width="40" height="40">
+          <img :src="profile" alt="profile" width="40" height="40" loading="lazy" />
         </div>
         <div class="header-nav">
           <nav class="nav-list">

@@ -6,4 +6,8 @@
     @apply block w-3/4;
     content: url('/icon/arrow.svg');
 }
+.icon-money::after {
+    @apply block w-3/4;
+    content: url('/icon/money.svg');
+}
 

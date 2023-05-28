@@ -1,15 +1,17 @@
 import { Card, PlayerHand } from "./utils";
+import { Notification } from "./notification";
 
 const cardSigns = ["coeur", "pique", "carreau", "trefle"];
 const cardValues = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, "V", "D", "R"];
 const gameTag = "bj";
 
 export class BlackJack {
-  constructor(player, statistics) {
+  constructor(player, statistics, notificationCenter) {
     this.cardPackage = [];
     this.playerHands = this.generateHand();
     this.player = player;
     this.statistics = statistics;
+    this.notificationCenter = notificationCenter;
     this.isStart = false;
     this.numberCard = 0;
   }
@@ -43,6 +45,11 @@ export class BlackJack {
           playerScore: - temps,
           game: gameTag,
         });
+        this.notificationCenter.addNotification(new Notification("icon", {
+          title: "BlackJack",
+          message: `Vous avez perdu...`,
+          icon: "money",
+        }));
       }
       return;
     }
@@ -57,7 +64,7 @@ export class BlackJack {
     }
 
     if (!playerHand.isBot) {
-      this.player.money += playerHand.playerScore;
+      this.player.addMoney(playerHand.playerScore);
       
       this.statistics.addStatistic({
         money: this.player.money,
@@ -65,9 +72,20 @@ export class BlackJack {
         game: gameTag,
       });
 
-      if (this.player.money > this.player.highScore) {
-        this.player.highScore = this.player.money;
+      var msg = `Vous avez perdu...`;
+
+      if (playerHand.playerScore - temps > 0) {
+        msg =  `Vous venez de gagner ${playerHand.playerScore.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}€ !`;
       }
+      else if (playerHand.playerScore - temps === 0) {
+        msg =  `Vous venez de récupérer votre mise.`;
+      }
+
+      this.notificationCenter.addNotification(new Notification("icon", {
+        title: "BlackJack",
+        message: msg,
+        icon: "money",
+      }));
     }
   }
 
