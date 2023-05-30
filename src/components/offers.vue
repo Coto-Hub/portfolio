@@ -21,7 +21,7 @@
                     <li>Esprit d’équipe</li>
                     <li>Compétent</li>
                 </ul>
-                <button class="btn-primary" @click="toggleContact()">S'abonner <span>-100% !</span></button>
+                <button class="btn-primary" @click="toggleContact()">S'abonner !</button>
                 <div class="part part-active">
                     <h2 class="smal-title">S'abonner</h2>
                     <p class="part-description">Pour recruter ce développeur, vous pouvez le contacter en cliquant sur le bouton ci-dessous. Sachez qu'il est impatient de vous rencontrer et de discuter de vos projets !</p>

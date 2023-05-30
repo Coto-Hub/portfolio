@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "isActive": true,
+        "isActive": false,
         "name": "aldi",
         "title": "Vous avez le choix,<span>à prix ALDI !</span>",
         "parts": [
@@ -47,7 +47,7 @@
     },
     {
         "id": 3,
-        "isActive": false,
+        "isActive": true,
         "name": "pixine",
         "title": "Thomas fait ses preuves chez Pixine",
         "parts": [

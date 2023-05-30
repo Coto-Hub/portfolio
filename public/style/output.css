@@ -3502,8 +3502,14 @@ video {
 }
 
 .offers-container {
-  display: flex;
-  flex-direction: column;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .offers-container {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .offers-container .card-container {
