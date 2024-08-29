@@ -231,6 +231,16 @@
   @apply animate-spin w-1/5 aspect-square text-white;
 }
 
+.icon-map::after {
+  @apply block;
+  content: url("./icon/map.svg");
+}
+
+.icon-arrow::after {
+  @apply block w-3/4;
+  content: url("./icon/arrow.svg");
+}
+
 .schooling-container {
   @apply w-3/4 flex flex-col pb-12 mx-auto;
 }

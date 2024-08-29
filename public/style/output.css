@@ -2785,6 +2785,17 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.icon-map::after {
+  display: block;
+  content: url("./icon/map.svg");
+}
+
+.icon-arrow::after {
+  display: block;
+  width: 75%;
+  content: url("./icon/arrow.svg");
+}
+
 .schooling-container {
   margin-left: auto;
   margin-right: auto;
