@@ -12,14 +12,14 @@ export class Statistics {
     }
 
     getCookie() {
-        const localStats = JSON.parse(localStorage.getItem('statistics'));
+        const localStats = false; // JSON.parse(localStorage.getItem('statistics'));
         if (localStats) {
             this.table = localStats.table;
         }
     }
 
     resetCookie() {
-        localStorage.removeItem('statistics');
+        //localStorage.removeItem('statistics');
         this.table = [firstStat];
     }
 
@@ -27,7 +27,7 @@ export class Statistics {
         if (!this.isAcceptCookie()) {
             return;
         }
-        localStorage.setItem('statistics', JSON.stringify(this));
+        //localStorage.setItem('statistics', JSON.stringify(this));
         this.getCookie();
     }
 
@@ -38,6 +38,6 @@ export class Statistics {
     }
 
     isAcceptCookie() {
-        return localStorage.getItem('vue-cookie-accept-decline-myPanel1') === 'accept';
+        return false; // localStorage.getItem('vue-cookie-accept-decline-myPanel1') === 'accept';
     }
 }
