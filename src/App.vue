@@ -48,7 +48,7 @@ export default {
   },
   created() {
     this.generatePlayer();
-    this.notificationCenter = new NotificationCenter();
+    //this.notificationCenter = new NotificationCenter();
   },
   computed: {
     getNotificationCenter() {
@@ -57,8 +57,8 @@ export default {
   },
   methods: {
     generatePlayer() {
-      this.player = new Player();
-      this.statistics = new Statistics(this.player);
+      //this.player = new Player();
+      //this.statistics = new Statistics(this.player);
     },
     addNotif() {
       this.notificationCenter.addNotification(new Notification("icon", {
