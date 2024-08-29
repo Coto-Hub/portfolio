@@ -1,17 +1,17 @@
 <template>
   <div>
-    <headerNav :navInfo="navInfo" />
+    <!-- <headerNav :navInfo="navInfo" />
 
     <section class="container">
       <router-view :player="player" :statistics="statistics" :navInfo="navInfo"
         :notificationCenter="notificationCenter"></router-view>
-    </section>
+    </section> -->
 
     <footerNav />
 
-    <cookie />
-    <contactModal :navInfo="navInfo" :notificationCenter="notificationCenter" v-if="navInfo.showContactModal" />
-    <notificationList :notificationCenter="notificationCenter" />
+    <!-- <cookie />
+    <contactModal :navInfo="navInfo" :notificationCenter="notificationCenter" v-if="navInfo.showContactModal" /> -->
+    <!-- <notificationList :notificationCenter="notificationCenter" /> -->
   </div>
 </template>
 
