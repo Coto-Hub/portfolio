@@ -1,26 +1,26 @@
 <template>
   <div>
-    <!-- <headerNav :navInfo="navInfo" /> -->
-    <!--     
+    <headerNav :navInfo="navInfo" />
+
     <section class="container">
-      <router-view :player="player" :statistics="statistics" :navInfo="navInfo" :notificationCenter="notificationCenter"></router-view>
+      <router-view :player="player" :statistics="statistics" :navInfo="navInfo"
+        :notificationCenter="notificationCenter"></router-view>
     </section>
-    
+
     <footerNav />
-    
+
     <cookie />
     <contactModal :navInfo="navInfo" :notificationCenter="notificationCenter" v-if="navInfo.showContactModal" />
-    <notificationList :notificationCenter="notificationCenter" /> -->
-    <p>Test</p>
+    <notificationList :notificationCenter="notificationCenter" />
   </div>
 </template>
 
 <script>
-// import cookie from "./components/cookie.vue";
-// import headerNav from "./components/header-nav.vue";
-// import footerNav from "./components/footer.vue";
-// import contactModal from "./components/modal/contact.vue";
-// import notificationList from "./components/notifications/main.vue";
+import cookie from "./components/cookie.vue";
+import headerNav from "./components/header-nav.vue";
+import footerNav from "./components/footer.vue";
+import contactModal from "./components/modal/contact.vue";
+import notificationList from "./components/notifications/main.vue";
 // import { Player } from "./assets/js/player";
 // import { Statistics } from "./assets/js/statistics";
 // import { NotificationCenter, Notification } from "./assets/js/notification";
@@ -28,11 +28,11 @@
 export default {
   name: 'App',
   components: {
-    // cookie,
-    // headerNav,
-    // footerNav,
-    // contactModal,
-    // notificationList,
+    cookie,
+    headerNav,
+    footerNav,
+    contactModal,
+    notificationList,
   },
   data: function () {
     return {
