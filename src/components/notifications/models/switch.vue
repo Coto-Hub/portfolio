@@ -4,8 +4,8 @@
 </template>
 
 <script>
-import {defineAsyncComponent} from "vue";
-  
+import { defineAsyncComponent } from "vue";
+
 export default {
   name: "NotificationSwitch",
   components: {
@@ -28,7 +28,8 @@ export default {
   },
   computed: {
     getComponent() {
-      return defineAsyncComponent(() => import(`./${this.notification.componentName}.vue`));
+      console.log(this.notification.componentName);
+      return defineAsyncComponent(() => import(`./module-${this.notification.componentName}.vue`));
     }
   },
   watch: {
@@ -48,4 +49,3 @@ export default {
   }
 };
 </script>
-  
