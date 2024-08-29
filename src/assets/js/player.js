@@ -10,7 +10,7 @@ export class Player {
     }
 
     getCookie() {
-        const localPlayer = false; // JSON.parse(localStorage.getItem('player'));
+        const localPlayer = JSON.parse(localStorage.getItem('player'));
         this.money = localPlayer ? localPlayer.money : this.money;
         this.username = localPlayer ? localPlayer.username : this.username;
         this.highScore = localPlayer ? localPlayer.highScore : this.highScore;
@@ -18,7 +18,7 @@ export class Player {
     }
 
     resetCookie() {
-        // localStorage.removeItem('player');
+        localStorage.removeItem('player');
         this.isStorage = false;
         this.money = defaultMoney;
         this.highScore = 0;

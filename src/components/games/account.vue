@@ -109,7 +109,7 @@ export default {
       return money => this.format(money);
     },
     canLoginWithCookie() {
-      return false; //localStorage.getItem('vue-cookie-accept-decline-myPanel1') === 'accept';
+      return localStorage.getItem('vue-cookie-accept-decline-myPanel1') === 'accept';
     },
     getStatsSeries() {
       if (!this.statistics.table.length)
